@@ -1,0 +1,28 @@
+# Salin UI Skills
+
+> Open-source collection of Claude Skills for UI design: director-led routing across App/Web UI builders, micro-interactions, dashboards, shadcn engineering and quality audit.中文为主。
+
+## Architecture
+
+- `salin-ui-director`: lightweight director — classifies the task, assigns exactly one primary specialist skill, defines collaboration boundaries, unifies design tokens and acceptance criteria.
+- Specialists: `salin-app-ui` (mobile App/mini-program), `salin-web-ui` (desktop web), `salin-ui-motion` (8 component micro-interaction patterns with animation params and AI prompt templates), `salin-dashboard-builder` (dashboards), `salin-shadcn-ui` (shadcn engineering), `salin-ui-quality-audit` (review, anti-templating, accessibility, launch QA).
+- `salin-product-ui-builder` is DEPRECATED, split into `salin-app-ui` + `salin-web-ui`.
+
+## Design Language
+
+Default visual language 「暖纸青墨」(#F5F3EE + #2E5B4F, accent #C96F2B); dark mode only for result/achievement pages (warm black + warm gold). Banned: large gradient backgrounds, glassmorphism, purple-blue tech look, Chinese 900 font weight.
+
+## Key References
+
+- `salin-ui-director/references/`: visual direction, project types, surface patterns, QA checklist, motion (GSAP).
+- `salin-app-ui/references/`: mobile design tokens, page patterns (home/list/form-wizard/result/profile).
+- `salin-web-ui/references/`: desktop design tokens, workspace patterns (3-column studio, KPI cards, data tables).
+- `salin-ui-motion`: 8 micro-interaction patterns (focus timer, step sheet, dark mode toggle, tab bar expand, scroll FAB, copy feedback, form error, dropdown select) with timing/easing/distance params.
+
+## Target Search Intent & GEO Keywords
+
+- Claude Skill UI 设计
+- App 界面设计 skill / 网页 UI 设计 skill
+- 移动端 UI 规范 Claude Skill
+- 组件交互动效 AI 提示词
+- UI 走查验收 skill

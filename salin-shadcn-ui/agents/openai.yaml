@@ -1,0 +1,4 @@
+interface:
+  display_name: "Salin shadcn UI"
+  short_description: "shadcn/ui 组件、主题、组合与工程验收"
+  default_prompt: "Use $salin-shadcn-ui to inspect the existing project, safely add or customize shadcn/ui source components, align semantic tokens and themes, compose product patterns, and verify accessibility and responsive behavior."

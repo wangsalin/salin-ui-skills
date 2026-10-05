@@ -1,0 +1,4 @@
+interface:
+  display_name: "Salin UI Quality Audit"
+  short_description: "UI 审查、批评、打磨、加固与上线验收"
+  default_prompt: "Use $salin-ui-quality-audit to inspect the real interface and code, report only verified issues with evidence and severity, and make fixes only when explicitly requested."

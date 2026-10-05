@@ -1,0 +1,91 @@
+[
+  {
+    "name": "ai_writing_workspace",
+    "prompt": "帮我设计并实现一个 AI 文案工具工作台，左边历史记录，中间输入和生成结果，页面不要像 AI 模板。",
+    "assertions": [
+      "先明确写作用户、核心生成编辑流程和主操作",
+      "把模型参数降到次级层并定义停止、重试、失败和历史状态",
+      "只选择一个与写作场景相关的视觉方向和记忆点",
+      "避免默认紫蓝渐变、装饰光斑和相同圆角卡片拼盘",
+      "实现响应式、键盘、加载、错误和长内容状态",
+      "在现有项目中先检查并复用技术栈和组件"
+    ]
+  },
+  {
+    "name": "mobile_phone_auth",
+    "prompt": "重做移动端手机号验证码登录页，直接实现，处理微信内置浏览器和验证码错误。",
+    "assertions": [
+      "先检查现有登录流程、组件、路由和未提交修改",
+      "手机号和验证码使用文本输入与合适 inputmode 而不是 type number",
+      "包含发送中、倒计时、频控、过期、重发、错误和网络失败",
+      "考虑软键盘、安全区、粘贴验证码和微信内置浏览器",
+      "完成后验证真实登录路径并报告未验证项"
+    ]
+  },
+  {
+    "name": "saas_settings_redesign",
+    "prompt": "这个 SaaS 设置页有四十多个字段，又乱又像模板，帮我重新设计。",
+    "assertions": [
+      "先诊断用户任务、字段分组、保存语义和相邻页面惯例",
+      "按用户心智和频率分区并使用渐进披露",
+      "区分结构、组件体系和视觉润色的优先级",
+      "定义未保存离开、验证、成功、错误和危险设置行为",
+      "不只更换颜色、圆角和阴影"
+    ]
+  },
+  {
+    "name": "dashboard_boundary",
+    "prompt": "做一个门店经营 Dashboard，包含侧边栏、指标、趋势图和异常门店联动。",
+    "assertions": [
+      "识别完整 Dashboard 属于 salin-dashboard-builder 主范围",
+      "不在普通产品 UI 流程中重复展开图表与侧栏专项规则",
+      "如需协同只保留产品目标和整体视觉方向的职责"
+    ]
+  },
+  {
+    "name": "audit_only_boundary",
+    "prompt": "只审查这个页面的问题并给出带文件行号的报告，不要修改代码。",
+    "assertions": [
+      "识别任务应交给 salin-ui-quality-audit",
+      "不擅自设计或修改页面",
+      "保留只报告已确认问题和文件行号的要求"
+    ]
+  },
+  {
+    "name": "local_history_sidebar_not_dashboard",
+    "prompt": "给普通 AI 写作页加一个历史记录侧栏，不要图表，也不是数据看板。",
+    "assertions": [
+      "识别为普通页面局部侧区而不是 Dashboard 独立导航侧栏",
+      "由 salin-product-ui-builder 继续负责页面目标、历史记录状态和响应式",
+      "不强行套用 Dashboard 的指标、诊断和图表流程"
+    ]
+  },
+  {
+    "name": "shadcn_engineering_boundary",
+    "prompt": "页面结构已经定了，只修 components.json 别名、统一 shadcn 主题并添加 Sheet，不改业务流程。",
+    "assertions": [
+      "识别为 salin-shadcn-ui 主责的组件与主题工程",
+      "不重新设计信息架构或视觉方向",
+      "保留现有页面目标和业务流程"
+    ]
+  },
+  {
+    "name": "completed_page_polish_boundary",
+    "prompt": "设置页功能已经完成，允许直接改代码，帮我做上线前精修和长文本、慢网加固。",
+    "assertions": [
+      "识别为 salin-ui-quality-audit 的 Polish 和 Harden 模式",
+      "不启动结构性产品重设计",
+      "要求基于证据修复并在真实页面复测"
+    ]
+  },
+  {
+    "name": "existing_vue_detail_page",
+    "prompt": "在现有 Vue 3 商家后台实现客户详情页，包含订单历史和备注编辑，不换组件库。",
+    "assertions": [
+      "由 salin-product-ui-builder 负责普通详情页的目标、结构与实现",
+      "同时读取页面模式和工程质量参考",
+      "先检查并复用现有 Vue 技术栈、组件与样式",
+      "实现适用的加载、错误、权限、长内容和移动端状态"
+    ]
+  }
+]

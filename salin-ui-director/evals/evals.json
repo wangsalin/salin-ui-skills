@@ -1,0 +1,78 @@
+[
+  {
+    "name": "full_ai_product_project",
+    "prompt": "用 UI 总控帮我把现有 AI 文案产品从页面结构、视觉到 shadcn 实现和最终验收做完整。",
+    "assertions": [
+      "先明确用户、主任务、项目现状和验收标准",
+      "指定 salin-product-ui-builder 为主负责人",
+      "指定 salin-shadcn-ui 只负责组件与主题工程",
+      "指定 salin-ui-quality-audit 在实现后独立验收",
+      "统一视觉方向、tokens、完整状态和响应式契约",
+      "输出短方案后继续在真实项目中执行并验证"
+    ]
+  },
+  {
+    "name": "dashboard_route",
+    "prompt": "总控一下门店经营 Dashboard，要重做侧栏、图表联动并做上线前验收。",
+    "assertions": [
+      "指定 salin-dashboard-builder 为主负责人",
+      "质量审查只在实现完成后负责复核",
+      "不让普通产品 builder 重复设计图表和侧栏",
+      "统一导航、筛选、图表、表格、权限和响应式状态"
+    ]
+  },
+  {
+    "name": "single_shadcn_route",
+    "prompt": "只帮我在现有 Next.js 项目安装一个 shadcn Dialog。",
+    "assertions": [
+      "识别为单一明确任务并直接路由 salin-shadcn-ui",
+      "不展开完整 UI 总控或视觉方向流程"
+    ]
+  },
+  {
+    "name": "audit_no_mutation",
+    "prompt": "用 UI 总控安排一次页面审查，只给报告，不要改代码。",
+    "assertions": [
+      "将 salin-ui-quality-audit 设为主负责人",
+      "明确默认只读和不修改代码",
+      "要求基于真实证据、严重度和位置输出"
+    ]
+  },
+  {
+    "name": "registry_specialist",
+    "prompt": "我们要做内部 shadcn registry，还要顺便设计官网。",
+    "assertions": [
+      "官网由 salin-product-ui-builder 负责产品与视觉",
+      "registry 使用独立 shadcn-ui-registry 专项而不是合并包",
+      "明确两部分边界和执行顺序"
+    ]
+  },
+  {
+    "name": "specialized_audit_routing",
+    "prompt": "总控一次审查：检查 Dashboard 同比口径和 shadcn Dialog 焦点，但不要做整体视觉改版。",
+    "assertions": [
+      "只指定一个主负责人并说明另一个专项仅提供限定证据",
+      "同比口径与图表语义由 salin-dashboard-builder 负责",
+      "Dialog component base 与焦点行为由 salin-shadcn-ui 负责",
+      "不把专项审查泛化为 salin-ui-quality-audit 的整体视觉审查"
+    ]
+  },
+  {
+    "name": "plan_only_no_execution",
+    "prompt": "只给我一份完整 UI 改造调度方案，暂时不要修改项目。",
+    "assertions": [
+      "保持只读并不修改文件或安装依赖",
+      "给出唯一主负责人、协作边界、执行顺序和验收契约",
+      "明确后续执行需要用户新的实施请求"
+    ]
+  },
+  {
+    "name": "missing_specialist_fallback",
+    "prompt": "总控这个页面项目；如果你找不到指定的专项 skill，就继续给一个安全方案。",
+    "assertions": [
+      "选定主 skill 后实际加载其完整 SKILL.md",
+      "专项不可用时明确报告而不是假装已调用",
+      "降级方案保持最小、安全并标注未覆盖能力"
+    ]
+  }
+]

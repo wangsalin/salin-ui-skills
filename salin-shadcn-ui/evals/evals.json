@@ -1,0 +1,91 @@
+[
+  {
+    "name": "existing_next_add_dialog",
+    "prompt": "在我现有 Next.js 项目里用 shadcn 加一个编辑用户 Dialog，直接实现，别覆盖现有按钮样式。",
+    "assertions": [
+      "先检查 Git、包管理器、components.json、Tailwind、别名和现有 ui 源码",
+      "确认当前 CLI 用法并预览可能修改的文件",
+      "保护现有 Button 定制并把用户编辑逻辑留在业务组件",
+      "实现标签、错误、pending、焦点、Escape 和关闭返回焦点",
+      "运行类型、lint 或构建并检查真实 Dialog 交互"
+    ]
+  },
+  {
+    "name": "theme_unification",
+    "prompt": "把这个 shadcn SaaS 的颜色、圆角、暗色和组件密度统一起来。",
+    "assertions": [
+      "先盘点全局 CSS、语义 tokens、硬编码值和现有主题方式",
+      "建立 background foreground primary muted destructive border ring 等语义层",
+      "亮暗主题成对设计并检查对比度和初次加载闪烁",
+      "通过根 token 和稳定组件变体控制圆角与密度",
+      "用真实页面逐步回归而不是一次无审查全局替换"
+    ]
+  },
+  {
+    "name": "responsive_data_table",
+    "prompt": "用 shadcn 做一个客户表格，支持搜索、筛选、批量操作和手机端。",
+    "assertions": [
+      "先定义扫描、筛选和批量处理的核心任务",
+      "业务表格组合不污染 components ui 的通用原子组件",
+      "包含首次空、筛选无结果、加载、错误、权限和长单元格",
+      "为手机端定义减列、详情或滚动提示而不是简单卡片化",
+      "检查键盘、焦点、触摸目标和批量失败"
+    ]
+  },
+  {
+    "name": "registry_boundary",
+    "prompt": "帮我建立公司内部 shadcn registry，发布我们自己的 Button 和登录区块。",
+    "assertions": [
+      "识别创建和发布自定义 registry 应交给 shadcn-ui-registry",
+      "不把 registry 分发基础设施混入普通组件组合流程"
+    ]
+  },
+  {
+    "name": "plain_ui_boundary",
+    "prompt": "我还没确定技术栈，先帮我设计一个预约 App 的界面方向。",
+    "assertions": [
+      "不因为可能使用 React 就初始化 shadcn",
+      "将普通产品视觉与体验设计交给 salin-product-ui-builder"
+    ]
+  },
+  {
+    "name": "base_ui_monorepo",
+    "prompt": "pnpm monorepo 的 apps/admin 使用 Base UI，Button 已定制，帮我添加 DatePicker，不要迁移底层。",
+    "assertions": [
+      "确认真正 app package、共享 UI package、当前 CLI 与 Base UI imports",
+      "保留 Base UI 底座且不套用 Radix 专属 API",
+      "检查已定制 Button 和目标文件差异，禁止无审查覆盖",
+      "使用项目 pnpm 并验证应用构建和 DatePicker 交互"
+    ]
+  },
+  {
+    "name": "react_aria_rtl",
+    "prompt": "新建一个使用 shadcn React Aria base 的阿拉伯语 RTL Vite 页面。",
+    "assertions": [
+      "通过当前官方 CLI 能力选择 React Aria base 并记录底层",
+      "不混用 Base UI 或 Radix 的组件 API",
+      "配置 RTL、逻辑样式、键盘和焦点行为",
+      "检查阿拉伯语长文本、方向图标和移动端"
+    ]
+  },
+  {
+    "name": "css_variables_false",
+    "prompt": "旧 Vite Tailwind 3 项目 cssVariables 是 false，只添加 Alert，不要改主题。",
+    "assertions": [
+      "沿用现有内联 Tailwind utilities 模式",
+      "不擅自切换 cssVariables 或要求重装全部组件",
+      "只添加任务所需 Alert 并审查差异",
+      "保留 Tailwind 3 配置和现有样式"
+    ]
+  },
+  {
+    "name": "private_registry_consumer",
+    "prompt": "把 @private/order-table 安装到现有 App 并适配手机端，token 已通过环境变量配置。",
+    "assertions": [
+      "registry schema 和发布属于 shadcn-ui-registry，消费端集成由当前 skill 负责",
+      "使用当前 CLI 预览 payload、依赖、目标路径和差异",
+      "不读取、回显或提交私有 token，并检查 HTTPS 与最小权限",
+      "安装后审查源码、依赖、许可、响应式和关键交互"
+    ]
+  }
+]

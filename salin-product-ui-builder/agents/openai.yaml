@@ -1,0 +1,4 @@
+interface:
+  display_name: "Salin Product UI Builder"
+  short_description: "普通产品界面的设计、重构与前端落地"
+  default_prompt: "Use $salin-product-ui-builder to design or implement a task-first product interface with one clear visual direction, reusable design tokens, complete interaction states, responsive behavior, and real UI verification."
