@@ -1,12 +1,12 @@
 ---
 name: "salin-style-library"
-description: "Salin UI 风格库 / 试衣间：5 套精调风格（暖纸青墨/石墨青柠/工业深蓝/国潮暖红/柔雾美学），关键词检索 + 三旋钮（variance/motion/density）+ MASTER.md 项目级设计记忆持久化。用于新项目定视觉方向、多方向小样二选一。风格选定后由 salin-app-ui / salin-web-ui 按 MASTER.md 执行。"
+description: "Salin UI 风格库 / 试衣间：6 套精调风格（石墨青柠/工业深蓝/霓虹暗夜/荧光柠檬/明黄市集/深色画廊），关键词检索 + 三旋钮（variance/motion/density）+ MASTER.md 项目级设计记忆持久化。用于新项目定视觉方向、多方向小样二选一。风格选定后由 salin-app-ui / salin-web-ui 按 MASTER.md 执行。"
 ---
 
 # Salin Style Library · 风格库
 
 ## Purpose
-解决"每次做 UI 都从零想风格"的问题：5 套精调风格可检索，三旋钮定调，选定后落盘为项目级 `MASTER.md`，后续所有 builder 按同一份设计记忆执行，不再各做各的。
+解决"每次做 UI 都从零想风格"的问题：6 套精调风格可检索，三旋钮定调，选定后落盘为项目级 `MASTER.md`，后续所有 builder 按同一份设计记忆执行，不再各做各的。
 
 ## Workflow
 1. 用一句话描述产品（行业/用户/调性），跑检索：
@@ -31,4 +31,4 @@ description: "Salin UI 风格库 / 试衣间：5 套精调风格（暖纸青墨/
 2. 检索脚本只用标准库，不许加第三方依赖。
 3. 加新风格 = 在 `data/styles.csv` 加一行（字段对齐表头），不许改脚本结构。
 4. 风格描述必须写"不适用"场景；没有不适用场景的风格不许入库。
-5. 需要更深层的风格/配色/字体依据时，查 `ui-ux-pro-max`（79 风格库）；本库只做"我们调过的 5 套"。
+5. 需要更深层的风格/配色/字体依据时，查 `ui-ux-pro-max`（79 风格库）；本库只做"我们调过的 6 套"。

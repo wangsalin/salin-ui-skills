@@ -27,7 +27,7 @@ salin-ui-director（总控：判型 → 分工 → 统一验收）
 | salin-ui-director | UI 总控：确定目标、分工边界、执行顺序与统一验收 | [salin-ui-director.skill](salin-ui-director.skill) |
 | salin-app-ui | 移动端 App/小程序：首页/列表/表单向导/结果成就/我的设置 | [salin-app-ui.skill](salin-app-ui.skill) |
 | salin-web-ui | 桌面端网页：官网/营销页、SaaS 工作台与后台 | [salin-web-ui.skill](salin-web-ui.skill) |
-| salin-style-library | 风格库/试衣间：5 套精调风格检索 + 三旋钮 + MASTER.md 设计记忆 | [salin-style-library.skill](salin-style-library.skill) |
+| salin-style-library | 风格库/试衣间：6 套精调风格检索 + 三旋钮 + MASTER.md 设计记忆 | [salin-style-library.skill](salin-style-library.skill) |
 | salin-ui-components | 组件设计规范：按钮/输入框/卡片/弹窗/Tabs/导航/表格/徽标/Toast/下拉/开关/进度条，变体+尺寸+状态+红线 | [salin-ui-components.skill](salin-ui-components.skill) |
 | salin-ui-motion | 8 种组件微交互：计时小条/分步弹窗/深色切换/Tab 展开/滚动 FAB/复制反馈/表单校验/下拉选择 | [salin-ui-motion.skill](salin-ui-motion.skill) |
 | salin-dashboard-builder | Dashboard 页面架构、指标、交互图表、筛选联动 | [salin-dashboard-builder.skill](salin-dashboard-builder.skill) |
