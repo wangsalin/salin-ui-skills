@@ -1,25 +1,26 @@
 ---
 name: salin-ui-director
-description: 产品 UI 总控与多 skill 路由。用于用户明确要求 UI 总控、完整界面项目、从需求到实现再验收，或任务同时涉及 App/网页界面、视觉风格、Dashboard、shadcn 组件工程、动效和质量审查。负责确定目标、项目类型、职责边界、执行顺序与统一验收，不替代 salin-app-ui、salin-web-ui、salin-style-library、salin-ui-motion、salin-dashboard-builder、salin-shadcn-ui 或 salin-ui-quality-audit。单一明确任务应直接使用对应专项 skill。
+description: 产品 UI 总控与多 skill 路由。用于用户明确要求 UI 总控、完整界面项目、从需求到实现再验收，或任务同时涉及 App/网页界面、视觉风格、Dashboard、shadcn 组件工程、动效和质量审查。负责确定目标、项目类型、职责边界、执行顺序与统一验收，不替代 salin-app-ui、salin-web-ui、salin-style-library、salin-ui-components、salin-ui-motion、salin-dashboard-builder、salin-shadcn-ui 或 salin-ui-quality-audit。单一明确任务应直接使用对应专项 skill。
 ---
 
 # Salin UI Director
 
 这个 skill 是轻量总控，不重复保存各专项的详细知识。它负责先判型、再分工、最后把设计目标、组件工程和质量验收合成一个可落地流程。
 
-## 七个主能力包
+## 八个主能力包
 
 | 能力包 | 负责 | 不负责 |
 |---|---|---|
 | `salin-app-ui` | 移动端 App / 小程序界面：首页、列表页、表单向导、结果成就、我的设置的设计和实现 | 桌面端网页、Dashboard 图表专项、纯审查 |
 | `salin-web-ui` | 桌面端网页：官网/营销页、SaaS 工作台与后台、普通网页的设计和实现 | 移动端界面、Dashboard 图表专项、纯审查 |
 | `salin-style-library` | 视觉风格：风格检索、三旋钮定调、MASTER.md 项目级设计记忆 | 具体页面实现、组件工程 |
+| `salin-ui-components` | 组件设计规范：12 高频组件的变体、尺寸、状态、App/Web 双端差异、无障碍与用法红线 | 组件微交互动效、具体页面实现 |
 | `salin-ui-motion` | 组件级微交互动效：计时小条、分步弹窗、深色切换、Tab 展开、滚动 FAB、复制反馈、表单校验、下拉选择的规格、参数与 AI 提示词 | 复杂 GSAP 动效、页面级转场编排 |
 | `salin-dashboard-builder` | Dashboard 页面架构、侧边栏、指标、交互图表、筛选联动和数据状态 | 普通营销页和无数据界面 |
 | `salin-shadcn-ui` | shadcn 初始化、组件源码、主题 tokens、变体、表单/表格/应用壳组合 | 自定义 registry 发布、技术栈未定的纯设计 |
 | `salin-ui-quality-audit` | UI 审查、批评、反模板化、打磨、加固、无障碍与上线验收 | 未经授权修改代码 |
 
-`shadcn-ui-registry`、Figma/Product Design 保留为专项能力，仅在用户需求明确时加入，不合并进七个主包。复杂动效走 `references/motion-gsap.md`（GSAP 专项参考），组件级微交互走 `salin-ui-motion`。
+`shadcn-ui-registry`、Figma/Product Design 保留为专项能力，仅在用户需求明确时加入，不合并进八个主包。复杂动效走 `references/motion-gsap.md`（GSAP 专项参考），组件级微交互走 `salin-ui-motion`。
 
 ## 路由规则
 
@@ -27,6 +28,7 @@ description: 产品 UI 总控与多 skill 路由。用于用户明确要求 UI �
 - 桌面端网页（官网/营销页、SaaS 工作台与后台、普通网页）的新建、改造或实现：`salin-web-ui`。
 - 新项目需要定视觉风格，或要在多个风格方向中二选一：`salin-style-library`（风格检索→三旋钮→MASTER.md 落盘，builder 按 MASTER.md 执行）。
 - 组件级微交互动效（按钮反馈、弹窗过渡、表单校验等 8 种模式）：`salin-ui-motion`。
+- 单个组件的变体/尺寸/状态/双端差异/用法红线：`salin-ui-components`（检索不到时诚实告知，不编造）。
 - Dashboard、数据看板、运营后台图表/侧栏：`salin-dashboard-builder`。
 - 已确定使用 shadcn 的组件和主题工程：`salin-shadcn-ui`。
 - 整体流程、视觉层级、反模板化、跨页面一致性、通用无障碍或上线质量审查：`salin-ui-quality-audit`，默认不修改。
