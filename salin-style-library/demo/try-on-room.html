@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="warm-paper">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UI 风格试衣间 · salin-style-library</title>
+<style>
+/* ============ 基础 ============ */
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --font-body:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;
+  --font-num:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-body);
+  background:var(--bg);color:var(--text);
+  transition:background var(--t-dur) var(--t-ease),color var(--t-dur) var(--t-ease);
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ============ 五套风格变量 ============ */
+[data-theme="warm-paper"]{
+  --bg:#F5F3EE;--surface:#FFFFFF;--surface-2:#FBFAF6;
+  --text:#1F2937;--text-2:#6B7280;
+  --primary:#2E5B4F;--primary-text:#FFFFFF;
+  --accent:#C96F2B;--danger:#C0392B;
+  --border:#E5E1D8;--nav-bg:#F5F3EE;
+  --radius:14px;--radius-btn:10px;
+  --shadow:0 2px 12px rgba(31,41,55,.06);
+  --font-h:var(--font-body);--title-w:600;--title-ls:0;
+  --t-dur:220ms;--t-ease:ease-out;
+  --badge-bg:#EDF3F0;--badge-tx:#2E5B4F;
+}
+[data-theme="graphite-lime"]{
+  --bg:#F3F5F1;--surface:#FBFCFA;--surface-2:#FFFFFF;
+  --text:#131814;--text-2:#5C665C;
+  --primary:#BCF84C;--primary-text:#131814;
+  --accent:#111613;--danger:#D64545;
+  --border:#E0E6DC;--nav-bg:#111613;--nav-tx:#F3F5F1;
+  --radius:18px;--radius-btn:10px;
+  --shadow:0 8px 24px rgba(25,32,27,.05);
+  --font-h:var(--font-body);--title-w:600;--title-ls:-.01em;
+  --t-dur:200ms;--t-ease:ease-out;
+  --badge-bg:#E7F5D2;--badge-tx:#3F6212;
+}
+[data-theme="industrial-blue"]{
+  --bg:#F7F8FA;--surface:#FFFFFF;--surface-2:#F1F4F8;
+  --text:#1B2A4A;--text-2:#5B6B85;
+  --primary:#1B2A4A;--primary-text:#FFFFFF;
+  --accent:#E8862E;--danger:#C0392B;
+  --border:#D8E0EA;--nav-bg:#FFFFFF;
+  --radius:8px;--radius-btn:6px;
+  --shadow:0 1px 2px rgba(27,42,74,.08);
+  --font-h:var(--font-body);--title-w:700;--title-ls:0;
+  --t-dur:175ms;--t-ease:linear;
+  --badge-bg:#E8EDF3;--badge-tx:#1B2A4A;
+}
+[data-theme="guochao-red"]{
+  --bg:#F7F2E9;--surface:#FFFDF8;--surface-2:#FBF6EC;
+  --text:#222222;--text-2:#7A6F60;
+  --primary:#C73E2C;--primary-text:#FFF7F0;
+  --accent:#C9A86A;--danger:#8E2418;
+  --border:#EADFC8;--nav-bg:#F7F2E9;
+  --radius:10px;--radius-btn:8px;
+  --shadow:0 3px 14px rgba(199,62,44,.08);
+  --font-h:"STKaiti","KaiTi","楷体","STSong",serif;--title-w:700;--title-ls:.02em;
+  --t-dur:280ms;--t-ease:ease-out;
+  --badge-bg:#FBEEDF;--badge-tx:#9A5B1E;
+}
+[data-theme="soft-mist"]{
+  --bg:#FAF8F5;--surface:#FFFFFF;--surface-2:#F5F0EA;
+  --text:#55534F;--text-2:#9A968F;
+  --primary:#A8B5A0;--primary-text:#FFFFFF;
+  --accent:#8FA3B0;--danger:#C97B7B;
+  --border:#EFE9E1;--nav-bg:rgba(250,248,245,.85);
+  --radius:24px;--radius-btn:999px;
+  --shadow:0 12px 32px rgba(168,181,160,.16);
+  --font-h:var(--font-body);--title-w:350;--title-ls:.04em;
+  --t-dur:350ms;--t-ease:ease-in-out;
+  --badge-bg:#F1EDE6;--badge-tx:#7A756C;
+}
+
+/* ============ 风格切换器 ============ */
+.switcher{
+  position:sticky;top:0;z-index:50;
+  background:var(--nav-bg);color:var(--nav-tx,var(--text));
+  border-bottom:1px solid var(--border);
+  transition:background var(--t-dur) var(--t-ease);
+  backdrop-filter:blur(8px);
+}
+.switcher-in{max-width:1080px;margin:0 auto;padding:12px 20px;display:flex;gap:8px;align-items:center;overflow-x:auto}
+.switcher-label{font-size:12px;color:var(--text-2);white-space:nowrap;letter-spacing:.08em}
+[data-theme="graphite-lime"] .switcher-label{color:#9AA69A}
+.sw-btn{
+  font-family:var(--font-body);font-size:13px;white-space:nowrap;
+  padding:8px 16px;border-radius:999px;cursor:pointer;
+  border:1px solid var(--border);background:transparent;color:inherit;
+  transition:all var(--t-dur) var(--t-ease);
+}
+.sw-btn:hover{border-color:var(--accent)}
+.sw-btn.on{background:var(--primary);color:var(--primary-text);border-color:var(--primary);font-weight:600}
+
+/* ============ 页面骨架 ============ */
+.page{max-width:1080px;margin:0 auto;padding:0 20px 80px}
+.demo-nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 0;border-bottom:1px solid var(--border);margin-bottom:8px;
+}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:17px;letter-spacing:.02em}
+.logo svg{display:block}
+.nav-links{display:flex;gap:24px;font-size:14px;color:var(--text-2)}
+.nav-links a{color:inherit;text-decoration:none;transition:color var(--t-dur)}
+.nav-links a:hover{color:var(--primary)}
+@media(max-width:640px){.nav-links{display:none}}
+
+.hero{padding:72px 0 56px;max-width:680px}
+.eyebrow{font-size:12px;letter-spacing:.22em;color:var(--accent);margin-bottom:16px;font-weight:600}
+.hero h1{
+  font-family:var(--font-h);font-weight:var(--title-w);letter-spacing:var(--title-ls);
+  font-size:clamp(30px,5vw,44px);line-height:1.25;margin-bottom:16px;
+}
+.hero p{font-size:16px;color:var(--text-2);line-height:1.8;margin-bottom:28px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+
+section.panel{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:28px;margin-bottom:20px;
+  transition:background var(--t-dur) var(--t-ease),border-color var(--t-dur);
+}
+.panel h2{
+  font-family:var(--font-h);font-weight:var(--title-w);letter-spacing:var(--title-ls);
+  font-size:19px;margin-bottom:6px;
+}
+.panel .sub{font-size:13px;color:var(--text-2);margin-bottom:20px}
+
+/* ============ 按钮 ============ */
+.btn{
+  font-family:var(--font-body);font-size:14px;font-weight:600;cursor:pointer;
+  padding:11px 22px;border-radius:var(--radius-btn);
+  border:1px solid transparent;background:var(--primary);color:var(--primary-text);
+  transition:all var(--t-dur) var(--t-ease);
+}
+.btn:active{transform:scale(.98)}
+.btn.secondary{background:transparent;color:var(--primary);border-color:var(--primary)}
+.btn.ghost{background:transparent;color:var(--text);border-color:transparent}
+.btn.ghost:hover{background:var(--surface-2)}
+.btn.danger{background:var(--danger);color:#fff}
+.btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
+.btn-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+
+/* ============ 卡片 ============ */
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:640px){.cards{grid-template-columns:1fr}}
+.card{
+  border:1px solid var(--border);border-radius:var(--radius);
+  padding:22px;background:var(--surface-2);
+  transition:border-color var(--t-dur),transform var(--t-dur) var(--t-ease);
+}
+.card:hover{transform:translateY(-2px)}
+[data-theme="guochao-red"] .card{border-color:var(--accent)}
+.badge{
+  display:inline-block;font-size:12px;font-weight:600;padding:4px 12px;border-radius:999px;
+  background:var(--badge-bg);color:var(--badge-tx);margin-bottom:12px;
+}
+.card h3{font-family:var(--font-h);font-weight:var(--title-w);font-size:17px;margin-bottom:8px}
+.card p{font-size:14px;color:var(--text-2);line-height:1.7;margin-bottom:14px}
+.card a{font-size:14px;color:var(--primary);font-weight:600;text-decoration:none}
+
+/* ============ 表单 ============ */
+.field{margin-bottom:18px;max-width:420px}
+.field label{display:block;font-size:13px;font-weight:600;margin-bottom:8px}
+.field input,.field select{
+  width:100%;font-family:var(--font-body);font-size:14px;color:var(--text);
+  padding:12px 14px;border-radius:var(--radius-btn);
+  border:1px solid var(--border);background:var(--surface);
+  transition:border-color var(--t-dur),box-shadow var(--t-dur);
+}
+.field input:focus,.field select:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px color-mix(in srgb,var(--primary) 18%,transparent)}
+.field.err input{border-color:var(--danger)}
+.field .emsg{font-size:12px;color:var(--danger);margin-top:6px}
+.switch-row{display:flex;align-items:center;justify-content:space-between;max-width:420px;padding:4px 0}
+.switch-row span{font-size:14px;font-weight:600}
+.sw{position:relative;width:48px;height:28px;flex:none;cursor:pointer}
+.sw input{position:absolute;opacity:0;width:100%;height:100%;cursor:pointer;margin:0}
+.sw i{position:absolute;inset:0;border-radius:999px;background:var(--border);transition:background var(--t-dur)}
+.sw i::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.2);transition:left var(--t-dur) var(--t-ease)}
+.sw input:checked+i{background:var(--primary)}
+.sw input:checked+i::after{left:23px}
+.sw input:focus-visible+i{outline:2px solid var(--primary);outline-offset:2px}
+
+/* ============ 表格 ============ */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:560px}
+th{background:var(--surface-2);text-align:left;font-size:12px;color:var(--text-2);font-weight:600;padding:12px 16px;white-space:nowrap}
+td{padding:14px 16px;border-top:1px solid var(--border)}
+td.num{font-family:var(--font-num);font-variant-numeric:tabular-nums}
+tbody tr{transition:background var(--t-dur)}
+tbody tr:hover{background:var(--surface-2)}
+.pill{display:inline-block;font-size:12px;font-weight:600;padding:4px 12px;border-radius:999px;background:var(--badge-bg);color:var(--badge-tx);white-space:nowrap}
+
+/* ============ 徽标 + 进度 ============ */
+.tag-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
+.progress{height:6px;border-radius:999px;background:var(--border);overflow:hidden;max-width:420px}
+.progress i{display:block;height:100%;width:72%;border-radius:999px;background:var(--primary);transition:width var(--t-dur) var(--t-ease)}
+.progress-lbl{display:flex;justify-content:space-between;font-size:12px;color:var(--text-2);max-width:420px;margin-bottom:8px}
+
+/* ============ 风格说明 ============ */
+.style-note{border:1px dashed var(--accent);border-radius:var(--radius);padding:24px 28px;margin-bottom:20px;background:var(--surface)}
+.style-note h2{font-family:var(--font-h);font-weight:var(--title-w);font-size:18px;margin-bottom:10px}
+.style-note p{font-size:14px;line-height:1.9;color:var(--text-2)}
+.style-note p b{color:var(--text)}
+footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--border);font-size:12px;color:var(--text-2);display:flex;justify-content:space-between}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+
+<div class="switcher">
+  <div class="switcher-in">
+    <span class="switcher-label">STYLE / 风格</span>
+    <button class="sw-btn on" data-s="warm-paper">暖纸青墨</button>
+    <button class="sw-btn" data-s="graphite-lime">石墨青柠</button>
+    <button class="sw-btn" data-s="industrial-blue">工业深蓝</button>
+    <button class="sw-btn" data-s="guochao-red">国潮暖红</button>
+    <button class="sw-btn" data-s="soft-mist">柔雾美学</button>
+  </div>
+</div>
+
+<div class="page">
+
+  <nav class="demo-nav">
+    <div class="logo">
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+        <rect x="1" y="1" width="24" height="24" rx="7" fill="var(--primary)"/>
+        <path d="M8 13.5l3.2 3.2L18 10" stroke="var(--primary-text)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      试衣间
+    </div>
+    <div class="nav-links"><a href="#c-btn">组件</a><a href="#c-form">表单</a><a href="#c-table">表格</a></div>
+    <button class="btn">开始使用</button>
+  </nav>
+
+  <header class="hero">
+    <div class="eyebrow">SALIN STYLE LIBRARY · 试衣间</div>
+    <h1>同一套组件，五种气质</h1>
+    <p>一套组件规范，五套视觉皮肤。点击顶部切换，感受同一内容在不同风格下的气质差异——这就是 style-library 要解决的事：先定风格，再做页面。</p>
+    <div class="hero-actions">
+      <button class="btn">查看组件</button>
+      <button class="btn secondary">了解风格</button>
+    </div>
+  </header>
+
+  <section class="panel" id="c-btn">
+    <h2>按钮 Button</h2>
+    <div class="sub">Primary / Secondary / Ghost / Danger · 四种变体</div>
+    <div class="btn-row">
+      <button class="btn">主要按钮</button>
+      <button class="btn secondary">次要按钮</button>
+      <button class="btn ghost">文字按钮</button>
+      <button class="btn danger">删除</button>
+      <button class="btn" disabled>禁用态</button>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>卡片 Card</h2>
+    <div class="sub">信息卡 · 徽标 + 标题 + 正文 + 操作</div>
+    <div class="cards">
+      <div class="card">
+        <span class="badge">新品</span>
+        <h3>旋转煎包炉</h3>
+        <p>一次出 120 个只用一个人。旋转受热均匀，燃气成本直降 30%，早餐店老板的回本利器。</p>
+        <a href="#">查看详情 →</a>
+      </div>
+      <div class="card">
+        <span class="badge">热销</span>
+        <h3>碳晶板保温台</h3>
+        <p>4 小时持续保温，温度看得见。台面碳晶发热，汤品小菜全天在线等客。</p>
+        <a href="#">查看详情 →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" id="c-form">
+    <h2>表单 Form</h2>
+    <div class="sub">输入框（正常 / 错误态）· 下拉选择 · 开关</div>
+    <div class="field">
+      <label>联系人</label>
+      <input value="张老板" />
+    </div>
+    <div class="field err">
+      <label>手机号</label>
+      <input value="138000" />
+      <div class="emsg">请输入正确的手机号</div>
+    </div>
+    <div class="field">
+      <label>意向设备</label>
+      <select><option>全部设备</option><option>旋转煎包炉</option><option>碳晶板保温台</option></select>
+    </div>
+    <div class="switch-row">
+      <span>到货通知</span>
+      <label class="sw"><input type="checkbox" checked><i></i></label>
+    </div>
+  </section>
+
+  <section class="panel" id="c-table">
+    <h2>表格 Table</h2>
+    <div class="sub">订单列表 · 状态用徽标胶囊，不用整行色块</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>订单号</th><th>客户</th><th>金额</th><th>状态</th></tr></thead>
+        <tbody>
+          <tr><td class="num">DD-20261001</td><td>王记早餐</td><td class="num">¥12,800</td><td><span class="pill">已发货</span></td></tr>
+          <tr><td class="num">DD-20261002</td><td>李记包子</td><td class="num">¥8,600</td><td><span class="pill">待付款</span></td></tr>
+          <tr><td class="num">DD-20261003</td><td>赵记面馆</td><td class="num">¥21,300</td><td><span class="pill">已完成</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>徽标与进度 Badge &amp; Progress</h2>
+    <div class="sub">状态徽标 · 进度条 72%</div>
+    <div class="tag-row">
+      <span class="badge">已发货</span><span class="badge">待付款</span><span class="badge">已完成</span><span class="badge">新品</span>
+    </div>
+    <div class="progress-lbl"><span>本月目标完成度</span><span class="num">72%</span></div>
+    <div class="progress"><i></i></div>
+  </section>
+
+  <section class="style-note">
+    <h2 id="sn-title">当前风格：暖纸青墨</h2>
+    <p id="sn-body"></p>
+  </section>
+
+  <footer><span>salin-style-library · 试衣间 demo</span><span>同一套组件 · 五套皮肤</span></footer>
+</div>
+
+<script>
+const NOTES = {
+  "warm-paper": {name:"暖纸青墨", body:"<b>气质：</b>纸面暖底配青墨，克制有人文感。<br><b>适用：</b>本地生活、餐饮内容、人文品牌、工具型 App。<br><b>不适用：</b>潮流快消、游戏化产品、强促销场。"},
+  "graphite-lime": {name:"石墨青柠", body:"<b>气质：</b>石墨深色导航 + 荧光青柠点睛，干练的经营工具感。<br><b>适用：</b>高频经营工具、SaaS 工作台、数据驾驶舱、AI 执行产品。<br><b>不适用：</b>情感化品牌页、母婴美业、儿童产品。"},
+  "industrial-blue": {name:"工业深蓝", body:"<b>气质：</b>深海蓝配安全橙，小圆角硬边框，可靠的工业感。<br><b>适用：</b>工业设备 ToB、硬件产品、工程服务、招投标。<br><b>不适用：</b>快消品、母婴、文艺品牌。"},
+  "guochao-red": {name:"国潮暖红", body:"<b>气质：</b>宣纸米底配朱砂红，标题书法体，热闹的老字号感。<br><b>适用：</b>餐饮品牌、食品包装、老字号、节庆促销。<br><b>不适用：</b>医疗金融、极简科技风。"},
+  "soft-mist": {name:"柔雾美学", body:"<b>气质：</b>雾粉配鼠尾草绿，大圆角柔光，呼吸感的治愈系。<br><b>适用：</b>美容美业、疗愈冥想、生活方式品牌、母婴。<br><b>不适用：</b>硬核科技、快节奏促销、工业品。"}
+};
+const btns = document.querySelectorAll(".sw-btn");
+function setTheme(key){
+  document.documentElement.dataset.theme = key;
+  btns.forEach(b => b.classList.toggle("on", b.dataset.s === key));
+  document.getElementById("sn-title").textContent = "当前风格：" + NOTES[key].name;
+  document.getElementById("sn-body").innerHTML = NOTES[key].body;
+}
+btns.forEach(b => b.addEventListener("click", () => setTheme(b.dataset.s)));
+setTheme("warm-paper");
+</script>
+</body>
+</html>
