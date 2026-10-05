@@ -1,1 +1,68 @@
-{"evals":[{"assertions":["检索返回柔雾美学为首选，而非默认的暖纸青墨","明确指出国潮暖红/工业深蓝不适用（调性冲突），而非只给'推荐'","风格二选一交由用户拍板，输出 Top3 + 一句话卖点，而非直接定稿","给出旋钮推荐值并说明理由"],"eval_name":"beauty-salon-style-pick","expected_output":"Top3 风格（柔雾美学首选）+ 一句话卖点 + 旋钮推荐，待用户拍板。","files":[],"id":0,"prompt":"我妻子开了家社区美容会所，要做个预约小程序。温柔、让人放松的感觉，别太冷。帮我定个视觉风格。"},{"assertions":["检索返回工业深蓝为首选","MASTER.md 已落盘到 design-system/<slug>/MASTER.md，包含风格基线+旋钮决策+AI 提示词+边界","明确 motion=2 对应'几乎静态'，density=8 对应'高密度工作台'，而非编造解释","已存在 MASTER.md 时不覆盖，并明确告知"],"eval_name":"master-persist","expected_output":"工业深蓝 MASTER.md 落盘：风格基线、三旋钮决策、AI 提示词、适用/不适用边界。","files":[],"id":1,"prompt":"我们是做商用煎包炉的工厂，要做个 ToB 的产品官网。风格要硬朗可靠，动效少一点，信息密度高。定完风格帮我落盘。"},{"assertions":["明确拒绝把国潮暖红套在医疗产品上（命中'不适用'红线）","给出替代方案（暖纸青墨或柔雾美学）而非硬做","说明拒绝理由引用的是风格的 DoNotUseFor 字段"],"eval_name":"style-boundary-refuse","expected_output":"拒绝 + 理由（国潮暖红不适用医疗）+ 替代风格推荐。","files":[],"id":2,"prompt":"我们是个互联网医疗问诊平台，想用国潮暖红做 App 首页，热闹一点好拉新。你觉得呢？"}],"skill_name":"salin-style-library"}
+{
+  "evals": [
+    {
+      "assertions": [
+        "检索返回柔雾美学为首选，而非默认的暖纸青墨",
+        "明确指出国潮暖红/工业深蓝不适用（调性冲突），而非只给'推荐'",
+        "风格二选一交由用户拍板，输出 Top3 + 一句话卖点，而非直接定稿",
+        "给出旋钮推荐值并说明理由"
+      ],
+      "eval_name": "beauty-salon-style-pick",
+      "expected_output": "Top3 风格（柔雾美学首选）+ 一句话卖点 + 旋钮推荐，待用户拍板。",
+      "files": [],
+      "id": 0,
+      "prompt": "我妻子开了家社区美容会所，要做个预约小程序。温柔、让人放松的感觉，别太冷。帮我定个视觉风格。"
+    },
+    {
+      "assertions": [
+        "检索返回工业深蓝为首选",
+        "MASTER.md 已落盘到 design-system/<slug>/MASTER.md，包含风格基线+旋钮决策+AI 提示词+边界",
+        "明确 motion=2 对应'几乎静态'，density=8 对应'高密度工作台'，而非编造解释",
+        "已存在 MASTER.md 时不覆盖，并明确告知"
+      ],
+      "eval_name": "master-persist",
+      "expected_output": "工业深蓝 MASTER.md 落盘：风格基线、三旋钮决策、AI 提示词、适用/不适用边界。",
+      "files": [],
+      "id": 1,
+      "prompt": "我们是做商用煎包炉的工厂，要做个 ToB 的产品官网。风格要硬朗可靠，动效少一点，信息密度高。定完风格帮我落盘。"
+    },
+    {
+      "assertions": [
+        "明确拒绝把国潮暖红套在医疗产品上（命中'不适用'红线）",
+        "给出替代方案（暖纸青墨或柔雾美学）而非硬做",
+        "说明拒绝理由引用的是风格的 DoNotUseFor 字段"
+      ],
+      "eval_name": "style-boundary-refuse",
+      "expected_output": "拒绝 + 理由（国潮暖红不适用医疗）+ 替代风格推荐。",
+      "files": [],
+      "id": 2,
+      "prompt": "我们是个互联网医疗问诊平台，想用国潮暖红做 App 首页，热闹一点好拉新。你觉得呢？"
+    },
+    {
+      "eval_name": "bold-gaming-style-pick",
+      "prompt": "我们要做个游戏语音社交 App，目标 Z 世代，视觉要炸、要潮。帮我选风格。",
+      "expected_output": "Top3（霓虹暗夜首选）+ 一句话卖点 + 旋钮推荐，待用户拍板。",
+      "files": [],
+      "id": 3,
+      "assertions": [
+        "检索返回霓虹暗夜为首选（荧光绿 #25E98B + 深黑），而非暖纸青墨",
+        "明确指出柔雾美学/暖纸青墨不适用（调性冲突），引用 DoNotUseFor",
+        "风格二选一交由用户拍板，不直接定稿",
+        "给出旋钮推荐值（variance/motion/density 偏高）并说明理由"
+      ]
+    },
+    {
+      "eval_name": "market-food-style-pick",
+      "prompt": "餐饮品牌做节庆促销落地页，要热闹、有人气，转化优先。",
+      "expected_output": "Top3（明黄市集首选）+ 一句话卖点 + 旋钮推荐。",
+      "files": [],
+      "id": 4,
+      "assertions": [
+        "检索返回明黄市集为首选，而非国潮暖红（用户要的是热闹不是年味）",
+        "AIPrompt 包含 bright yellow #FFC400 full-bleed 与 giant Chinese headlines",
+        "禁用项明确：科技/金融/高端奢品不适用"
+      ]
+    }
+  ],
+  "skill_name": "salin-style-library"
+}
