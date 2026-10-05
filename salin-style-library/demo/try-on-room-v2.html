@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="neon-night">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UI 风格试衣间 v2 · 放开的四套</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --font-body:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;
+  --font-num:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-body);
+  background:var(--bg);color:var(--text);
+  transition:background var(--t-dur) var(--t-ease),color var(--t-dur) var(--t-ease);
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ============ 四套新风格 ============ */
+[data-theme="neon-night"]{
+  --bg:#0C100E;--nav-bg:#0C100E;
+  --text:#F2F5F3;--text-2:#8A948E;
+  --surface:#141A17;--on-surface:#F2F5F3;--on-surface-2:#8A948E;
+  --primary:#25E98B;--primary-text:#052B18;
+  --accent:#8000FF;--danger:#FF006B;
+  --border:#232B27;
+  --radius:18px;--radius-btn:12px;
+  --shadow:0 0 28px rgba(37,233,139,.10);
+  --font-h:var(--font-body);--title-w:700;--title-ls:-.01em;
+  --t-dur:220ms;--t-ease:ease-out;
+  --badge-bg:#1E2B24;--badge-tx:#25E98B;
+  --input-bg:#1A221E;
+}
+[data-theme="volt-lime"]{
+  --bg:#D7F500;--nav-bg:#D7F500;
+  --text:#131313;--text-2:#2E2E2E;
+  --surface:#101010;--on-surface:#EAFB00;--on-surface-2:#9AA300;
+  --primary:#101010;--primary-text:#D7F500;
+  --accent:#101010;--danger:#FF006B;
+  --border:#B8D400;
+  --radius:20px;--radius-btn:999px;
+  --shadow:0 10px 30px rgba(16,16,16,.20);
+  --font-h:var(--font-body);--title-w:900;--title-ls:-.02em;
+  --t-dur:200ms;--t-ease:ease-out;
+  --badge-bg:#1E1E1E;--badge-tx:#D7F500;
+  --input-bg:#1C1C1C;
+}
+[data-theme="market-yellow"]{
+  --bg:#FFC400;--nav-bg:#FFC400;
+  --text:#1A1A1A;--text-2:#4A3F1A;
+  --surface:#FFFDF4;--on-surface:#1A1A1A;--on-surface-2:#6B5F3A;
+  --primary:#1A1A1A;--primary-text:#FFC400;
+  --accent:#1A1A1A;--danger:#D63B2F;
+  --border:#E8B800;
+  --radius:16px;--radius-btn:12px;
+  --shadow:0 8px 24px rgba(26,26,26,.12);
+  --font-h:var(--font-body);--title-w:900;--title-ls:0;
+  --t-dur:220ms;--t-ease:ease-out;
+  --badge-bg:#FFF3C4;--badge-tx:#7A5C00;
+  --input-bg:#FFFFFF;
+}
+[data-theme="dark-gallery"]{
+  --bg:#161616;--nav-bg:#161616;
+  --text:#F5F5F5;--text-2:#9A9A9A;
+  --surface:#212121;--on-surface:#F5F5F5;--on-surface-2:#A8A8A8;
+  --primary:#F5F5F5;--primary-text:#161616;
+  --accent:#2E9BD6;--danger:#FF6B6B;
+  --border:#2E2E2E;
+  --radius:12px;--radius-btn:8px;
+  --shadow:0 12px 32px rgba(0,0,0,.35);
+  --font-h:"Didot","Bodoni MT",Georgia,"Songti SC",serif;--title-w:700;--title-ls:0;
+  --t-dur:250ms;--t-ease:ease-out;
+  --badge-bg:#2A2A2A;--badge-tx:#7FC4E8;
+  --input-bg:#1A1A1A;
+}
+[data-theme="dark-gallery"] .hero h1{font-style:italic}
+
+/* ============ 切换器 ============ */
+.switcher{position:sticky;top:0;z-index:50;background:var(--nav-bg);border-bottom:1px solid var(--border);transition:background var(--t-dur)}
+.switcher-in{max-width:1080px;margin:0 auto;padding:12px 20px;display:flex;gap:8px;align-items:center;overflow-x:auto}
+.switcher-label{font-size:12px;color:var(--text-2);white-space:nowrap;letter-spacing:.08em}
+.sw-btn{font-family:var(--font-body);font-size:13px;white-space:nowrap;padding:8px 16px;border-radius:999px;cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--text);transition:all var(--t-dur)}
+.sw-btn.on{background:var(--primary);color:var(--primary-text);border-color:var(--primary);font-weight:700}
+
+/* ============ 骨架 ============ */
+.page{max-width:1080px;margin:0 auto;padding:0 20px 80px}
+.demo-nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0;border-bottom:1px solid var(--border);margin-bottom:8px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:17px;letter-spacing:.02em}
+.nav-links{display:flex;gap:24px;font-size:14px;color:var(--text-2)}
+.nav-links a{color:inherit;text-decoration:none}
+@media(max-width:640px){.nav-links{display:none}}
+.hero{padding:72px 0 56px;max-width:720px}
+.eyebrow{font-size:12px;letter-spacing:.22em;color:var(--accent);margin-bottom:16px;font-weight:700}
+[data-theme="neon-night"] .eyebrow{color:var(--primary)}
+.hero h1{font-family:var(--font-h);font-weight:var(--title-w);letter-spacing:var(--title-ls);font-size:clamp(34px,6vw,52px);line-height:1.2;margin-bottom:16px}
+.hero p{font-size:16px;color:var(--text-2);line-height:1.8;margin-bottom:28px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+section.panel{background:var(--surface);color:var(--on-surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px;margin-bottom:20px;transition:background var(--t-dur),color var(--t-dur)}
+.panel h2{font-family:var(--font-h);font-weight:var(--title-w);letter-spacing:var(--title-ls);font-size:20px;margin-bottom:6px}
+.panel .sub{font-size:13px;color:var(--on-surface-2);margin-bottom:20px}
+
+/* ============ 按钮 ============ */
+.btn{font-family:var(--font-body);font-size:14px;font-weight:700;cursor:pointer;padding:12px 24px;border-radius:var(--radius-btn);border:1px solid transparent;background:var(--primary);color:var(--primary-text);transition:all var(--t-dur) var(--t-ease)}
+.btn:active{transform:scale(.97)}
+.btn.secondary{background:transparent;color:var(--on-surface);border-color:var(--on-surface)}
+.btn.ghost{background:transparent;color:var(--on-surface);border-color:transparent}
+.btn.ghost:hover{background:rgba(128,128,128,.12)}
+.btn.danger{background:var(--danger);color:#fff}
+.btn:disabled{opacity:.35;cursor:not-allowed;transform:none}
+.btn-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+
+/* ============ 卡片 ============ */
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:640px){.cards{grid-template-columns:1fr}}
+.card{border:1px solid var(--border);border-radius:var(--radius);padding:22px;background:rgba(128,128,128,.06);transition:transform var(--t-dur) var(--t-ease)}
+.card:hover{transform:translateY(-3px)}
+.badge{display:inline-block;font-size:12px;font-weight:700;padding:4px 12px;border-radius:999px;background:var(--badge-bg);color:var(--badge-tx);margin-bottom:12px}
+.card h3{font-family:var(--font-h);font-weight:var(--title-w);font-size:18px;margin-bottom:8px}
+.card p{font-size:14px;color:var(--on-surface-2);line-height:1.7;margin-bottom:14px}
+.card a{font-size:14px;color:var(--primary);font-weight:700;text-decoration:none}
+[data-theme="volt-lime"] .card a,[data-theme="neon-night"] .card a{color:var(--primary)}
+
+/* ============ 表单 ============ */
+.field{margin-bottom:18px;max-width:420px}
+.field label{display:block;font-size:13px;font-weight:700;margin-bottom:8px}
+.field input,.field select{width:100%;font-family:var(--font-body);font-size:14px;color:var(--on-surface);padding:12px 14px;border-radius:var(--radius-btn);border:1px solid var(--border);background:var(--input-bg);transition:border-color var(--t-dur),box-shadow var(--t-dur)}
+.field input:focus,.field select:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px color-mix(in srgb,var(--primary) 25%,transparent)}
+.field.err input{border-color:var(--danger)}
+.field .emsg{font-size:12px;color:var(--danger);margin-top:6px}
+.switch-row{display:flex;align-items:center;justify-content:space-between;max-width:420px;padding:4px 0}
+.switch-row span{font-size:14px;font-weight:700}
+.sw{position:relative;width:52px;height:30px;flex:none;cursor:pointer}
+.sw input{position:absolute;opacity:0;width:100%;height:100%;cursor:pointer;margin:0}
+.sw i{position:absolute;inset:0;border-radius:999px;background:var(--border);transition:background var(--t-dur)}
+.sw i::after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.25);transition:left var(--t-dur) var(--t-ease)}
+.sw input:checked+i{background:var(--primary)}
+.sw input:checked+i::after{left:25px}
+
+/* ============ 表格 ============ */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:560px}
+th{background:rgba(128,128,128,.10);text-align:left;font-size:12px;color:var(--on-surface-2);font-weight:700;padding:12px 16px;white-space:nowrap}
+td{padding:14px 16px;border-top:1px solid var(--border)}
+td.num{font-family:var(--font-num);font-variant-numeric:tabular-nums}
+tbody tr{transition:background var(--t-dur)}
+tbody tr:hover{background:rgba(128,128,128,.08)}
+.pill{display:inline-block;font-size:12px;font-weight:700;padding:4px 12px;border-radius:999px;background:var(--badge-bg);color:var(--badge-tx);white-space:nowrap}
+
+/* ============ 徽标 + 进度 ============ */
+.tag-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
+.progress{height:8px;border-radius:999px;background:var(--border);overflow:hidden;max-width:420px}
+.progress i{display:block;height:100%;width:72%;border-radius:999px;background:var(--primary);transition:width var(--t-dur)}
+.progress-lbl{display:flex;justify-content:space-between;font-size:12px;color:var(--on-surface-2);max-width:420px;margin-bottom:8px}
+
+/* ============ 风格说明 ============ */
+.style-note{border:2px solid var(--primary);border-radius:var(--radius);padding:24px 28px;margin-bottom:20px;background:var(--surface);color:var(--on-surface)}
+.style-note h2{font-family:var(--font-h);font-weight:var(--title-w);font-size:19px;margin-bottom:10px}
+.style-note p{font-size:14px;line-height:1.9;color:var(--on-surface-2)}
+.style-note p b{color:var(--on-surface)}
+footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--border);font-size:12px;color:var(--text-2);display:flex;justify-content:space-between}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<div class="switcher">
+  <div class="switcher-in">
+    <span class="switcher-label">STYLE / 风格 v2</span>
+    <button class="sw-btn on" data-s="neon-night">霓虹暗夜</button>
+    <button class="sw-btn" data-s="volt-lime">荧光柠檬</button>
+    <button class="sw-btn" data-s="market-yellow">明黄市集</button>
+    <button class="sw-btn" data-s="dark-gallery">深色画廊</button>
+  </div>
+</div>
+
+<div class="page">
+  <nav class="demo-nav">
+    <div class="logo">
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+        <rect x="1" y="1" width="24" height="24" rx="7" fill="var(--primary)"/>
+        <path d="M8 13.5l3.2 3.2L18 10" stroke="var(--primary-text)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      试衣间
+    </div>
+    <div class="nav-links"><a href="#c-btn">组件</a><a href="#c-form">表单</a><a href="#c-table">表格</a></div>
+    <button class="btn">开始使用</button>
+  </nav>
+
+  <header class="hero">
+    <div class="eyebrow">SALIN STYLE LIBRARY · 试衣间 v2</div>
+    <h1>放开，就要放开</h1>
+    <p>按你发的 7 个站酷案例重做的四套风格：荧光色敢整屏用，深色底敢配霓虹，大字本身就是视觉。点顶部切换，看同一套组件的气质变化。</p>
+    <div class="hero-actions">
+      <button class="btn">查看组件</button>
+      <button class="btn secondary">了解风格</button>
+    </div>
+  </header>
+
+  <section class="panel" id="c-btn">
+    <h2>按钮 Button</h2>
+    <div class="sub">Primary / Secondary / Ghost / Danger</div>
+    <div class="btn-row">
+      <button class="btn">主要按钮</button>
+      <button class="btn secondary">次要按钮</button>
+      <button class="btn ghost">文字按钮</button>
+      <button class="btn danger">删除</button>
+      <button class="btn" disabled>禁用态</button>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>卡片 Card</h2>
+    <div class="sub">信息卡 · 徽标 + 标题 + 正文 + 操作</div>
+    <div class="cards">
+      <div class="card">
+        <span class="badge">新品</span>
+        <h3>旋转煎包炉</h3>
+        <p>一次出 120 个只用一个人。旋转受热均匀，燃气成本直降 30%，早餐店老板的回本利器。</p>
+        <a href="#">查看详情 →</a>
+      </div>
+      <div class="card">
+        <span class="badge">热销</span>
+        <h3>碳晶板保温台</h3>
+        <p>4 小时持续保温，温度看得见。台面碳晶发热，汤品小菜全天在线等客。</p>
+        <a href="#">查看详情 →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" id="c-form">
+    <h2>表单 Form</h2>
+    <div class="sub">输入框（正常 / 错误态）· 下拉选择 · 开关</div>
+    <div class="field">
+      <label>联系人</label>
+      <input value="张老板" />
+    </div>
+    <div class="field err">
+      <label>手机号</label>
+      <input value="138000" />
+      <div class="emsg">请输入正确的手机号</div>
+    </div>
+    <div class="field">
+      <label>意向设备</label>
+      <select><option>全部设备</option><option>旋转煎包炉</option><option>碳晶板保温台</option></select>
+    </div>
+    <div class="switch-row">
+      <span>到货通知</span>
+      <label class="sw"><input type="checkbox" checked><i></i></label>
+    </div>
+  </section>
+
+  <section class="panel" id="c-table">
+    <h2>表格 Table</h2>
+    <div class="sub">订单列表 · 状态用徽标胶囊</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>订单号</th><th>客户</th><th>金额</th><th>状态</th></tr></thead>
+        <tbody>
+          <tr><td class="num">DD-20261001</td><td>王记早餐</td><td class="num">¥12,800</td><td><span class="pill">已发货</span></td></tr>
+          <tr><td class="num">DD-20261002</td><td>李记包子</td><td class="num">¥8,600</td><td><span class="pill">待付款</span></td></tr>
+          <tr><td class="num">DD-20261003</td><td>赵记面馆</td><td class="num">¥21,300</td><td><span class="pill">已完成</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>徽标与进度 Badge &amp; Progress</h2>
+    <div class="sub">状态徽标 · 进度条 72%</div>
+    <div class="tag-row">
+      <span class="badge">已发货</span><span class="badge">待付款</span><span class="badge">已完成</span><span class="badge">新品</span>
+    </div>
+    <div class="progress-lbl"><span>本月目标完成度</span><span class="num">72%</span></div>
+    <div class="progress"><i></i></div>
+  </section>
+
+  <section class="style-note">
+    <h2 id="sn-title">当前风格：霓虹暗夜</h2>
+    <p id="sn-body"></p>
+  </section>
+
+  <footer><span>salin-style-library · 试衣间 v2（按站酷 7 案例重做）</span><span>同一套组件 · 四套皮肤</span></footer>
+</div>
+
+<script>
+const NOTES = {
+  "neon-night": {name:"霓虹暗夜", body:"<b>来源：</b>Chirp 游戏交友 App 设计规范（主题色 #25E98B / 辅助 #8000FF / #FF006B）。<br><b>气质：</b>深黑底 + 三霓虹色，大圆角沉浸式，无线框。<br><b>适用：</b>游戏社交、Z世代产品、潮牌 App、电竞。<br><b>不适用：</b>金融、医疗、政务、母婴。"},
+  "volt-lime": {name:"荧光柠檬", body:"<b>来源：</b>来电充电 App（荧光黄绿整屏 + 纯黑 + 巨型 CHARGE）。<br><b>气质：</b>荧光黄绿整屏，黑白高对比，巨型标题字即视觉。<br><b>适用：</b>快消、营销落地页、年轻化品牌、campaign。<br><b>不适用：</b>金融、医疗、长文阅读。"},
+  "market-yellow": {name:"明黄市集", body:"<b>来源：</b>集摊号（明黄整屏 + 大汉字 + 黄底白卡）。<br><b>气质：</b>明黄 #FFC400 整屏，大汉字排印，黄底白卡，热闹市集感。<br><b>适用：</b>餐饮、市集、本地生活、促销。<br><b>不适用：</b>科技、金融、高端奢品。"},
+  "dark-gallery": {name:"深色画廊", body:"<b>来源：</b>网页设计精选（深灰底 + 高饱和卡片拼贴 + 衬线标题）。<br><b>气质：</b>深色底 + 高饱和内容卡片拼贴，优雅衬线标题，简约大气。<br><b>适用：</b>品牌官网、电商详情、作品集、创意 agency。<br><b>不适用：</b>工具型 App、高频操作界面。"}
+};
+const btns = document.querySelectorAll(".sw-btn");
+function setTheme(key){
+  document.documentElement.dataset.theme = key;
+  btns.forEach(b => b.classList.toggle("on", b.dataset.s === key));
+  document.getElementById("sn-title").textContent = "当前风格：" + NOTES[key].name;
+  document.getElementById("sn-body").innerHTML = NOTES[key].body;
+}
+btns.forEach(b => b.addEventListener("click", () => setTheme(b.dataset.s)));
+setTheme("neon-night");
+</script>
+</body>
+</html>
