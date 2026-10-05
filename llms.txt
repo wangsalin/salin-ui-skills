@@ -5,7 +5,7 @@
 ## Architecture
 
 - `salin-ui-director`: lightweight director — classifies the task, assigns exactly one primary specialist skill, defines collaboration boundaries, unifies design tokens and acceptance criteria.
-- Specialists: `salin-app-ui` (mobile App/mini-program), `salin-web-ui` (desktop web), `salin-ui-components` (12 component design specs: variants, sizes, states, App/Web differences, accessibility, usage red lines), `salin-ui-motion` (8 component micro-interaction patterns with animation params and AI prompt templates), `salin-dashboard-builder` (dashboards), `salin-shadcn-ui` (shadcn engineering), `salin-ui-quality-audit` (review, anti-templating, accessibility, launch QA).
+- Specialists: `salin-app-ui` (mobile App/mini-program), `salin-web-ui` (desktop web), `salin-ui-components` (12 component design specs: variants, sizes, states, App/Web differences, accessibility, usage red lines), `salin-ui-layout` (14 page/App layout patterns with zones/grids/red-lines + 6-section layout teardown framework), `salin-ui-motion` (8 component micro-interaction patterns with animation params and AI prompt templates), `salin-dashboard-builder` (dashboards), `salin-shadcn-ui` (shadcn engineering), `salin-ui-quality-audit` (review, anti-templating, accessibility, launch QA).
 - `salin-product-ui-builder` is DEPRECATED, split into `salin-app-ui` + `salin-web-ui`.
 
 ## Design Language
