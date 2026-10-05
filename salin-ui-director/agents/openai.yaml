@@ -1,4 +1,4 @@
 interface:
   display_name: "Salin UI Director"
-  short_description: "六大 UI 能力包的轻量总控与交付编排"
+  short_description: "七大 UI 能力包的轻量总控与交付编排"
   default_prompt: "Use $salin-ui-director to select one primary UI skill, define clear collaboration boundaries, coordinate design and implementation, and finish with real interface verification."
