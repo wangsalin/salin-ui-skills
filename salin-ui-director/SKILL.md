@@ -15,7 +15,7 @@ description: 产品 UI 总控与多 skill 路由。用于用户明确要求 UI �
 | `salin-web-ui` | 桌面端网页：官网/营销页、SaaS 工作台与后台、普通网页的设计和实现 | 移动端界面、Dashboard 图表专项、纯审查 |
 | `salin-style-library` | 视觉风格：风格检索、三旋钮定调、MASTER.md 项目级设计记忆 | 具体页面实现、组件工程 |
 | `salin-ui-components` | 组件设计规范：12 高频组件的变体、尺寸、状态、App/Web 双端差异、无障碍与用法红线 | 组件微交互动效、具体页面实现 |
-| `salin-ui-layout` | 页面/App 布局：14 种布局模式的分区/栅格/红线 + 看图拆布局的六段式分析框架 | 组件级规范、视觉风格 |
+| `salin-ui-layout` | 页面/App 布局：24 种布局模式的分区/栅格/红线 + 看图拆布局的九段式分析框架 | 组件级规范、视觉风格 |
 | `salin-ui-motion` | 组件级微交互动效：计时小条、分步弹窗、深色切换、Tab 展开、滚动 FAB、复制反馈、表单校验、下拉选择的规格、参数与 AI 提示词 | 复杂 GSAP 动效、页面级转场编排 |
 | `salin-dashboard-builder` | Dashboard 页面架构、侧边栏、指标、交互图表、筛选联动和数据状态 | 普通营销页和无数据界面 |
 | `salin-shadcn-ui` | shadcn 初始化、组件源码、主题 tokens、变体、表单/表格/应用壳组合 | 自定义 registry 发布、技术栈未定的纯设计 |
@@ -30,7 +30,7 @@ description: 产品 UI 总控与多 skill 路由。用于用户明确要求 UI �
 - 新项目需要定视觉风格，或要在多个风格方向中二选一：`salin-style-library`（风格检索→三旋钮→MASTER.md 落盘，builder 按 MASTER.md 执行）。
 - 组件级微交互动效（按钮反馈、弹窗过渡、表单校验等 8 种模式）：`salin-ui-motion`。
 - 单个组件的变体/尺寸/状态/双端差异/用法红线：`salin-ui-components`（检索不到时诚实告知，不编造）。
-- 页面/App 布局选型、定骨架、看图拆布局（六段式分析）：`salin-ui-layout`。布局先行，组件与风格后填。
+- 页面/App 布局选型、定骨架、看图拆布局（九段式分析）：`salin-ui-layout`。布局先行，组件与风格后填。
 - Dashboard、数据看板、运营后台图表/侧栏：`salin-dashboard-builder`。
 - 已确定使用 shadcn 的组件和主题工程：`salin-shadcn-ui`。
 - 整体流程、视觉层级、反模板化、跨页面一致性、通用无障碍或上线质量审查：`salin-ui-quality-audit`，默认不修改。
