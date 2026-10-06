@@ -17,7 +17,7 @@ salin-ui-director（总控：判型 → 分工 → 统一验收）
 ├── salin-style-library     风格库 / 试衣间：风格检索 + 三旋钮 + MASTER.md
 ├── salin-ui-components     组件设计规范：12 高频组件变体/尺寸/状态/双端差异/红线
 ├── salin-ui-layout         页面/App 布局：14 种布局模式 + 六段式拆布局分析
-├── salin-ui-motion         组件级微交互动效（8 种模式）
+├── salin-ui-motion         组件级微交互动效（27 种模式）
 ├── salin-dashboard-builder Dashboard / 数据看板专项
 ├── salin-shadcn-ui         shadcn 组件工程
 └── salin-ui-quality-audit  审查验收、反模板化、WCAG 硬门
@@ -31,7 +31,7 @@ salin-ui-director（总控：判型 → 分工 → 统一验收）
 | salin-style-library | 风格库/试衣间：6 套精调风格检索 + 三旋钮 + MASTER.md 设计记忆 | [salin-style-library.skill](salin-style-library.skill) |
 | salin-ui-components | 组件设计规范：按钮/输入框/卡片/弹窗/Tabs/导航/表格/徽标/Toast/下拉/开关/进度条，变体+尺寸+状态+红线 | [salin-ui-components.skill](salin-ui-components.skill) |
 | salin-ui-layout | 页面/App 布局：信息流/Tab首页/瀑布流/营销官网/三栏工作台/仪表盘等 14 种 + 拆布局分析 | [salin-ui-layout.skill](salin-ui-layout.skill) |
-| salin-ui-motion | 8 种组件微交互：计时小条/分步弹窗/深色切换/Tab 展开/滚动 FAB/复制反馈/表单校验/下拉选择 | [salin-ui-motion.skill](salin-ui-motion.skill) |
+| salin-ui-motion | 27 种组件微交互（选择筛选/触摸反馈/展开收纳/列表卡片/输入表单/系统导航六大类） | [salin-ui-motion.skill](salin-ui-motion.skill) |
 | salin-dashboard-builder | Dashboard 页面架构、指标、交互图表、筛选联动 | [salin-dashboard-builder.skill](salin-dashboard-builder.skill) |
 | salin-shadcn-ui | shadcn 初始化、组件源码、主题 tokens、变体 | [salin-shadcn-ui.skill](salin-shadcn-ui.skill) |
 | salin-ui-quality-audit | UI 审查、反模板化、打磨、WCAG 5 条硬门、上线验收 | [salin-ui-quality-audit.skill](salin-ui-quality-audit.skill) |

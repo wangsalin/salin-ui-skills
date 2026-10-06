@@ -1,1 +1,96 @@
-{"evals":[{"assertions":["明确使用 copy-button 模式，而非泛泛说'加个 Toast'","给出具体动效数值（翻转时长 200ms、恢复时间约 2s），无'顺滑一点'类空话","包含复制失败的反馈（Toast 报错），不只画成功态","给出 prefers-reduced-motion 降级方案"],"eval_name":"copy-button-no-feedback","expected_output":"copy-button 模式：图标原地翻转成对勾（200ms）+ Toast'已复制'，2 秒后恢复；失败态；降级方案。","files":[],"id":0,"prompt":"我们订单详情页有个'复制订单号'按钮，用户点了没任何反馈，很多人重复点。帮我加上反馈。"},{"assertions":["明确使用 step-sheet 模式，指出横向滑动 + 高度平滑过渡两个关键点","给出具体数值（250ms ease-out / 300ms ease-in-out），而非'加个过渡动画'","提到弹窗高度不写死、随内容自动过渡，且超高内容内部滚动不顶出屏幕","包含可直接粘贴给 AI 编程工具的提示词模板"],"eval_name":"step-form-sheet-stiff","expected_output":"step-sheet 模式：内容横向滑动（250ms ease-out）、高度随内容平滑过渡（300ms ease-in-out）、STEP n OF m 指示器。","files":[],"id":1,"prompt":"预订流程的分步弹窗，切换步骤时内容直接闪现、弹窗高度跳变，很生硬。帮我改顺滑。"},{"assertions":["输出为可直接粘贴的提示词，而非实现教程或原理讲解","提示词包含全部关键参数（pill 滑动 250ms ease-out、文字展开、未选中只留图标）","明确模式名 tab-bar，便于追溯与复用","未编造视频里没有的'官方参数'，推荐值与视频原话可区分"],"eval_name":"ai-prompt-template-usable","expected_output":"tab-bar 模式的可直接粘贴提示词：pill 滑动、文字展开、其余项只留图标，含全部参数。","files":[],"id":2,"prompt":"我要用 VibeCoding 做个 App 的底部导航，选中项要有展开效果。直接给我能丢给 AI 的提示词。"}],"skill_name":"salin-ui-motion"}
+{
+  "evals": [
+    {
+      "assertions": [
+        "明确使用 copy-button 模式，而非泛泛说'加个 Toast'",
+        "给出具体动效数值（翻转时长 200ms、恢复时间约 2s），无'顺滑一点'类空话",
+        "包含复制失败的反馈（Toast 报错），不只画成功态",
+        "给出 prefers-reduced-motion 降级方案"
+      ],
+      "eval_name": "copy-button-no-feedback",
+      "expected_output": "copy-button 模式：图标原地翻转成对勾（200ms）+ Toast'已复制'，2 秒后恢复；失败态；降级方案。",
+      "files": [],
+      "id": 0,
+      "prompt": "我们订单详情页有个'复制订单号'按钮，用户点了没任何反馈，很多人重复点。帮我加上反馈。"
+    },
+    {
+      "assertions": [
+        "明确使用 step-sheet 模式，指出横向滑动 + 高度平滑过渡两个关键点",
+        "给出具体数值（250ms ease-out / 300ms ease-in-out），而非'加个过渡动画'",
+        "提到弹窗高度不写死、随内容自动过渡，且超高内容内部滚动不顶出屏幕",
+        "包含可直接粘贴给 AI 编程工具的提示词模板"
+      ],
+      "eval_name": "step-form-sheet-stiff",
+      "expected_output": "step-sheet 模式：内容横向滑动（250ms ease-out）、高度随内容平滑过渡（300ms ease-in-out）、STEP n OF m 指示器。",
+      "files": [],
+      "id": 1,
+      "prompt": "预订流程的分步弹窗，切换步骤时内容直接闪现、弹窗高度跳变，很生硬。帮我改顺滑。"
+    },
+    {
+      "assertions": [
+        "输出为可直接粘贴的提示词，而非实现教程或原理讲解",
+        "提示词包含全部关键参数（pill 滑动 250ms ease-out、文字展开、未选中只留图标）",
+        "明确模式名 tab-bar，便于追溯与复用",
+        "未编造视频里没有的'官方参数'，推荐值与视频原话可区分"
+      ],
+      "eval_name": "ai-prompt-template-usable",
+      "expected_output": "tab-bar 模式的可直接粘贴提示词：pill 滑动、文字展开、其余项只留图标，含全部参数。",
+      "files": [],
+      "id": 2,
+      "prompt": "我要用 VibeCoding 做个 App 的底部导航，选中项要有展开效果。直接给我能丢给 AI 的提示词。"
+    },
+    {
+      "id": 3,
+      "eval_name": "filter-chips-multiselect",
+      "prompt": "商品列表页要加一排多选筛选标签，选中效果要明显，旁边还要有个筛选按钮显示选了几个。直接给我能丢给 AI 的提示词。",
+      "expected_output": "filter-chips 模式：选中左侧长出对勾、底色填满、宽度撑开，相邻让位，筛选按钮数量徽标跳动更新。",
+      "assertions": [
+        "明确使用 filter-chips 模式",
+        "提示词包含全部关键点（对勾长出、底色填满、宽度撑开、相邻让位、数量徽标跳动）",
+        "给出具体动效数值而非空话",
+        "包含可直接粘贴的提示词模板"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "eval_name": "async-select-race",
+      "prompt": "客户选择器要做远程搜索，选项在服务器上。之前出现过输入快的时候旧结果覆盖新结果的问题，怎么设计？",
+      "expected_output": "async-select 模式：输入停止300ms再请求，旧请求结果不得覆盖新请求，加载中/空结果/失败三态。",
+      "assertions": [
+        "明确使用 async-select 模式",
+        "包含防抖 300ms 与请求竞态处理",
+        "包含加载中、空结果、失败三种状态",
+        "未编造视频里没有的参数"
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "eval_name": "pull-summary-gesture",
+      "prompt": "日报页顶部想放一个关键数字摘要，平时只占一行，下拉能展开看完整统计。给个交互方案。",
+      "expected_output": "pull-summary 模式：收起为顶部胶囊，下拖跟手展开，60%后图表淡入，下方内容下移降透明度，未过阈值收回。",
+      "assertions": [
+        "明确使用 pull-summary 模式",
+        "描述跟手展开与阈值收回逻辑",
+        "提到下方内容联动（下移+降透明度）",
+        "给出具体数值（60%淡入、250ms ease-out）"
+      ],
+      "files": []
+    },
+    {
+      "id": 6,
+      "eval_name": "card-detail-transition",
+      "prompt": "地点卡片点进去要到详情页，现在是硬跳转很生硬。怎么让过渡顺滑？",
+      "expected_output": "card-detail 模式：图片从原位置放大展开（共享元素过渡300ms），文字底部滑入，下拉手势返回。",
+      "assertions": [
+        "明确使用 card-detail 模式",
+        "包含共享元素过渡（原位置放大展开）",
+        "包含文字底部滑入与下拉手势返回",
+        "给出时长数值 300ms ease-out"
+      ],
+      "files": []
+    }
+  ],
+  "skill_name": "salin-ui-motion"
+}
