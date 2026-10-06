@@ -137,5 +137,26 @@
       "不强行套用侧栏、指标卡或图表工作流",
       "将任务交给更合适的网站或 UI 设计流程"
     ]
+  },
+  {
+    "name": "nav_menu_sliding_highlight",
+    "prompt": "后台侧边栏现在就是左边一列字，切换时直接硬切，很廉价。想换成高级点的导航交互，给个方案。",
+    "assertions": [
+      "推荐 nav-menu-patterns.md 中的滑动高亮块模式",
+      "描述高亮块滑动+回弹、宽高跟随文字伸缩",
+      "给出可直接用的 AI 描述词（视频原话）",
+      "提到 reduced-motion 降级"
+    ],
+    "files": []
+  },
+  {
+    "name": "layout_one_judgment",
+    "prompt": "同样是 Dashboard，为什么有的像 AI 模板？我们的运营后台想提升审美，但组件已经够多了。",
+    "assertions": [
+      "引用 layout-aesthetics.md 的核心判断：一整页只做一个判断",
+      "给出 4 种排版中的至少一种具体方案（含视频原话 AI 描述词）",
+      "不建议堆更多组件，而是做配色/层级/版面判断"
+    ],
+    "files": []
   }
 ]

@@ -13,6 +13,8 @@ description: 设计、专项审查、重构或实现 Dashboard 和数据产品�
 |---|---|
 | 从零设计或重构完整 Dashboard | [references/dashboard-architecture.md](references/dashboard-architecture.md)，再按需读侧栏与图表参考 |
 | 只设计、审查或实现侧边栏 | [references/sidebar-patterns.md](references/sidebar-patterns.md)；实现时再读 [references/implementation-playbook.md](references/implementation-playbook.md) |
+| 导航交互升级（菜单动效、命令面板、徽标，6 种模式） | [references/nav-menu-patterns.md](references/nav-menu-patterns.md) |
+| 后台排版审美升级（一页只做一个判断，4 种排版） | [references/layout-aesthetics.md](references/layout-aesthetics.md) |
 | 不知道数据该用什么图表 | [references/chart-selection-guide.md](references/chart-selection-guide.md) |
 | 指定图表并要求交互 | [references/chart-interaction-patterns.md](references/chart-interaction-patterns.md) + [references/interaction-spec-template.md](references/interaction-spec-template.md) |
 | 在已有项目中编码 | 先检查项目，再读 [references/implementation-playbook.md](references/implementation-playbook.md) 与任务对应模块 |
