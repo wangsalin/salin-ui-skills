@@ -90,6 +90,58 @@
         "给出时长数值 300ms ease-out"
       ],
       "files": []
+    },
+    {
+      "id": 7,
+      "eval_name": "pinch-density-grid",
+      "prompt": "图片网格想支持双指捏合切换密度，大图/三列/文字行三档，怎么做好？",
+      "expected_output": "pinch-density 模式：语义缩放三档切换，每项连续动画移动到新位置，视频原话提示词。",
+      "assertions": [
+        "明确使用 pinch-density 模式",
+        "包含三档密度（大图/三列/文字行）",
+        "强调切换时每项连续移动而非跳变",
+        "包含视频原话提示词"
+      ],
+      "files": []
+    },
+    {
+      "id": 8,
+      "eval_name": "takeback-gesture",
+      "prompt": "详情页可以拖拽滑出来，但现在松手就按距离二选一，很生硬。想做得跟手一点。",
+      "expected_output": "takeback 模式：松手看甩动速度，甩得快走完、手往回带退回。",
+      "assertions": [
+        "明确使用 takeback 模式",
+        "决策逻辑看松手瞬间速度而非仅距离",
+        "给出速度阈值参考",
+        "包含可直接用的提示词"
+      ],
+      "files": []
+    },
+    {
+      "id": 9,
+      "eval_name": "auto-contrast-float",
+      "prompt": "图片浏览页的悬浮按钮在亮图上看不清，在暗图上又太亮，怎么自适应？",
+      "expected_output": "auto-contrast 模式：悬浮元素按背后区域亮度自动反色，连续切换。",
+      "assertions": [
+        "明确使用 auto-contrast 模式",
+        "描述按背后区域亮度反色",
+        "强调滚动中连续切换而非跳变",
+        "包含视频原话提示词"
+      ],
+      "files": []
+    },
+    {
+      "id": 10,
+      "eval_name": "toggle-ripple-linkage",
+      "prompt": "设置页的开关拨动时太干，能不能有点质感，还要联动下面相关选项？",
+      "expected_output": "toggle-ripple 模式：拨动泛起涟漪扩散，联动周围控件状态。",
+      "assertions": [
+        "明确使用 toggle-ripple 模式",
+        "包含涟漪扩散动效",
+        "包含联动周围控件状态",
+        "给出时长数值"
+      ],
+      "files": []
     }
   ],
   "skill_name": "salin-ui-motion"
