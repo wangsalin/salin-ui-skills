@@ -86,4 +86,4 @@ salin-ui-skills/
 
 ## 退役说明
 
-- `salin-product-ui-builder`：2026-10-05 起 DEPRECATED，已拆分为 `salin-app-ui` + `salin-web-ui`。SKILL.md 头部与 description 已标注，请使用拆分后的 skill。
+- `salin-product-ui-builder`：2026-10-05 起 DEPRECATED，已拆分为 `salin-app-ui` + `salin-web-ui`。SKILL.md 头部与 description 已标注，请使用拆分后的 skill。`.skill` 安装包已下架（2026-10-07），目录仅保留作过渡。
