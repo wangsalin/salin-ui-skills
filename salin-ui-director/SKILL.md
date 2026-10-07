@@ -1,30 +1,34 @@
 ---
 name: salin-ui-director
-description: 产品 UI 总控与多 skill 路由。用于用户明确要求 UI 总控、完整界面项目、从需求到实现再验收，或任务同时涉及 App/网页界面、视觉风格、Dashboard、shadcn 组件工程、动效和质量审查。负责确定目标、项目类型、职责边界、执行顺序与统一验收，不替代 salin-app-ui、salin-web-ui、salin-style-library、salin-ui-layout、salin-ui-components、salin-ui-motion、salin-dashboard-builder、salin-shadcn-ui 或 salin-ui-quality-audit。单一明确任务应直接使用对应专项 skill。
+description: 产品 UI 总控与多 skill 路由。用于用户明确要求 UI 总控、完整界面项目、从需求到实现再验收，或任务同时涉及 App/网页界面、视觉风格、Dashboard、shadcn 组件工程、动效和质量审查。负责确定目标、项目类型、职责边界、执行顺序与统一验收，不替代 salin-ui-brief、salin-app-ui、salin-web-ui、salin-style-library、salin-ui-layout、salin-ui-components、salin-ui-motion、salin-ui-term、salin-dashboard-builder、salin-shadcn-ui 或 salin-ui-quality-audit。单一明确任务应直接使用对应专项 skill。
 ---
 
 # Salin UI Director
 
 这个 skill 是轻量总控，不重复保存各专项的详细知识。它负责先判型、再分工、最后把设计目标、组件工程和质量验收合成一个可落地流程。
 
-## 九个主能力包
+## 十一个主能力包
 
 | 能力包 | 负责 | 不负责 |
 |---|---|---|
+| `salin-ui-brief` | 需求定义：一句话需求 → 页面定义 `_workbench/spec.md`，区块与用户问题 1:1 | 后续设计实现、视觉判断、交互细节 |
 | `salin-app-ui` | 移动端 App / 小程序界面：首页、列表页、表单向导、结果成就、我的设置的设计和实现 | 桌面端网页、Dashboard 图表专项、纯审查 |
 | `salin-web-ui` | 桌面端网页：官网/营销页、SaaS 工作台与后台、普通网页的设计和实现 | 移动端界面、Dashboard 图表专项、纯审查 |
 | `salin-style-library` | 视觉风格：风格检索、三旋钮定调、MASTER.md 项目级设计记忆 | 具体页面实现、组件工程 |
 | `salin-ui-components` | 组件设计规范：12 高频组件的变体、尺寸、状态、App/Web 双端差异、无障碍与用法红线 | 组件微交互动效、具体页面实现 |
 | `salin-ui-layout` | 页面/App 布局：24 种布局模式的分区/栅格/红线 + 看图拆布局的九段式分析框架 | 组件级规范、视觉风格 |
 | `salin-ui-motion` | 组件级微交互动效：55 种模式（十一大场景分组）的规格、参数与 AI 提示词 | 复杂 GSAP 动效、页面级转场编排 |
+| `salin-ui-term` | 效果术语翻译：大白话 → 准确设计术语（中英对照）→ 可执行指令，与 motion 55 种模式联动 | 编造术语、替代 motion 的参数细节 |
 | `salin-dashboard-builder` | Dashboard 页面架构、侧边栏、指标、交互图表、筛选联动和数据状态 | 普通营销页和无数据界面 |
 | `salin-shadcn-ui` | shadcn 初始化、组件源码、主题 tokens、变体、表单/表格/应用壳组合 | 自定义 registry 发布、技术栈未定的纯设计 |
 | `salin-ui-quality-audit` | UI 审查、批评、反模板化、打磨、加固、无障碍与上线验收 | 未经授权修改代码 |
 
-`shadcn-ui-registry`、Figma/Product Design 保留为专项能力，仅在用户需求明确时加入，不合并进九个主包。复杂动效走 `references/motion-gsap.md`（GSAP 专项参考），组件级微交互走 `salin-ui-motion`。
+`shadcn-ui-registry`、Figma/Product Design 保留为专项能力，仅在用户需求明确时加入，不合并进十一个主包。复杂动效走 `references/motion-gsap.md`（GSAP 专项参考），组件级微交互走 `salin-ui-motion`。
 
 ## 路由规则
 
+- 新页面/新项目开工：先 `salin-ui-brief` 出 `_workbench/spec.md` 并经用户确认，再进风格/布局/实现。需求变更先改 spec 再动手。
+- 人说不清想要的动效时：`salin-ui-term` 先翻成术语（查词典、拆成 1–3 条、不编造），再调 `salin-ui-motion` 落参数执行。
 - 移动端 App / 小程序页面的新建、改造或实现：`salin-app-ui`。
 - 桌面端网页（官网/营销页、SaaS 工作台与后台、普通网页）的新建、改造或实现：`salin-web-ui`。
 - 新项目需要定视觉风格，或要在多个风格方向中二选一：`salin-style-library`（风格检索→三旋钮→MASTER.md 落盘，builder 按 MASTER.md 执行）。
@@ -38,7 +42,7 @@ description: 产品 UI 总控与多 skill 路由。用于用户明确要求 UI �
 - shadcn CLI、component base、组件源码、tokens、主题和底层组件行为审查：`salin-shadcn-ui`。
 - “设计并用 shadcn 实现”：`salin-app-ui` / `salin-web-ui` 负责用户任务和页面结构，shadcn skill 负责组件与主题工程。
 - “重构 Dashboard 并验收”：dashboard builder 负责方案和实现，quality audit 负责独立复核。
-- “完整 UI 项目”：按目标 → 专项设计 → 组件实现 → 动效（如需）→ 真实验收顺序组合，避免七个 skill 同时重复分析。
+- “完整 UI 项目”：按目标 → 专项设计 → 组件实现 → 动效（如需）→ 真实验收顺序组合，避免十一个 skill 同时重复分析。
 - 动效仅在信息状态变化、空间关系或品牌表达需要时加入；组件级微交互用 `salin-ui-motion`，项目已有 GSAP 或用户明确要求复杂动效时再使用 GSAP 专项（`references/motion-gsap.md`）。
 
 ## 总控流程
