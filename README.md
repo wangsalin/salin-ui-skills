@@ -1,10 +1,26 @@
 # Salin UI Skills
 
-> UI 设计的 Claude Skills 独立仓库 · 总控 + 专项架构 · 每个 skill 独立文件夹，开箱即用
+> UI 设计的 Claude Skills 独立仓库 · **一套 UI 设计：一套入口 `salin-ui`，8 步工作流走完**
+> （2026-10-07 起：12 个专项 skill 已合并为统一入口 `salin-ui/`，旧目录保留为内部知识归档，不再独立对外）
 
 ![Claude Skill](https://img.shields.io/badge/Claude-Skill-d97706) ![Language](https://img.shields.io/badge/%E4%B8%AD%E6%96%87-zh--CN-blue) [![LLMs.txt](https://img.shields.io/badge/LLMs.txt-supported-brightgreen.svg)](llms.txt)
 
 从 `wangsalin/salin-skills` 独立出来的 UI 设计 skill 家族。`salin-skills` 保留非 UI skills（如短视频营销），**所有 UI 设计类 skills 只在这个仓库维护**。
+
+## 一套：salin-ui（统一入口）
+
+只读一个 `salin-ui/SKILL.md` 就能开工：一句话需求 → 8 步工作流（需求→风格→布局→组件→术语→实现→动效→验收）自动编排。
+
+```
+salin-ui/                        ← 唯一入口（salin-ui.skill）
+├── SKILL.md                     单入口：一句话开工 + 8 步工作流 + 铁律
+├── references/                  9 个：brief/style/layout/implement-app/implement-web/dashboard/shadcn/audit/routing
+├── data/                        motions.csv(60) / terms.csv(53) / layouts.csv(24) / components.csv(12) / styles.csv(6)
+├── evals/evals.json             109 条（带 source_skill 来源标记）
+└── scripts/                     一致性检查
+```
+
+安装包：[salin-ui.skill](salin-ui.skill)
 
 ---
 

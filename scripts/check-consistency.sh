@@ -32,5 +32,19 @@ done
 echo "== 数字残留扫描 =="
 grep -rn "55 种\|55种" --include="*.md" . | grep -v ".git/" | grep -v check-consistency && say "发现 55 种残留" 1 || say "无 55 种残留" 0
 
+echo "== salin-ui 统一包 =="
+M=$(($(wc -l < salin-ui/data/motions.csv) - 1))
+[ "$M" = "60" ]; say "motions.csv 60 条" $?
+T2=$(($(wc -l < salin-ui/data/terms.csv) - 1))
+[ "$T2" = "53" ]; say "terms.csv 53 条" $?
+E2=$(python3 -c "import json;print(len(json.load(open('salin-ui/evals/evals.json',encoding='utf8'))))")
+[ "$E2" = "109" ]; say "evals 109 条" $?
+grep -q "60 种" salin-ui/SKILL.md; say "SKILL.md 60 种" $?
+[ -f salin-ui.skill ]; say "salin-ui.skill 包存在" $?
+[ "salin-ui/SKILL.md" -nt "salin-ui.skill" ] && say "salin-ui 包过期" 1 || say "salin-ui 包新鲜" 0
+for f in references/01-brief.md references/02-style.md references/03-layout.md references/04-implement-app.md references/05-implement-web.md references/06-dashboard.md references/07-shadcn.md references/08-audit.md references/09-routing.md; do
+  [ -f "salin-ui/$f" ]; say "salin-ui/$f" $?
+done
+
 [ $FAIL = 0 ] && echo "ALL PASS" || echo "有不一致项，见上"
 exit $FAIL

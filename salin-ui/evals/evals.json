@@ -1,0 +1,1391 @@
+[
+ {
+  "assertions": [
+   "明确页面类型为首页，且一屏只讲一件事（点单主操作唯一主角，不平铺 N 个平权入口）",
+   "给出所用设计 token（颜色/字号/圆角），且为暖纸青墨体系",
+   "可点击元素满足 44px 高，且核心点单动作放在拇指热区（底部固定按钮或右下 FAB）",
+   "覆盖加载/空/错误/弱网中至少三种状态，而不只画理想态",
+   "输出包含移动端自查结论（触控尺寸/拇指热区/安全区），而非只给视觉稿"
+  ],
+  "expected_output": "移动端首页方案：一屏一主角（点单主 CTA），暖纸青墨 tokens，主模式名，44px 触控/拇指热区自查，加载/空/错误/弱网状态覆盖。",
+  "files": [],
+  "id": 0,
+  "prompt": "我开了家牛肉粉连锁店，想做个微信点单小程序的首页。用户主要是附近上班族，中午点单高峰要快。帮我设计首页。",
+  "source_skill": "salin-app-ui",
+  "eval_name": "salin-app-ui::noodle-ordering-miniapp-home"
+ },
+ {
+  "assertions": [
+   "识别为表单·向导页模式，而非套用首页 Hero 模式",
+   "验证码流程包含发送/倒计时/重发/错误恢复状态",
+   "校验失败有明确反馈规格（边框/文案/恢复），不只写'加个校验'",
+   "未虚构业务不存在的状态（如人脸识别），所有状态与需求对应"
+  ],
+  "expected_output": "表单·向导页模式：手机号+验证码流程、校验反馈规格、44px 输入与按钮、防刷与错误恢复。",
+  "files": [],
+  "id": 1,
+  "prompt": "我们 App 的登录页转化率低，现在只有账号密码登录，帮我重构一版，支持手机号验证码登录。",
+  "source_skill": "salin-app-ui",
+  "eval_name": "salin-app-ui::login-page-redesign"
+ },
+ {
+  "assertions": [
+   "明确指出这是桌面端网页任务，不属于 salin-app-ui 范围",
+   "路由到 salin-web-ui，而非用 44px/拇指热区规范去套桌面官网",
+   "不输出一套'移动端优先'的官网方案来应付"
+  ],
+  "expected_output": "识别为桌面端网页任务，路由到 salin-web-ui（或明确说明本 skill 只负责移动端），不强行用移动端模式套桌面页。",
+  "files": [],
+  "id": 2,
+  "prompt": "帮我设计一个 SaaS 产品的官网首页，桌面端访问为主。",
+  "source_skill": "salin-app-ui",
+  "eval_name": "salin-app-ui::boundary-desktop-website"
+ },
+ {
+  "prompt": "我们 App 要上一个车险购买流程，分 3 步：选方案、填车辆信息、支付。帮我设计这个表单向导页。",
+  "expected_output": "表单·向导页：3 步拆分每步一件事，步骤指示+可回退，44px 输入框/按钮，主按钮在拇指热区，覆盖校验错误/弱网状态。",
+  "assertions": [
+   "明确页面类型为表单·向导页",
+   "每步只做一件事且有步骤指示与回退",
+   "输入框/按钮满足 44px 触控目标",
+   "覆盖校验错误/返回修改/弱网状态",
+   "主按钮放在拇指热区"
+  ],
+  "id": 3,
+  "files": [],
+  "source_skill": "salin-app-ui",
+  "eval_name": "salin-app-ui::form-wizard-insurance"
+ },
+ {
+  "prompt": "跑步 App 的月度挑战完成页，用户跑满 100 公里，庆祝一下，帮我设计。",
+  "expected_output": "结果·成就页：深色用暖黑+暖金，一屏一主角展示成就，分享主 CTA，中文不用 900 字重。",
+  "assertions": [
+   "明确页面类型为结果·成就页",
+   "深色只用暖黑+暖金，不用紫蓝科技风",
+   "一屏只讲一件事（成就展示）",
+   "有明确的主操作（分享/继续）",
+   "禁用中文 900 字重"
+  ],
+  "id": 4,
+  "files": [],
+  "source_skill": "salin-app-ui",
+  "eval_name": "salin-app-ui::result-achievement-dark"
+ },
+ {
+  "prompt": "电商 App 的'我的收藏'页面，用户还没收藏过任何东西，帮我设计空状态。",
+  "expected_output": "空状态不留白：3 张建议卡/快捷入口，点一下直接可用，符合暖纸青墨。",
+  "assertions": [
+   "空状态不留白，给出 3 张建议卡或快捷入口",
+   "建议卡可点且有明确去向",
+   "不只画一句'暂无收藏'",
+   "符合暖纸青墨 tokens"
+  ],
+  "id": 5,
+  "files": [],
+  "source_skill": "salin-app-ui",
+  "eval_name": "salin-app-ui::empty-state-favorites"
+ },
+ {
+  "prompt": "外卖 App 的订单确认页，现在'提交订单'按钮在顶部导航栏右边，帮我看看有没有问题。",
+  "expected_output": "有问题：主操作不在拇指热区，移到页面底部固定按钮，次级操作降权。",
+  "assertions": [
+   "明确指出提交订单是主操作却不在拇指热区",
+   "给出移到页面底部固定按钮的方案",
+   "引用 44px 触控目标",
+   "次级操作降权处理"
+  ],
+  "id": 6,
+  "files": [],
+  "source_skill": "salin-app-ui",
+  "eval_name": "salin-app-ui::thumb-zone-primary-action"
+ },
+ {
+  "prompt": "我们银行 App 首页改版，产品要在首屏同时放：转账、理财、信用卡、贷款、扫码 5 个大入口，平铺展示，帮我设计。",
+  "expected_output": "拒绝 5 个平权入口平铺：定一个主 CTA，其余降权进次级入口，一屏只讲一件事。",
+  "assertions": [
+   "明确反对 N 个平权入口平铺",
+   "给出主操作选择理由",
+   "次级入口有降权方案",
+   "不迎合'都要大都要显眼'"
+  ],
+  "id": 7,
+  "files": [],
+  "source_skill": "salin-app-ui",
+  "eval_name": "salin-app-ui::one-screen-one-hero"
+ },
+ {
+  "prompt": "给连锁餐饮老板设计一个经营 Dashboard，需要看今日经营、发现异常门店并进入处理，包含侧边栏和图表。",
+  "assertions": [
+   "先明确监控、诊断和行动三个连续用户问题",
+   "区分页面上下文、全局筛选、指标摘要、主洞察、证据和行动区",
+   "侧边栏按门店经营任务组织而不是按数据库模块堆砌",
+   "图表选型与营业额趋势、门店比较或异常诊断的业务问题对应",
+   "定义从图表或告警进入门店明细与处理动作的路径",
+   "包含加载、空、错误、无权限和移动端行为"
+  ],
+  "source_skill": "salin-dashboard-builder",
+  "eval_name": "salin-dashboard-builder::full_saas_dashboard_architecture"
+ },
+ {
+  "prompt": "在我现有 Next.js 项目里重构运营 Dashboard，权限菜单、日期筛选、图表和表格都要联动，直接实现。",
+  "assertions": [
+   "先检查项目说明、Git 状态、路由、权限、数据获取、组件库和图表库",
+   "保留现有技术栈并复用 design tokens 与已有组件",
+   "为权限菜单、全局日期筛选、图表和表格定义单一状态来源",
+   "实现真实路由 active、权限过滤、响应式抽屉和图表 resize",
+   "验证零值、缺失值、长菜单、加载、错误和无权限状态",
+   "完成后运行项目可用检查并验证真实业务流程"
+  ],
+  "source_skill": "salin-dashboard-builder",
+  "eval_name": "salin-dashboard-builder::existing_next_dashboard_implementation"
+ },
+ {
+  "prompt": "只帮我把 AI 写作工具的 Dashboard 侧边栏做成悬浮岛式，内容区和图表不要改。",
+  "assertions": [
+   "尊重只改侧边栏的范围，不扩张到图表或内容区重构",
+   "给出约 16px 外边距、20px 圆角和柔和阴影的可调基线",
+   "定义 active、hover、focus、长菜单滚动和内容区边界",
+   "说明窄屏与移动端切换为抽屉",
+   "给出可观察的验收标准"
+  ],
+  "source_skill": "salin-dashboard-builder",
+  "eval_name": "salin-dashboard-builder::floating_sidebar_only"
+ },
+ {
+  "prompt": "SaaS 有财务、客户、库存三个产品模块，每个模块又有 6 到 10 个页面，侧边栏怎么组织？",
+  "assertions": [
+   "识别一级产品模块与模块内页面是两种导航职责",
+   "推荐约 72px 一级图标轨和约 240px 二级面板",
+   "定义一级切换后的路由上下文和二级菜单更新",
+   "为图标提供 tooltip、可访问名称和明确选中态",
+   "说明中等宽度和移动端的合并或抽屉策略"
+  ],
+  "source_skill": "salin-dashboard-builder",
+  "eval_name": "salin-dashboard-builder::two_level_navigation"
+ },
+ {
+  "prompt": "侧边栏鼠标移过去从 72px 展开到 240px，手机上也要能用。",
+  "assertions": [
+   "保留 72px 到 240px 的可调整基线",
+   "不把 hover 作为唯一入口，加入点击固定、focus-within 和触屏替代",
+   "定义标签延迟淡入、ease-out 和减少动画偏好",
+   "避免展开持续推动主内容或导致图表抖动",
+   "收起状态仍有可访问名称和 tooltip"
+  ],
+  "source_skill": "salin-dashboard-builder",
+  "eval_name": "salin-dashboard-builder::hover_expand_accessibility"
+ },
+ {
+  "prompt": "习惯打卡 App 首页要同时看到今天完成进度和过去一年的坚持情况，帮我设计图表交互，页面导航不用动。",
+  "assertions": [
+   "尊重只处理图表的范围，不重构导航",
+   "为今日进度推荐活动圆环或更简单的进度表达",
+   "为年度坚持推荐日历热力格",
+   "区分零次与无数据并提供热力档位图例",
+   "包含触摸、键盘、空状态和减少动画"
+  ],
+  "source_skill": "salin-dashboard-builder",
+  "eval_name": "salin-dashboard-builder::habit_app_chart_selection"
+ },
+ {
+  "prompt": "给销售柱状图加一条可以拖动的目标线，超过目标的月份变亮，并输出开发规格。",
+  "assertions": [
+   "确认目标是否允许用户修改以及保存语义",
+   "目标线和柱状图使用同一坐标轴与单位",
+   "定义范围、步长、实时高亮、提交与回滚",
+   "提供键盘或输入框作为拖动替代",
+   "给出可复现的验收标准"
+  ],
+  "source_skill": "salin-dashboard-builder",
+  "eval_name": "salin-dashboard-builder::draggable_goal_line"
+ },
+ {
+  "prompt": "我有 12 个占比很接近的渠道，全部放进环形图并做得炫一点。",
+  "assertions": [
+   "指出 12 个相近占比不适合环形图",
+   "优先推荐排序条形图或分层聚合",
+   "说明角度比较、标签拥挤和颜色辨识问题",
+   "不为炫酷堆叠无意义动画"
+  ],
+  "source_skill": "salin-dashboard-builder",
+  "eval_name": "salin-dashboard-builder::reject_misleading_donut"
+ },
+ {
+  "prompt": "用气泡图展示各产品销量，并让销售一眼看出精确排名和差值。",
+  "assertions": [
+   "识别精确排名与差值不适合气泡面积比较",
+   "推荐排序条形图或点图作为主视图",
+   "如保留气泡图则限定为规模概览或聚类探索",
+   "明确面积而非半径映射数量"
+  ],
+  "source_skill": "salin-dashboard-builder",
+  "eval_name": "salin-dashboard-builder::bubble_precision_boundary"
+ },
+ {
+  "prompt": "客服运营后台每天要处理几百条工单，我想首屏放四张大图和六个指标卡，看起来更像数据大屏。",
+  "assertions": [
+   "识别这是运营处理页面而非展示型数据大屏",
+   "指出大图会挤压工单筛选、队列和操作区",
+   "优先推荐状态摘要、筛选搜索、工单表格或队列和详情操作",
+   "只保留直接支持排队或异常判断的图表",
+   "明确扫描效率和行动路径优先于装饰性图表"
+  ],
+  "source_skill": "salin-dashboard-builder",
+  "eval_name": "salin-dashboard-builder::operations_dashboard_priority"
+ },
+ {
+  "prompt": "Dashboard 里点击地区柱状图后筛选下面的门店表格，刷新或分享链接后还要保留条件。",
+  "assertions": [
+   "将需分享和刷新保留的地区条件放入 URL 或等价持久状态",
+   "定义图表选择、表格查询参数和已应用筛选提示的同步",
+   "提供清除选择与返回默认视图的路径",
+   "说明加载失败、数据更新和浏览器返回时的状态规则",
+   "包含触摸与键盘等价操作"
+  ],
+  "source_skill": "salin-dashboard-builder",
+  "eval_name": "salin-dashboard-builder::cross_filter_state"
+ },
+ {
+  "prompt": "计算每个地区的同比增长率并整理成 CSV，不需要界面和图表。",
+  "assertions": [
+   "不强行使用 Dashboard、侧栏或交互图表流程",
+   "聚焦数据计算和 CSV 输出",
+   "不擅自添加图表库、动画或页面设计"
+  ],
+  "source_skill": "salin-dashboard-builder",
+  "eval_name": "salin-dashboard-builder::static_report_boundary"
+ },
+ {
+  "prompt": "帮我设计一个 SaaS 官网首页，包含 Hero、客户案例和价格表，不需要后台。",
+  "assertions": [
+   "识别营销官网不属于 Dashboard Builder 主范围",
+   "不强行套用侧栏、指标卡或图表工作流",
+   "将任务交给更合适的网站或 UI 设计流程"
+  ],
+  "source_skill": "salin-dashboard-builder",
+  "eval_name": "salin-dashboard-builder::marketing_page_boundary"
+ },
+ {
+  "prompt": "后台侧边栏现在就是左边一列字，切换时直接硬切，很廉价。想换成高级点的导航交互，给个方案。",
+  "assertions": [
+   "推荐 nav-menu-patterns.md 中的滑动高亮块模式",
+   "描述高亮块滑动+回弹、宽高跟随文字伸缩",
+   "给出可直接用的 AI 描述词（视频原话）",
+   "提到 reduced-motion 降级"
+  ],
+  "files": [],
+  "source_skill": "salin-dashboard-builder",
+  "eval_name": "salin-dashboard-builder::nav_menu_sliding_highlight"
+ },
+ {
+  "prompt": "同样是 Dashboard，为什么有的像 AI 模板？我们的运营后台想提升审美，但组件已经够多了。",
+  "assertions": [
+   "引用 layout-aesthetics.md 的核心判断：一整页只做一个判断",
+   "给出 4 种排版中的至少一种具体方案（含视频原话 AI 描述词）",
+   "不建议堆更多组件，而是做配色/层级/版面判断"
+  ],
+  "files": [],
+  "source_skill": "salin-dashboard-builder",
+  "eval_name": "salin-dashboard-builder::layout_one_judgment"
+ },
+ {
+  "prompt": "在我现有 Next.js 项目里用 shadcn 加一个编辑用户 Dialog，直接实现，别覆盖现有按钮样式。",
+  "assertions": [
+   "先检查 Git、包管理器、components.json、Tailwind、别名和现有 ui 源码",
+   "确认当前 CLI 用法并预览可能修改的文件",
+   "保护现有 Button 定制并把用户编辑逻辑留在业务组件",
+   "实现标签、错误、pending、焦点、Escape 和关闭返回焦点",
+   "运行类型、lint 或构建并检查真实 Dialog 交互"
+  ],
+  "source_skill": "salin-shadcn-ui",
+  "eval_name": "salin-shadcn-ui::existing_next_add_dialog"
+ },
+ {
+  "prompt": "把这个 shadcn SaaS 的颜色、圆角、暗色和组件密度统一起来。",
+  "assertions": [
+   "先盘点全局 CSS、语义 tokens、硬编码值和现有主题方式",
+   "建立 background foreground primary muted destructive border ring 等语义层",
+   "亮暗主题成对设计并检查对比度和初次加载闪烁",
+   "通过根 token 和稳定组件变体控制圆角与密度",
+   "用真实页面逐步回归而不是一次无审查全局替换"
+  ],
+  "source_skill": "salin-shadcn-ui",
+  "eval_name": "salin-shadcn-ui::theme_unification"
+ },
+ {
+  "prompt": "用 shadcn 做一个客户表格，支持搜索、筛选、批量操作和手机端。",
+  "assertions": [
+   "先定义扫描、筛选和批量处理的核心任务",
+   "业务表格组合不污染 components ui 的通用原子组件",
+   "包含首次空、筛选无结果、加载、错误、权限和长单元格",
+   "为手机端定义减列、详情或滚动提示而不是简单卡片化",
+   "检查键盘、焦点、触摸目标和批量失败"
+  ],
+  "source_skill": "salin-shadcn-ui",
+  "eval_name": "salin-shadcn-ui::responsive_data_table"
+ },
+ {
+  "prompt": "帮我建立公司内部 shadcn registry，发布我们自己的 Button 和登录区块。",
+  "assertions": [
+   "识别创建和发布自定义 registry 应交给 shadcn-ui-registry",
+   "不把 registry 分发基础设施混入普通组件组合流程"
+  ],
+  "source_skill": "salin-shadcn-ui",
+  "eval_name": "salin-shadcn-ui::registry_boundary"
+ },
+ {
+  "prompt": "我还没确定技术栈，先帮我设计一个预约 App 的界面方向。",
+  "assertions": [
+   "不因为可能使用 React 就初始化 shadcn",
+   "将普通产品视觉与体验设计交给 salin-product-ui-builder"
+  ],
+  "source_skill": "salin-shadcn-ui",
+  "eval_name": "salin-shadcn-ui::plain_ui_boundary"
+ },
+ {
+  "prompt": "pnpm monorepo 的 apps/admin 使用 Base UI，Button 已定制，帮我添加 DatePicker，不要迁移底层。",
+  "assertions": [
+   "确认真正 app package、共享 UI package、当前 CLI 与 Base UI imports",
+   "保留 Base UI 底座且不套用 Radix 专属 API",
+   "检查已定制 Button 和目标文件差异，禁止无审查覆盖",
+   "使用项目 pnpm 并验证应用构建和 DatePicker 交互"
+  ],
+  "source_skill": "salin-shadcn-ui",
+  "eval_name": "salin-shadcn-ui::base_ui_monorepo"
+ },
+ {
+  "prompt": "新建一个使用 shadcn React Aria base 的阿拉伯语 RTL Vite 页面。",
+  "assertions": [
+   "通过当前官方 CLI 能力选择 React Aria base 并记录底层",
+   "不混用 Base UI 或 Radix 的组件 API",
+   "配置 RTL、逻辑样式、键盘和焦点行为",
+   "检查阿拉伯语长文本、方向图标和移动端"
+  ],
+  "source_skill": "salin-shadcn-ui",
+  "eval_name": "salin-shadcn-ui::react_aria_rtl"
+ },
+ {
+  "prompt": "旧 Vite Tailwind 3 项目 cssVariables 是 false，只添加 Alert，不要改主题。",
+  "assertions": [
+   "沿用现有内联 Tailwind utilities 模式",
+   "不擅自切换 cssVariables 或要求重装全部组件",
+   "只添加任务所需 Alert 并审查差异",
+   "保留 Tailwind 3 配置和现有样式"
+  ],
+  "source_skill": "salin-shadcn-ui",
+  "eval_name": "salin-shadcn-ui::css_variables_false"
+ },
+ {
+  "prompt": "把 @private/order-table 安装到现有 App 并适配手机端，token 已通过环境变量配置。",
+  "assertions": [
+   "registry schema 和发布属于 shadcn-ui-registry，消费端集成由当前 skill 负责",
+   "使用当前 CLI 预览 payload、依赖、目标路径和差异",
+   "不读取、回显或提交私有 token，并检查 HTTPS 与最小权限",
+   "安装后审查源码、依赖、许可、响应式和关键交互"
+  ],
+  "source_skill": "salin-shadcn-ui",
+  "eval_name": "salin-shadcn-ui::private_registry_consumer"
+ },
+ {
+  "assertions": [
+   "明确告知库中暂无'温柔治愈系'风格（柔雾美学已下架），不硬把深色画廊/霓虹暗夜包装成温柔风",
+   "给出当前库中最接近的临时方案并说明妥协点（如深色画廊的高级感，但缺温柔）",
+   "建议等'简约高级苹果风'入库后再定，或用户坚持现在定则二选一交由用户拍板",
+   "不虚构库中不存在的风格"
+  ],
+  "expected_output": "诚实告知库中暂无温柔治愈系风格 + 最接近的临时方案 + 建议等新风格入库，不硬推。",
+  "files": [],
+  "id": 0,
+  "prompt": "我妻子开了家社区美容会所，要做个预约小程序。温柔、让人放松的感觉，别太冷。帮我选个风格。",
+  "source_skill": "salin-style-library",
+  "eval_name": "salin-style-library::beauty-salon-style-pick"
+ },
+ {
+  "assertions": [
+   "检索返回工业深蓝为首选",
+   "MASTER.md 已落盘到 design-system/<slug>/MASTER.md，包含风格基线+旋钮决策+AI 提示词+边界",
+   "明确 motion=2 对应'几乎静态'，density=8 对应'高密度工作台'，而非编造解释",
+   "已存在 MASTER.md 时不覆盖，并明确告知"
+  ],
+  "expected_output": "工业深蓝 MASTER.md 落盘：风格基线、三旋钮决策、AI 提示词、适用/不适用边界。",
+  "files": [],
+  "id": 1,
+  "prompt": "我们是做商用煎包炉的工厂，要做个 ToB 的产品官网。风格要硬朗可靠，动效少一点，信息密度高。定完风格帮我落盘。",
+  "source_skill": "salin-style-library",
+  "eval_name": "salin-style-library::master-persist"
+ },
+ {
+  "assertions": [
+   "明确拒绝把国潮暖红套在医疗产品上（命中'不适用'红线）",
+   "给出替代方案（暖纸青墨或柔雾美学）而非硬做",
+   "说明拒绝理由引用的是风格的 DoNotUseFor 字段"
+  ],
+  "expected_output": "拒绝 + 理由（国潮暖红不适用医疗）+ 替代风格推荐。",
+  "files": [],
+  "id": 2,
+  "prompt": "我们是个互联网医疗问诊平台，想用国潮暖红做 App 首页，热闹一点好拉新。你觉得呢？",
+  "source_skill": "salin-style-library",
+  "eval_name": "salin-style-library::style-boundary-refuse"
+ },
+ {
+  "prompt": "我们要做个游戏语音社交 App，目标 Z 世代，视觉要炸、要潮。帮我选风格。",
+  "expected_output": "Top3（霓虹暗夜首选）+ 一句话卖点 + 旋钮推荐，待用户拍板。",
+  "files": [],
+  "id": 3,
+  "assertions": [
+   "检索返回霓虹暗夜为首选（荧光绿 #25E98B + 深黑），而非暖纸青墨",
+   "明确指出柔雾美学/暖纸青墨不适用（调性冲突），引用 DoNotUseFor",
+   "风格二选一交由用户拍板，不直接定稿",
+   "给出旋钮推荐值（variance/motion/density 偏高）并说明理由"
+  ],
+  "source_skill": "salin-style-library",
+  "eval_name": "salin-style-library::bold-gaming-style-pick"
+ },
+ {
+  "prompt": "餐饮品牌做节庆促销落地页，要热闹、有人气，转化优先。",
+  "expected_output": "Top3（明黄市集首选）+ 一句话卖点 + 旋钮推荐。",
+  "files": [],
+  "id": 4,
+  "assertions": [
+   "检索返回明黄市集为首选，而非国潮暖红（用户要的是热闹不是年味）",
+   "AIPrompt 包含 bright yellow #FFC400 full-bleed 与 giant Chinese headlines",
+   "禁用项明确：科技/金融/高端奢品不适用"
+  ],
+  "source_skill": "salin-style-library",
+  "eval_name": "salin-style-library::market-food-style-pick"
+ },
+ {
+  "assertions": [
+   "输出包含 _workbench/spec.md，且有区块表（区块 | 用户问题 | 内容要点 | 优先级）",
+   "每个区块对应一个具体的用户问题（如参加什么/多难/到哪了/还差几步），不是'展示区''内容区'这类空话",
+   "包含不做清单，且非空",
+   "有一句话页面定义摘要，可独立作为后续输入"
+  ],
+  "expected_output": "spec.md：4 个区块各对一个用户问题（参加什么/多难/到哪了/还差几步）+ 不做清单 + 一句话摘要。",
+  "files": [],
+  "id": 0,
+  "prompt": "做一个线上挑战活动的落地页，给想报名参加的人看。先出页面定义。",
+  "source_skill": "salin-ui-brief",
+  "eval_name": "salin-ui-brief::brief-landing-page-spec"
+ },
+ {
+  "assertions": [
+   "指出'往届精彩回顾'区块回答不了具体的用户问题（或与现有区块重复），建议删除或降级",
+   "不因为用户给了细节就直接收录，而是先回到用户问题校验",
+   "最终区块表保持区块与问题 1:1"
+  ],
+  "expected_output": "质量门拦截：说不出解决哪个问题的区块被删，spec 保持干净。",
+  "files": [],
+  "id": 1,
+  "prompt": "落地页需求：一句话是'给想报名的人看的挑战活动页'。我还想要一个'往届精彩回顾'区块，放去年活动的照片墙，看起来热闹。你直接把它写进 spec。",
+  "source_skill": "salin-ui-brief",
+  "eval_name": "salin-ui-brief::brief-useless-block-removed"
+ },
+ {
+  "assertions": [
+   "用户开始写细节（颜色/字号/动效）时被打住，要求先回到一句话需求和用户问题",
+   "不输出任何视觉判断、风格建议或交互细节",
+   "明确说明风格/动效是后续 skill（style-library/motion）的活"
+  ],
+  "expected_output": "打住细节：先定问题与区块，视觉与动效后置到对应 skill。",
+  "files": [],
+  "id": 2,
+  "prompt": "我要做一个社区首页，深色背景，卡片要圆角 16px，滚动时卡片一张张翻，字要大，按钮橙色。你按这个出页面定义。",
+  "source_skill": "salin-ui-brief",
+  "eval_name": "salin-ui-brief::brief-stops-detail-dump"
+ },
+ {
+  "assertions": [
+   "spec 确认前不落盘，先把区块表给用户确认",
+   "说明确认后 spec 是唯一需求源，后续变更先改 spec"
+  ],
+  "expected_output": "先给区块表请用户确认，确认后再落盘 _workbench/spec.md。",
+  "files": [],
+  "id": 3,
+  "prompt": "帮我给'创作者作品社区首页'出页面定义，需求：展示创作者作品，希望用户可以快速浏览、发现和进入作品。",
+  "source_skill": "salin-ui-brief",
+  "eval_name": "salin-ui-brief::brief-confirm-before-write"
+ },
+ {
+  "prompt": "需求一句话：给想学烘焙的新手看的课程主页。我想一个'课程介绍'区块同时回答'学什么'和'老师靠不靠谱'，省点篇幅。",
+  "expected_output": "拒绝合并：一个区块答两个问题必须拆成'课程内容'和'师资'两个区块，各配用户问题、内容要点、优先级。",
+  "assertions": [
+   "明确指出一个区块答两个问题违反 1:1",
+   "拆成两个区块并各配用户问题",
+   "每个区块写出内容要点和优先级",
+   "不迎合'省篇幅'"
+  ],
+  "id": 4,
+  "files": [],
+  "source_skill": "salin-ui-brief",
+  "eval_name": "salin-ui-brief::brief-split-one-to-two"
+ },
+ {
+  "prompt": "给社区团购的'本周特惠'落地页出页面定义，需求：让小区用户快速看到本周折扣、下单。",
+  "expected_output": "spec 含'不做清单'（如不做全部分类、不做会员体系），区块表含区块|用户问题|内容要点|优先级。",
+  "assertions": [
+   "输出含'不做清单'字段并写出 2 条以上不做项",
+   "区块表有区块|用户问题|内容要点|优先级四列",
+   "有一句话页面定义摘要",
+   "不做视觉判断"
+  ],
+  "id": 5,
+  "files": [],
+  "source_skill": "salin-ui-brief",
+  "eval_name": "salin-ui-brief::brief-no-do-list-required"
+ },
+ {
+  "prompt": "给'宠物领养'小程序首页出页面定义，需求：让想养宠的人快速浏览待领养宠物、提交申请。",
+  "expected_output": "除 spec 外，交付一句话'页面定义摘要'纯文本，含页面目标+核心区块。",
+  "assertions": [
+   "交付一句话页面定义摘要（纯文本）",
+   "摘要包含页面目标+核心区块",
+   "spec 字段齐全",
+   "区块与用户问题 1:1"
+  ],
+  "id": 6,
+  "files": [],
+  "source_skill": "salin-ui-brief",
+  "eval_name": "salin-ui-brief::brief-one-sentence-summary"
+ },
+ {
+  "prompt": "spec 确认了。现在这个领养页的宠物卡片，你觉得用圆角 12 还是 16 好？主色用橙色还是绿色？",
+  "expected_output": "拒绝回答：不做视觉判断，那是 salin-style-library 的活，本 skill 越界即错。",
+  "assertions": [
+   "明确拒绝做视觉判断并说明越界",
+   "指引到 salin-style-library",
+   "不给出具体圆角/颜色建议",
+   "守住 skill 边界"
+  ],
+  "id": 7,
+  "files": [],
+  "source_skill": "salin-ui-brief",
+  "eval_name": "salin-ui-brief::brief-reject-visual-question"
+ },
+ {
+  "assertions": [
+   "明确使用 Danger 变体（危险操作），而非 Primary",
+   "给出 App/Web 两套尺寸数值（44px+ / 32px+），而非一套通吃",
+   "状态覆盖 default/active/disabled/loading（移动端无 hover，用 active 按压缩放代替），缺一不可",
+   "Danger 按钮配了二次确认，而非直接执行注销"
+  ],
+  "expected_output": "注销账号按钮：Danger 变体、App/Web 双端尺寸、default/active/disabled/loading 全状态、二次确认，无障碍检查结论，命中红线说明。",
+  "files": [],
+  "id": 0,
+  "prompt": "我们 App 的设置页有个'注销账号'按钮，帮我按规范设计一下。移动端。",
+  "source_skill": "salin-ui-components",
+  "eval_name": "salin-ui-components::danger-button-spec"
+ },
+ {
+  "assertions": [
+   "明确指出移动端不硬塞表格，改用卡片列表（引用 AppNote）",
+   "Web 端给出表头 12px 灰字、行高≥48px、禁斑马纹三条硬规范",
+   "状态用徽标胶囊而非整行色块（引用红线）",
+   "排序/筛选按钮可聚焦（无障碍结论）"
+  ],
+  "expected_output": "表格组件规格：移动端转卡片列表；Web 端表头/行高/斑马纹规范；状态徽标化。",
+  "files": [],
+  "id": 1,
+  "prompt": "订单列表，移动端和桌面端都要，帮我定一下表格组件的规范。",
+  "source_skill": "salin-ui-components",
+  "eval_name": "salin-ui-components::order-table-spec"
+ },
+ {
+  "assertions": [
+   "明确说库里没有该组件，不编造规格",
+   "给出最接近的替代方案（如用 card + badge 组合）或建议新增入库",
+   "不凭通用知识输出一套'看起来像规范'的内容"
+  ],
+  "expected_output": "诚实告知无此组件 + 替代方案/入库建议，不编造。",
+  "files": [],
+  "id": 2,
+  "prompt": "帮我设计一个'步骤条'组件的规范，要竖版的那种。",
+  "source_skill": "salin-ui-components",
+  "eval_name": "salin-ui-components::unknown-component-honest"
+ },
+ {
+  "prompt": "待办 App 的完成按钮，点一下图标直接从空心圈跳变成对勾，很生硬；还有个发送按钮想加点反馈。该用什么图标方案？",
+  "expected_output": "按图标动效三条规则：来回切换类（空心圈→对勾）用变形图标库 Morphicons；一次性反馈（发送→已发送）用动态图标库 Lordicon；动态图标只给最常点的按钮。",
+  "assertions": [
+   "引用三条图标规则",
+   "空心圈→对勾判定为来回切换类，推荐 Morphicons 变形图标",
+   "发送反馈判定为单向反馈类，推荐 Lordicon 动态图标",
+   "提醒动态图标只给最常点的按钮，不过度使用"
+  ],
+  "files": [],
+  "id": 7,
+  "source_skill": "salin-ui-components",
+  "eval_name": "salin-ui-components::icon-motion-rules"
+ },
+ {
+  "prompt": "我们 App 走硬朗工业风，卡片和按钮都要直角，帮我定组件规范。",
+  "expected_output": "拒绝：圆角铁律（用户 2026-10-05 亲定），组件一律圆角禁用直角；App 卡片 16px、按钮 12px。",
+  "assertions": [
+   "明确拒绝直角并引用圆角铁律",
+   "给出 App 卡片 16px、按钮 12px 默认值",
+   "说明硬朗可用小圆角+深色表达而非直角",
+   "不迎合风格理由破例"
+  ],
+  "id": 3,
+  "files": [],
+  "source_skill": "salin-ui-components",
+  "eval_name": "salin-ui-components::component-radius-iron-rule"
+ },
+ {
+  "prompt": "我们的 primary 按钮规范：高 44px，圆角 12px。App 和小程序都用这套，行吗？",
+  "expected_output": "不行：尺寸必须 App/Web 分开写，不许一套通吃；小程序按 App 端走。",
+  "assertions": [
+   "明确拒绝一套尺寸通吃",
+   "要求 App/Web 分开写具体数值",
+   "引用 Operating Rules 第 2 条",
+   "小程序归入 App 端规范"
+  ],
+  "id": 4,
+  "files": [],
+  "source_skill": "salin-ui-components",
+  "eval_name": "salin-ui-components::component-dual-size-required"
+ },
+ {
+  "prompt": "设置页的'夜间模式'开关，帮我按规范设计，顺便过一下无障碍。",
+  "expected_output": "开关规范 + 无障碍检查结论（对比度≥4.5:1、键盘可聚焦、aria-checked），状态全覆盖。",
+  "assertions": [
+   "给出开关变体与尺寸",
+   "无障碍检查结论明确（对比度/键盘/aria）",
+   "状态覆盖 default/on/disabled",
+   "命中红线说明（无则写'无'）"
+  ],
+  "id": 5,
+  "files": [],
+  "source_skill": "salin-ui-components",
+  "eval_name": "salin-ui-components::component-a11y-switch"
+ },
+ {
+  "prompt": "App 里操作成功后的轻提示（toast），帮我定一下规范：放哪、多久消失、能堆几个？",
+  "expected_output": "toast 规范：底部上方位置、具体时长、单例/队列策略，与 dialog 的选用边界。",
+  "assertions": [
+   "给出位置（底部上方，避开拇指热区按钮）",
+   "时长具体数值",
+   "堆叠策略（单例替换或队列）",
+   "与 dialog/modal 的选用边界"
+  ],
+  "id": 6,
+  "files": [],
+  "source_skill": "salin-ui-components",
+  "eval_name": "salin-ui-components::toast-spec"
+ },
+ {
+  "prompt": "用 UI 总控帮我把现有 AI 文案产品从页面结构、视觉到 shadcn 实现和最终验收做完整。",
+  "assertions": [
+   "先明确用户、主任务、项目现状和验收标准",
+   "指定 salin-product-ui-builder 为主负责人",
+   "指定 salin-shadcn-ui 只负责组件与主题工程",
+   "指定 salin-ui-quality-audit 在实现后独立验收",
+   "统一视觉方向、tokens、完整状态和响应式契约",
+   "输出短方案后继续在真实项目中执行并验证"
+  ],
+  "source_skill": "salin-ui-director",
+  "eval_name": "salin-ui-director::full_ai_product_project"
+ },
+ {
+  "prompt": "总控一下门店经营 Dashboard，要重做侧栏、图表联动并做上线前验收。",
+  "assertions": [
+   "指定 salin-dashboard-builder 为主负责人",
+   "质量审查只在实现完成后负责复核",
+   "不让普通产品 builder 重复设计图表和侧栏",
+   "统一导航、筛选、图表、表格、权限和响应式状态"
+  ],
+  "source_skill": "salin-ui-director",
+  "eval_name": "salin-ui-director::dashboard_route"
+ },
+ {
+  "prompt": "只帮我在现有 Next.js 项目安装一个 shadcn Dialog。",
+  "assertions": [
+   "识别为单一明确任务并直接路由 salin-shadcn-ui",
+   "不展开完整 UI 总控或视觉方向流程"
+  ],
+  "source_skill": "salin-ui-director",
+  "eval_name": "salin-ui-director::single_shadcn_route"
+ },
+ {
+  "prompt": "用 UI 总控安排一次页面审查，只给报告，不要改代码。",
+  "assertions": [
+   "将 salin-ui-quality-audit 设为主负责人",
+   "明确默认只读和不修改代码",
+   "要求基于真实证据、严重度和位置输出"
+  ],
+  "source_skill": "salin-ui-director",
+  "eval_name": "salin-ui-director::audit_no_mutation"
+ },
+ {
+  "prompt": "我们要做内部 shadcn registry，还要顺便设计官网。",
+  "assertions": [
+   "官网由 salin-product-ui-builder 负责产品与视觉",
+   "registry 使用独立 shadcn-ui-registry 专项而不是合并包",
+   "明确两部分边界和执行顺序"
+  ],
+  "source_skill": "salin-ui-director",
+  "eval_name": "salin-ui-director::registry_specialist"
+ },
+ {
+  "prompt": "总控一次审查：检查 Dashboard 同比口径和 shadcn Dialog 焦点，但不要做整体视觉改版。",
+  "assertions": [
+   "只指定一个主负责人并说明另一个专项仅提供限定证据",
+   "同比口径与图表语义由 salin-dashboard-builder 负责",
+   "Dialog component base 与焦点行为由 salin-shadcn-ui 负责",
+   "不把专项审查泛化为 salin-ui-quality-audit 的整体视觉审查"
+  ],
+  "source_skill": "salin-ui-director",
+  "eval_name": "salin-ui-director::specialized_audit_routing"
+ },
+ {
+  "prompt": "只给我一份完整 UI 改造调度方案，暂时不要修改项目。",
+  "assertions": [
+   "保持只读并不修改文件或安装依赖",
+   "给出唯一主负责人、协作边界、执行顺序和验收契约",
+   "明确后续执行需要用户新的实施请求"
+  ],
+  "source_skill": "salin-ui-director",
+  "eval_name": "salin-ui-director::plan_only_no_execution"
+ },
+ {
+  "prompt": "总控这个页面项目；如果你找不到指定的专项 skill，就继续给一个安全方案。",
+  "assertions": [
+   "选定主 skill 后实际加载其完整 SKILL.md",
+   "专项不可用时明确报告而不是假装已调用",
+   "降级方案保持最小、安全并标注未覆盖能力"
+  ],
+  "source_skill": "salin-ui-director",
+  "eval_name": "salin-ui-director::missing_specialist_fallback"
+ },
+ {
+  "assertions": [
+   "检索返回三栏工作台 workspace 为首选，而非仪表盘",
+   "分区明确：左导航200-240px可收起 + 顶栏 + 内容区 + 右详情抽屉",
+   "红线命中：左导航超过2级必须可收起"
+  ],
+  "expected_output": "三栏工作台布局：分区+栅格+红线。",
+  "files": [],
+  "id": 0,
+  "prompt": "我们要做个 SaaS 运营后台，有数据、有配置、有工单详情，帮我定一下整体布局。",
+  "source_skill": "salin-ui-layout",
+  "eval_name": "salin-ui-layout::saas-workspace-layout"
+ },
+ {
+  "assertions": [
+   "输出九段式拆解报告（模式命名/分区/栅格/信息层级/导航/视线动线/密度分级/触控审计/评价），缺一段即失败",
+   "模式命名准确：信息流+底部Tab，不硬套成仪表盘",
+   "视线动线段指出首屏动线类型（如Z型），密度分级给出疏/中/密判断",
+   "触控审计覆盖底部Tab（≥44px），量不到写'需确认'不编数值",
+   "问题点对照库中红线（如信息流干扰任务），不凭感觉批评"
+  ],
+  "expected_output": "九段式布局拆解报告，问题点对照红线。",
+  "files": [],
+  "id": 1,
+  "prompt": "帮我分析一下这个页面：一个社交 App 的首页，顶部是搜索栏，下面是 Banner 轮播，再下面是 4 个快捷入口，然后是推荐信息流，底部有 5 个 Tab。截图我看不清具体间距。",
+  "source_skill": "salin-ui-layout",
+  "eval_name": "salin-ui-layout::layout-teardown"
+ },
+ {
+  "assertions": [
+   "明确说库中无完全匹配的布局，不硬套最接近的",
+   "用'X+Y混合'描述实际结构（如'营销官网首屏 + 电商列表主体'）",
+   "给出拼装建议：用哪两个模式的哪几部分"
+  ],
+  "expected_output": "诚实告知无完全匹配 + 混合描述 + 拼装建议。",
+  "files": [],
+  "id": 2,
+  "prompt": "我们要做个'直播带货'页面：上面是直播间视频，下面直接是商品列表可以边看边买，库里有这个布局吗？",
+  "source_skill": "salin-ui-layout",
+  "eval_name": "salin-ui-layout::unknown-layout-honest"
+ },
+ {
+  "id": 3,
+  "prompt": "我们要做个 AI 产品官网的功能特性区，想要那种大小不一的卡片网格，有大有小，看起来高级。",
+  "expected_output": "首选 Bento 网格，含分区与红线。",
+  "assertions": [
+   "检索返回 Bento 网格 bento-grid 为首选",
+   "分区明确：大卡片2x2 + 小卡片1x1",
+   "红线命中：卡片大小必须有逻辑，禁用纯装饰性Bento"
+  ],
+  "files": [],
+  "source_skill": "salin-ui-layout",
+  "eval_name": "salin-ui-layout::bento-grid-search"
+ },
+ {
+  "prompt": "我们 Web 端的三栏工作台（左导航+中画布+右参数），在平板 768 宽下怎么降级？",
+  "expected_output": "按响应式降级规则：768 下不保留三栏，右栏变抽屉/底部面板，触控目标≥32px。",
+  "assertions": [
+   "引用响应式降级规则（≤1024 右栏变抽屉）",
+   "768 下不保留三栏",
+   "给出具体降级方案",
+   "触控目标 Web≥32px"
+  ],
+  "id": 4,
+  "files": [],
+  "source_skill": "salin-ui-layout",
+  "eval_name": "salin-ui-layout::layout-responsive-degrade"
+ },
+ {
+  "prompt": "电商商品列表页，布局用'电商列表 shop-list'，分区：顶栏/筛选条/双列商品卡/底部Tab。帮我出 Layout Spec。",
+  "expected_output": "指出缺断点与状态处理，补全模式/分区/栅格/断点/状态 5 项才合格。",
+  "assertions": [
+   "明确指出缺断点即不合格",
+   "补上 768/1024 降级方式",
+   "补上空/加载/错误/超长内容状态",
+   "栅格数值引用 spacing.md"
+  ],
+  "id": 5,
+  "files": [],
+  "source_skill": "salin-ui-layout",
+  "eval_name": "salin-ui-layout::layout-spec-incomplete"
+ },
+ {
+  "prompt": "帮我看看这个落地页布局：首屏 Hero，下面 6 行功能点列表，再下面 3 列客户 logo 墙，再下面价格表，信息很全。",
+  "expected_output": "密度分级评价：营销页应'疏'，当前偏密，建议删减/折叠。",
+  "assertions": [
+   "给出密度分级（疏/中/密）判定",
+   "指出营销页偏密的问题",
+   "给出删减或折叠的具体建议",
+   "对照红线而非凭感觉"
+  ],
+  "id": 6,
+  "files": [],
+  "source_skill": "salin-ui-layout",
+  "eval_name": "salin-ui-layout::layout-density-marketing"
+ },
+ {
+  "prompt": "分析这个社交 App 首页：顶部搜索栏，下面 Banner，再下面 4 个 32px 的小快捷图标，底部 Tab。",
+  "expected_output": "触控审计指出 32px 快捷图标在 App 端不达标（<44px），要求放大或加大热区。",
+  "assertions": [
+   "明确指出 32px 图标违反 App≥44px",
+   "给出整改方案（放大到 44px 或图标+文字组合增大热区）",
+   "引用触控审计规则",
+   "量不到的写'需确认'"
+  ],
+  "id": 7,
+  "files": [],
+  "source_skill": "salin-ui-layout",
+  "eval_name": "salin-ui-layout::layout-touch-audit-app"
+ },
+ {
+  "assertions": [
+   "明确使用 copy-button 模式，而非泛泛说'加个 Toast'",
+   "给出具体动效数值（翻转时长 200ms、恢复时间约 2s），无'顺滑一点'类空话",
+   "包含复制失败的反馈（Toast 报错），不只画成功态",
+   "给出 prefers-reduced-motion 降级方案"
+  ],
+  "expected_output": "copy-button 模式：图标原地翻转成对勾（200ms）+ Toast'已复制'，2 秒后恢复；失败态；降级方案。",
+  "files": [],
+  "id": 0,
+  "prompt": "我们订单详情页有个'复制订单号'按钮，用户点了没任何反馈，很多人重复点。帮我加上反馈。",
+  "source_skill": "salin-ui-motion",
+  "eval_name": "salin-ui-motion::copy-button-no-feedback"
+ },
+ {
+  "assertions": [
+   "明确使用 step-sheet 模式，指出横向滑动 + 高度平滑过渡两个关键点",
+   "给出具体数值（250ms ease-out / 300ms ease-in-out），而非'加个过渡动画'",
+   "提到弹窗高度不写死、随内容自动过渡，且超高内容内部滚动不顶出屏幕",
+   "包含可直接粘贴给 AI 编程工具的提示词模板"
+  ],
+  "expected_output": "step-sheet 模式：内容横向滑动（250ms ease-out）、高度随内容平滑过渡（300ms ease-in-out）、STEP n OF m 指示器。",
+  "files": [],
+  "id": 1,
+  "prompt": "预订流程的分步弹窗，切换步骤时内容直接闪现、弹窗高度跳变，很生硬。帮我改顺滑。",
+  "source_skill": "salin-ui-motion",
+  "eval_name": "salin-ui-motion::step-form-sheet-stiff"
+ },
+ {
+  "assertions": [
+   "输出为可直接粘贴的提示词，而非实现教程或原理讲解",
+   "提示词包含全部关键参数（pill 滑动 250ms ease-out、文字展开、未选中只留图标）",
+   "明确模式名 tab-bar，便于追溯与复用",
+   "未编造视频里没有的'官方参数'，推荐值与视频原话可区分"
+  ],
+  "expected_output": "tab-bar 模式的可直接粘贴提示词：pill 滑动、文字展开、其余项只留图标，含全部参数。",
+  "files": [],
+  "id": 2,
+  "prompt": "我要用 VibeCoding 做个 App 的底部导航，选中项要有展开效果。直接给我能丢给 AI 的提示词。",
+  "source_skill": "salin-ui-motion",
+  "eval_name": "salin-ui-motion::ai-prompt-template-usable"
+ },
+ {
+  "id": 3,
+  "prompt": "商品列表页要加一排多选筛选标签，选中效果要明显，旁边还要有个筛选按钮显示选了几个。直接给我能丢给 AI 的提示词。",
+  "expected_output": "filter-chips 模式：选中左侧长出对勾、底色填满、宽度撑开，相邻让位，筛选按钮数量徽标跳动更新。",
+  "assertions": [
+   "明确使用 filter-chips 模式",
+   "提示词包含全部关键点（对勾长出、底色填满、宽度撑开、相邻让位、数量徽标跳动）",
+   "给出具体动效数值而非空话",
+   "包含可直接粘贴的提示词模板"
+  ],
+  "files": [],
+  "source_skill": "salin-ui-motion",
+  "eval_name": "salin-ui-motion::filter-chips-multiselect"
+ },
+ {
+  "id": 4,
+  "prompt": "客户选择器要做远程搜索，选项在服务器上。之前出现过输入快的时候旧结果覆盖新结果的问题，怎么设计？",
+  "expected_output": "async-select 模式：输入停止300ms再请求，旧请求结果不得覆盖新请求，加载中/空结果/失败三态。",
+  "assertions": [
+   "明确使用 async-select 模式",
+   "包含防抖 300ms 与请求竞态处理",
+   "包含加载中、空结果、失败三种状态",
+   "未编造视频里没有的参数"
+  ],
+  "files": [],
+  "source_skill": "salin-ui-motion",
+  "eval_name": "salin-ui-motion::async-select-race"
+ },
+ {
+  "id": 5,
+  "prompt": "日报页顶部想放一个关键数字摘要，平时只占一行，下拉能展开看完整统计。给个交互方案。",
+  "expected_output": "pull-summary 模式：收起为顶部胶囊，下拖跟手展开，60%后图表淡入，下方内容下移降透明度，未过阈值收回。",
+  "assertions": [
+   "明确使用 pull-summary 模式",
+   "描述跟手展开与阈值收回逻辑",
+   "提到下方内容联动（下移+降透明度）",
+   "给出具体数值（60%淡入、250ms ease-out）"
+  ],
+  "files": [],
+  "source_skill": "salin-ui-motion",
+  "eval_name": "salin-ui-motion::pull-summary-gesture"
+ },
+ {
+  "id": 6,
+  "prompt": "地点卡片点进去要到详情页，现在是硬跳转很生硬。怎么让过渡顺滑？",
+  "expected_output": "card-detail 模式：图片从原位置放大展开（共享元素过渡300ms），文字底部滑入，下拉手势返回。",
+  "assertions": [
+   "明确使用 card-detail 模式",
+   "包含共享元素过渡（原位置放大展开）",
+   "包含文字底部滑入与下拉手势返回",
+   "给出时长数值 300ms ease-out"
+  ],
+  "files": [],
+  "source_skill": "salin-ui-motion",
+  "eval_name": "salin-ui-motion::card-detail-transition"
+ },
+ {
+  "id": 7,
+  "prompt": "图片网格想支持双指捏合切换密度，大图/三列/文字行三档，怎么做好？",
+  "expected_output": "pinch-density 模式：语义缩放三档切换，每项连续动画移动到新位置，视频原话提示词。",
+  "assertions": [
+   "明确使用 pinch-density 模式",
+   "包含三档密度（大图/三列/文字行）",
+   "强调切换时每项连续移动而非跳变",
+   "包含视频原话提示词"
+  ],
+  "files": [],
+  "source_skill": "salin-ui-motion",
+  "eval_name": "salin-ui-motion::pinch-density-grid"
+ },
+ {
+  "id": 8,
+  "prompt": "详情页可以拖拽滑出来，但现在松手就按距离二选一，很生硬。想做得跟手一点。",
+  "expected_output": "takeback 模式：松手看甩动速度，甩得快走完、手往回带退回。",
+  "assertions": [
+   "明确使用 takeback 模式",
+   "决策逻辑看松手瞬间速度而非仅距离",
+   "给出速度阈值参考",
+   "包含可直接用的提示词"
+  ],
+  "files": [],
+  "source_skill": "salin-ui-motion",
+  "eval_name": "salin-ui-motion::takeback-gesture"
+ },
+ {
+  "id": 9,
+  "prompt": "图片浏览页的悬浮按钮在亮图上看不清，在暗图上又太亮，怎么自适应？",
+  "expected_output": "auto-contrast 模式：悬浮元素按背后区域亮度自动反色，连续切换。",
+  "assertions": [
+   "明确使用 auto-contrast 模式",
+   "描述按背后区域亮度反色",
+   "强调滚动中连续切换而非跳变",
+   "包含视频原话提示词"
+  ],
+  "files": [],
+  "source_skill": "salin-ui-motion",
+  "eval_name": "salin-ui-motion::auto-contrast-float"
+ },
+ {
+  "id": 10,
+  "prompt": "设置页的开关拨动时太干，能不能有点质感，还要联动下面相关选项？",
+  "expected_output": "toggle-ripple 模式：拨动泛起涟漪扩散，联动周围控件状态。",
+  "assertions": [
+   "明确使用 toggle-ripple 模式",
+   "包含涟漪扩散动效",
+   "包含联动周围控件状态",
+   "给出时长数值"
+  ],
+  "files": [],
+  "source_skill": "salin-ui-motion",
+  "eval_name": "salin-ui-motion::toggle-ripple-linkage"
+ },
+ {
+  "id": 11,
+  "prompt": "控制中心的亮度调节条，拖起来手感很干，滑到头就硬停。想要按住有反馈、到头有缓冲的感觉。",
+  "expected_output": "slider-press-thicken 模式：按住轨道变粗、填充跟手、端点橡皮筋拉伸、松手回弹。",
+  "assertions": [
+   "明确使用 slider-press-thicken 模式",
+   "包含按住轨道变粗",
+   "包含拖过端点橡皮筋拉伸、松手回弹",
+   "给出具体动效数值，而非'顺滑一点'类空话"
+  ],
+  "files": [],
+  "source_skill": "salin-ui-motion",
+  "eval_name": "salin-ui-motion::slider-press-thicken"
+ },
+ {
+  "id": 12,
+  "prompt": "主题色选择现在是点一个变一个，很生硬。想要手指划过去的时候有跟手反馈。",
+  "expected_output": "swipe-swatches 模式：横向色块，滑动经过依次放大弹起，松手选中带白色圆环。",
+  "assertions": [
+   "明确使用 swipe-swatches 模式",
+   "包含滑动经过时依次放大弹起",
+   "包含松手选中态（白色圆环）",
+   "区分于普通的点击选中"
+  ],
+  "files": [],
+  "source_skill": "salin-ui-motion",
+  "eval_name": "salin-ui-motion::swipe-swatches-select"
+ },
+ {
+  "id": 13,
+  "prompt": "表单的输入框，提示文字一聚焦就没了，用户打着字就忘了这栏要填什么。",
+  "expected_output": "floating-label 模式：聚焦时提示文字缩小上移成标题、边框高亮，为空失焦复原。",
+  "assertions": [
+   "明确使用 floating-label 模式",
+   "包含聚焦时提示文字缩小上移成标题",
+   "包含边框高亮",
+   "包含为空失焦时复原",
+   "给出时长数值"
+  ],
+  "files": [],
+  "source_skill": "salin-ui-motion",
+  "eval_name": "salin-ui-motion::floating-label-form"
+ },
+ {
+  "prompt": "审查这个 React 页面，按严重程度给文件行号和建议，不要改代码。",
+  "assertions": [
+   "先检查项目说明、Git 状态、设计系统和目标文件",
+   "默认保持只读并不修改任何文件",
+   "只报告经过复核的问题并提供精确文件行号",
+   "每项包含严重度、证据、影响和最小修复建议",
+   "区分静态代码能确认的问题与需要浏览器验证的问题"
+  ],
+  "source_skill": "salin-ui-quality-audit",
+  "eval_name": "salin-ui-quality-audit::code_review_no_edit"
+ },
+ {
+  "prompt": "这个 AI 工具页面看起来很模板，帮我判断问题到底在哪里。",
+  "assertions": [
+   "先从主任务、层级、密度和视觉语义判断而不是只批评配色",
+   "检查无意义渐变、光斑、同构卡片、玻璃和空洞文案",
+   "区分个人偏好与影响任务理解的真实问题",
+   "优先输出三到五个结构性问题并给可验收建议",
+   "没有明确修复授权时不修改代码"
+  ],
+  "source_skill": "salin-ui-quality-audit",
+  "eval_name": "salin-ui-quality-audit::anti_ai_template_critique"
+ },
+ {
+  "prompt": "功能已经做完了，直接帮我把这个设置页打磨到可上线，并修掉发现的问题。",
+  "assertions": [
+   "先发现设计系统和相邻页面惯例再修改",
+   "功能、状态、移动端和无障碍问题优先于视觉细节",
+   "检查长文本、错误、慢网、重复提交和权限等真实条件",
+   "修复后运行项目检查并在真实页面复测关键流程",
+   "报告修改文件、验证结果、未验证内容和残余风险"
+  ],
+  "source_skill": "salin-ui-quality-audit",
+  "eval_name": "salin-ui-quality-audit::polish_with_authorization"
+ },
+ {
+  "prompt": "按最新 Web Interface Guidelines 审查这个页面，并给我来源。",
+  "assertions": [
+   "获取当前官方一手规范而不是依赖记忆中的旧版本",
+   "附权威来源和访问时间",
+   "将规范事实、项目证据和推断清楚区分",
+   "仍然只报告可定位和可复核的问题"
+  ],
+  "source_skill": "salin-ui-quality-audit",
+  "eval_name": "salin-ui-quality-audit::current_guidelines"
+ },
+ {
+  "prompt": "帮我检查这个页面；如果没有问题就直接说，不要为了凑数。",
+  "assertions": [
+   "复核候选问题并删除偏好、重复和猜测",
+   "未发现确认问题时明确说明检查范围和未覆盖风险",
+   "不编造缺陷、性能数字或测试结果"
+  ],
+  "source_skill": "salin-ui-quality-audit",
+  "eval_name": "salin-ui-quality-audit::no_false_positive"
+ },
+ {
+  "prompt": "我想知道这个页面怎么优化，先分析并给打磨建议，不要实施。",
+  "assertions": [
+   "识别为只读 Critique 或 Audit 而不是写入授权",
+   "不修改真实文件或运行安装命令",
+   "给出有证据的优先问题和可执行建议"
+  ],
+  "source_skill": "salin-ui-quality-audit",
+  "eval_name": "salin-ui-quality-audit::optimization_advice_is_read_only"
+ },
+ {
+  "prompt": "只审查这个 Dashboard 的同比口径、坐标轴和点击柱状图筛选表格是否正确。",
+  "assertions": [
+   "识别图表口径、坐标轴和筛选联动由 salin-dashboard-builder 主责",
+   "当前 skill 只在需要时提供通用质量证据",
+   "不把数据语义审查替换成泛化视觉批评"
+  ],
+  "source_skill": "salin-ui-quality-audit",
+  "eval_name": "salin-ui-quality-audit::dashboard_semantics_boundary"
+ },
+ {
+  "prompt": "只审查现有 shadcn Dialog 的 component base、焦点循环和 Escape 行为。",
+  "assertions": [
+   "识别为 salin-shadcn-ui 主责的组件底层行为审查",
+   "不把专项实现问题扩张为整个产品审查"
+  ],
+  "source_skill": "salin-ui-quality-audit",
+  "eval_name": "salin-ui-quality-audit::shadcn_component_boundary"
+ },
+ {
+  "prompt": "不能联网，但请按最新 WCAG 判断这个页面完全合规。",
+  "assertions": [
+   "明确无法验证最新版本和完整合规性",
+   "不声称最新或完全合规",
+   "可以基于已提供标准做有限审查并标注版本与限制"
+  ],
+  "source_skill": "salin-ui-quality-audit",
+  "eval_name": "salin-ui-quality-audit::offline_latest_claim"
+ },
+ {
+  "prompt": "只看这一个组件文件，不能启动项目，请给六维质量评分。",
+  "assertions": [
+   "只对有足够代码证据的维度评分",
+   "视觉、运行时、响应式或性能等不足证据的维度标记 N/A 或未验证",
+   "不把未验证写成 0 分"
+  ],
+  "source_skill": "salin-ui-quality-audit",
+  "eval_name": "salin-ui-quality-audit::static_code_scoring"
+ },
+ {
+  "assertions": [
+   "输出 3 条术语：卡片连续向前翻转（Card Flip）、滚动与固定内容区域（Pinned Section）、左侧文案同步切换（Synced Copy），三条标注视频原话",
+   "给出可执行指令：'按这三条改这一段'",
+   "原文大白话存档一行"
+  ],
+  "expected_output": "3 条视频原话术语 + 可执行指令 + 大白话存档。",
+  "files": [],
+  "id": 0,
+  "prompt": "往下滑的时候，卡片一张张往前翻，左边的字跟着替换。帮我翻成术语。",
+  "source_skill": "salin-ui-term",
+  "eval_name": "salin-ui-term::term-video-example"
+ },
+ {
+  "assertions": [
+   "先拆成独立条再翻，不许混在一起翻",
+   "每条给出中文术语 + English term + 一句话行为",
+   "有 motion 模式编号的标出（如 text-diff → 33）"
+  ],
+  "expected_output": "拆成 2 条：数字差分更新（Text Diff Update → 33）+ 下拉刷新（Pull to Refresh）。",
+  "files": [],
+  "id": 1,
+  "prompt": "价格变了只有变的那几位跳一下，别整行闪；再加个下拉刷新。",
+  "source_skill": "salin-ui-term",
+  "eval_name": "salin-ui-term::term-split-then-translate"
+ },
+ {
+  "assertions": [
+   "不编造英文术语：给出中文术语 + 一句话行为描述",
+   "明确标注该条为推荐译法/行为补述，而非词典或视频原话"
+  ],
+  "expected_output": "诚实标注：中文术语 + 行为补述，不生造英文词。",
+  "files": [],
+  "id": 2,
+  "prompt": "我想要那种，点一下按钮，按钮像水滴一样瘪下去再弹起来，翻成术语。",
+  "source_skill": "salin-ui-term",
+  "eval_name": "salin-ui-term::term-unknown-no-fabrication"
+ },
+ {
+  "assertions": [
+   "多于 3 个效果时打回，要求用户分开说，而不是硬翻 5 条",
+   "说明为什么不能一次翻（术语是给 AI 执行的，一条指令只干一件事）"
+  ],
+  "expected_output": "打回：先分开说，一次最多 3 条。",
+  "files": [],
+  "id": 3,
+  "prompt": "往下滑卡片翻，左边字跟着换，顶图下拉变大，滚快了模糊，右下角按钮跟着背景换颜色，全部翻成术语一次改完。",
+  "source_skill": "salin-ui-term",
+  "eval_name": "salin-ui-term::term-too-many-effects"
+ },
+ {
+  "prompt": "列表下滑时新卡片从右边滑进来，老卡片淡出。翻成术语。",
+  "expected_output": "每条术语标注出处（视频原话/推荐译法），不冒充视频原话。",
+  "assertions": [
+   "每条术语都带出处标注",
+   "视频原话三条不乱用",
+   "非原话英文术语标'推荐译法'",
+   "不冒充视频原话"
+  ],
+  "id": 4,
+  "files": [],
+  "source_skill": "salin-ui-term",
+  "eval_name": "salin-ui-term::term-source-label-required"
+ },
+ {
+  "prompt": "输入框点一下，提示字缩上去变成小标题。翻成术语，要能直接拿去实现。",
+  "expected_output": "浮动标签 Floating Label（推荐译法）→ motion 59，每条对应到具体实现。",
+  "assertions": [
+   "给出中文术语+英文+一句话行为",
+   "对应到 motion 模式编号（59）",
+   "术语能直接对应实现（CSS/组件行为）",
+   "格式为'按这 N 条改这一段'"
+  ],
+  "id": 5,
+  "files": [],
+  "source_skill": "salin-ui-term",
+  "eval_name": "salin-ui-term::term-motion-link"
+ },
+ {
+  "prompt": "按钮点一下，字从'关注'滚成'已关注'；旁边数字加 1 时跳一下。翻成术语，我要直接丢给 AI 改。",
+  "expected_output": "'按这 2 条改这一段：①… ②…'格式清单，原文大白话存档一行。",
+  "assertions": [
+   "输出'按这 N 条改这一段'一句话指令",
+   "每条格式为 ① 术语（EN）：一句话行为",
+   "先拆成 2 条独立效果再翻",
+   "原文大白话存档一行"
+  ],
+  "id": 6,
+  "files": [],
+  "source_skill": "salin-ui-term",
+  "eval_name": "salin-ui-term::term-action-format"
+ },
+ {
+  "prompt": "页面往下拉，顶部的图跟着变大，松手弹回去。翻成术语。",
+  "expected_output": "术语清单 + 原文大白话存档一行备查，出处标注诚实。",
+  "assertions": [
+   "输出含原文大白话存档（一行）",
+   "术语有中英对照+行为描述",
+   "出处标注诚实",
+   "对应到 motion 模式或 CSS 实现"
+  ],
+  "id": 7,
+  "files": [],
+  "source_skill": "salin-ui-term",
+  "eval_name": "salin-ui-term::term-archive-original"
+ },
+ {
+  "assertions": [
+   "识别为数据列表页模式，采用 KPI 卡 + 数据表结构，而非卡片瀑布流",
+   "数据表符合规范：表头弱化（12px 灰字）、行高≥48px、禁用斑马纹、hover 高亮",
+   "订单状态用胶囊而非整行色块，且异常单有明确视觉优先级",
+   "筛选/搜索区与表格联动说明完整，不只画静态表头",
+   "输出包含三档宽度（1280/1440/1920）自查结论"
+  ],
+  "expected_output": "数据列表页模式：KPI 卡+数据表、筛选区、异常状态胶囊、三档宽度验收。",
+  "files": [],
+  "id": 0,
+  "prompt": "我们 SaaS 后台有个订单列表页，现在又挤又乱，帮我重构。每天上万单，要能快速筛选和处理异常单。",
+  "source_skill": "salin-web-ui",
+  "eval_name": "salin-web-ui::saas-order-list-page"
+ },
+ {
+  "assertions": [
+   "首屏直接说明产品主体、价值和下一步（留资 CTA），不堆三个 Hero 轮播",
+   "未用营销页式大 Hero 挤压后文的转化区块，信息层级服务于留资目标",
+   "禁用项检查通过：无大面积渐变/玻璃拟态/紫蓝科技风/中文 900 字重",
+   "CTA 文案具体可操作（动词+对象），无'赋能''开启无限可能'类空话"
+  ],
+  "expected_output": "营销页模式：首屏价值主张三件套（主体/价值/下一步）、转化结构、克制视觉。",
+  "files": [],
+  "id": 1,
+  "prompt": "给我们的 AI 客服产品做个官网首页，目标是让访客留资预约演示。",
+  "source_skill": "salin-web-ui",
+  "eval_name": "salin-web-ui::marketing-homepage"
+ },
+ {
+  "assertions": [
+   "明确指出这是移动端 App 任务，不属于 salin-web-ui 范围",
+   "路由到 salin-app-ui，而非输出三栏工作区或 8pt 网格桌面方案",
+   "不把'我的'页做成桌面设置页的缩小版"
+  ],
+  "expected_output": "识别为移动端任务，路由到 salin-app-ui，不强行用桌面端三栏/数据表模式套手机页面。",
+  "files": [],
+  "id": 2,
+  "prompt": "帮我设计一个健身打卡 App 的'我的'页面。",
+  "source_skill": "salin-web-ui",
+  "eval_name": "salin-web-ui::boundary-mobile-app"
+ },
+ {
+  "prompt": "做个 AI 写作工作台桌面页：左边选文档大纲，中间写，右边调 AI 参数。",
+  "expected_output": "三栏工作区：左窄步骤导航 + 中间最大最亮画布 + 右可折叠参数面板，内容宽 1200~1440px，8pt 网格。",
+  "assertions": [
+   "明确用三栏工作区模式",
+   "左栏窄（步骤导航）、中间画布最大最亮、右栏参数面板可折叠",
+   "内容区宽度 1200~1440px",
+   "8pt 网格"
+  ],
+  "id": 3,
+  "files": [],
+  "source_skill": "salin-web-ui",
+  "eval_name": "salin-web-ui::three-column-workspace"
+ },
+ {
+  "prompt": "后台用户列表页，产品要求隔行换色（斑马纹）方便阅读，状态用整行底色区分：正常绿、异常红。帮我定表格规范。",
+  "expected_output": "拒绝斑马纹与整行色块：只用 hover 高亮，状态用小胶囊，表头 12px 灰字弱化，行高≥48px。",
+  "assertions": [
+   "明确禁用斑马纹，只用 hover 高亮",
+   "状态用小胶囊不用整行色块",
+   "表头弱化 12px 灰字",
+   "行高≥48px"
+  ],
+  "id": 4,
+  "files": [],
+  "source_skill": "salin-web-ui",
+  "eval_name": "salin-web-ui::data-table-zebra"
+ },
+ {
+  "prompt": "工作台右上角有一排图标按钮（搜索、通知、设置），现在鼠标放上去没任何反应，PM 说桌面端无所谓。需要改吗？",
+  "expected_output": "必须改：所有图标按钮必须有悬停态（hover 背景或 tooltip），桌面端不是理由。",
+  "assertions": [
+   "明确指出缺悬停态是问题",
+   "给出 hover 背景或 tooltip 方案",
+   "引用'所有图标按钮必须有悬停态'",
+   "不认同'桌面端无所谓'"
+  ],
+  "id": 5,
+  "files": [],
+  "source_skill": "salin-web-ui",
+  "eval_name": "salin-web-ui::icon-button-no-hover"
+ },
+ {
+  "prompt": "AI 生图工作台的参数表单，点'生成'就扣点，帮我设计这个表单页。",
+  "expected_output": "提交按钮注明消耗（如'生成 · 预计 5 点'），长表单分组+分组标题，必填标星号。",
+  "assertions": [
+   "提交按钮明确注明消耗点数",
+   "长表单分组+分组标题",
+   "必填项标星号",
+   "布局模式选择合理"
+  ],
+  "id": 6,
+  "files": [],
+  "source_skill": "salin-web-ui",
+  "eval_name": "salin-web-ui::form-submit-cost-note"
+ },
+ {
+  "prompt": "我们 SaaS 客服工作台首页，品牌部要求首屏放一张大品牌 Hero 图+slogan，工单列表放第二屏。帮我设计。",
+  "expected_output": "拒绝：SaaS/工作台页不拿营销页式大 Hero 挤压操作空间，首屏直接给工单操作区。",
+  "assertions": [
+   "明确反对大 Hero 挤压操作空间",
+   "首屏直接说明主体、关键状态和下一步操作",
+   "品牌表达降权到顶栏/弱化区",
+   "引用设计原则原文"
+  ],
+  "id": 7,
+  "files": [],
+  "source_skill": "salin-web-ui",
+  "eval_name": "salin-web-ui::saas-hero-squeeze"
+ }
+]
