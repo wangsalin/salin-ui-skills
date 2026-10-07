@@ -142,6 +142,46 @@
         "给出时长数值"
       ],
       "files": []
+    },
+    {
+      "id": 11,
+      "eval_name": "slider-press-thicken",
+      "prompt": "控制中心的亮度调节条，拖起来手感很干，滑到头就硬停。想要按住有反馈、到头有缓冲的感觉。",
+      "expected_output": "slider-press-thicken 模式：按住轨道变粗、填充跟手、端点橡皮筋拉伸、松手回弹。",
+      "assertions": [
+        "明确使用 slider-press-thicken 模式",
+        "包含按住轨道变粗",
+        "包含拖过端点橡皮筋拉伸、松手回弹",
+        "给出具体动效数值，而非'顺滑一点'类空话"
+      ],
+      "files": []
+    },
+    {
+      "id": 12,
+      "eval_name": "swipe-swatches-select",
+      "prompt": "主题色选择现在是点一个变一个，很生硬。想要手指划过去的时候有跟手反馈。",
+      "expected_output": "swipe-swatches 模式：横向色块，滑动经过依次放大弹起，松手选中带白色圆环。",
+      "assertions": [
+        "明确使用 swipe-swatches 模式",
+        "包含滑动经过时依次放大弹起",
+        "包含松手选中态（白色圆环）",
+        "区分于普通的点击选中"
+      ],
+      "files": []
+    },
+    {
+      "id": 13,
+      "eval_name": "floating-label-form",
+      "prompt": "表单的输入框，提示文字一聚焦就没了，用户打着字就忘了这栏要填什么。",
+      "expected_output": "floating-label 模式：聚焦时提示文字缩小上移成标题、边框高亮，为空失焦复原。",
+      "assertions": [
+        "明确使用 floating-label 模式",
+        "包含聚焦时提示文字缩小上移成标题",
+        "包含边框高亮",
+        "包含为空失焦时复原",
+        "给出时长数值"
+      ],
+      "files": []
     }
   ],
   "skill_name": "salin-ui-motion"

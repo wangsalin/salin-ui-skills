@@ -1,12 +1,12 @@
 ---
 name: "salin-ui-motion"
-description: "Salin UI 组件交互动效：55 种顺滑交互模式（十一大场景分组），含动效参数与可直接丢给 AI 的提示词模板（多条为博主视频原话）。适用于 App/小程序/网页的 VibeCoding、原型开发与 UI 走查。视觉 token 走 salin-app-ui / salin-web-ui。"
+description: "Salin UI 组件交互动效：60 种顺滑交互模式（十一大场景分组），含动效参数与可直接丢给 AI 的提示词模板（多条为博主视频原话）。适用于 App/小程序/网页的 VibeCoding、原型开发与 UI 走查。视觉 token 走 salin-app-ui / salin-web-ui。"
 ---
 
 # Salin UI Motion · 顺滑组件交互
 
 ## Purpose
-为常用 UI 组件配上"点下去那一下"的反馈质感：55 种经短视频验证的交互模式，每种给效果规格、动效参数和可直接用的 AI 提示词（v2/v3 新增 47 种的提示词多为博主视频原话或按视频演示整理，均标注出处）。蒸馏自 @叨叨AI 系列作品：《8个让App和小程序变顺滑的组件交互》（v1 的 8 种）、《6个让App和小程序质感翻倍的组件交互》《6种组件交互提升App和小程序质感》（含图文长版）、《8个让App和小程序有高级感的组件交互》（部分）、《10种组件提升App与小程序的质感》（部分）、《选择器的10种交互细节》（部分）、《8种高级交互提升App和小程序质感》《7种App和小程序的高级交互》《10种App小程序高级交互设计》《8种交互动效，让App质感直接拉满》。视频只给定性描述，数值参数凡视频未给的一律按"全局动效默认值"补齐为推荐值，不冒充视频原话。
+为常用 UI 组件配上"点下去那一下"的反馈质感：60 种经短视频验证的交互模式，每种给效果规格、动效参数和可直接用的 AI 提示词（v2/v3/v4 新增 52 种的提示词多为博主视频原话或按视频演示整理，均标注出处）。蒸馏自 @叨叨AI 系列作品：《8个让App和小程序变顺滑的组件交互》（v1 的 8 种）、《6个让App和小程序质感翻倍的组件交互》《6种组件交互提升App和小程序质感》（含图文长版）、《8个让App和小程序有高级感的组件交互》（v3 蒸 1 种 + v4 补齐 5 种 + 2 种记为变体）、《10种组件提升App与小程序的质感》（部分）、《选择器的10种交互细节》（部分）、《8种高级交互提升App和小程序质感》《7种App和小程序的高级交互》《10种App小程序高级交互设计》《8种交互动效，让App质感直接拉满》。视频只给定性描述，数值参数凡视频未给的一律按"全局动效默认值"补齐为推荐值，不冒充视频原话。
 
 ## Workflow
 1. 明确场景：哪个组件、什么触发、用户要感知到什么。
@@ -23,19 +23,19 @@ description: "Salin UI 组件交互动效：55 种顺滑交互模式（十一大
 - 必须尊重 `prefers-reduced-motion`：降级为 opacity 淡入淡出或直接切换，不许强行动画。
 
 ## 模式速查（按场景）
-- 选择与筛选：dropdown-select(8)、search-select(25)、async-select(26)、multi-select(27)、filter-chips(9)、chip-row(23)、size-dial(12)
-- 触摸反馈：press-tilt(13)、copy-button(6)、hold-record(14)、magnify-row(19)、magnet-snap(28)
-- 展开与收纳：step-sheet(2)、tab-bar(4)、h-accordion(17)、sliding-tray(18)、fold-card(22)、pull-summary(20)
+- 选择与筛选：dropdown-select(8)、search-select(25)、async-select(26)、multi-select(27)、filter-chips(9)、chip-row(23)、size-dial(12)、swipe-swatches(57)
+- 触摸反馈：press-tilt(13)、copy-button(6)、hold-record(14)、magnify-row(19)、magnet-snap(28)、text-roll-toggle(58)
+- 展开与收纳：step-sheet(2)、tab-bar(4)、h-accordion(17)、sliding-tray(18)、fold-card(22)、pull-summary(20)、pull-expand-strip(60)
 - 列表与卡片：overlap-stack(15)、progress-fill(16)、timeline-card(24)、card-detail(21)、removable-tags(10)、card-collect(29)、focus-mode(30)
-- 输入与表单：form-error(7)、suggest-popover(11)
+- 输入与表单：form-error(7)、suggest-popover(11)、floating-label(59)
 - 系统与导航：dark-mode(3)、scroll-fab(5)、focus-timer(1)
 - 手势进行中：takeback(31)、press-escape(32)、text-diff(33)、gesture-lock(34)、fling-catch(35)、landing-predict(36)、overscroll(37)
 - 滚动与密度：pinch-density(38)、scroll-driven(39)、motion-blur(40)、pull-zoom-header(41)、arc-reflow(42)、scroll-focus(43)
-- 对齐与吸附：snap-guide(44)、slider-snap(45)
+- 对齐与吸附：snap-guide(44)、slider-snap(45)、slider-press-thicken(56)
 - 视觉自适应：auto-contrast(46)、liquid-deform(47)、parallax-3d(48)、physics-collision(49)
 - 开关与步骤：stepper-spring(50)、toggle-ripple(51)、drag-reorder(52)、batch-check(53)、chip-squeeze(54)、gesture-transition(55)
 
-## 交互模式（55 种）
+## 交互模式（60 种）
 
 ### 1. focus-timer · 顶部计时小条
 顶部固定细条展示倒计时/进度。数字每秒更新（tabular-nums），进度填充用 300ms linear 过渡；结束时条色一闪或轻微脉冲一次。
@@ -220,6 +220,7 @@ description: "Salin UI 组件交互动效：55 种顺滑交互模式（十一大
 适用：收藏、归档、删除卡片。
 提示词模板："做一个卡片吸入回收动效：卡片缩小并沿弧线飞入底部收纳区，有明确的去向感"（按视频演示整理）
 来源：@叨叨AI《10种App小程序高级交互设计》
+近似模式：加入行程——卡片缩小成小圆飞入底部 Tab，Tab 徽标数字+1（《8个让App和小程序有高级感的组件交互》按视频演示整理）。
 
 ### 30. focus-mode · 选中一张其他后退
 选中一张卡片/图片后，该项放大提亮保持彩色，同一层的其他项降饱和度、缩小、轻微模糊，后退为背景；取消选中时全部恢复（300ms ease-in-out）。
@@ -358,6 +359,7 @@ description: "Salin UI 组件交互动效：55 种顺滑交互模式（十一大
 适用：待办排序、播放列表、自定义顺序。
 提示词模板："做一个可拖拽排序的列表：拖起一项时相邻项自动让位，松手落位"（按视频演示整理）
 来源：@叨叨AI《10种App小程序高级交互设计》
+近似模式：长按浮起——长按时该行先浮起放大进入悬浮态，再拖动排序（《8个让App和小程序有高级感的组件交互》按视频演示整理）。
 
 ### 53. batch-check · 批量勾选接力打勾
 批量操作时多个勾选框像接力一样依次打出勾选动画（stagger 80ms），有先后节奏而非同时出现。
@@ -376,3 +378,33 @@ description: "Salin UI 组件交互动效：55 种顺滑交互模式（十一大
 适用：页面返回、卡片进详情。
 提示词模板："做一个跟手的页面转场：拖动多少跟多少，可中途取消或接续"（按视频演示整理）
 来源：@叨叨AI《8种交互动效，让App质感直接拉满》
+
+### 56. slider-press-thicken · 拖动调节条（按住变粗）
+音量/亮度调节条：手指按住时轨道变粗，填充量跟手；拖过端点时有橡皮筋拉伸感，松手回弹（300ms spring）。按住变粗、端点橡皮筋、松手回弹三个细节是高级感来源。
+适用：音量/亮度/进度调节条。
+提示词模板："做一条音量调节条，按住变粗，填充跟手，拖过端点有橡皮筋拉伸，松手回弹"（视频原话）
+来源：@叨叨AI《8个让App和小程序有高级感的组件交互》（视频原话）
+
+### 57. swipe-swatches · 滑动选颜色
+一排横向圆形色块：手指滑动选择时，经过的色块依次放大弹起（跟手 stagger），松手选中，选中色块带白色圆环。
+适用：主题色/标签色选择。
+提示词模板："做一排横向颜色选择，支持滑动选择，经过的色块依次放大弹起，松手选中"（视频原话）
+来源：@叨叨AI《8个让App和小程序有高级感的组件交互》（视频原话）
+
+### 58. text-roll-toggle · 按钮文字滚动切换
+状态切换按钮：点击时按钮内文字纵向滚动切换（如 Add 滚成 Added 并带勾选，200ms ease-out），而非生硬替换文字。
+适用：关注/添加/收藏状态按钮。
+提示词模板："做一个状态切换按钮，点击时文字纵向滚动切换"（按视频演示整理；视频原话待确认）
+来源：@叨叨AI《8个让App和小程序有高级感的组件交互》（按视频演示整理）
+
+### 59. floating-label · 输入框标题上浮
+浮动标签输入框：聚焦时提示文字缩小上移成顶部小标题（200ms ease-out），边框高亮；为空且失焦时复原。打字过程中仍能看到栏位含义。
+适用：表单输入、注册/新建表单。
+提示词模板："做一个浮动标签输入框，聚焦时提示文字缩小上移成标题，边框高亮，为空失焦时复原"（视频原话）
+来源：@叨叨AI《8个让App和小程序有高级感的组件交互》（视频原话）
+
+### 60. pull-expand-strip · 下拉展开
+信息条卡片：下拉时在原位展开露出更多内容（如逐小时预报），上推收回（250ms ease-out）。与 pull-summary(20) 不同：本模式在原位展开，不进全屏详情。
+适用：天气条、摘要条、通知预览。
+提示词模板："做一个可下拉展开的信息条，下拉后在原位展开显示更多内容，上推收回"（按视频演示整理；视频未捕捉到原话提示词）
+来源：@叨叨AI《8个让App和小程序有高级感的组件交互》（按视频演示整理）
