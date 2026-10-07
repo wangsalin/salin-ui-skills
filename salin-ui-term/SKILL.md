@@ -1,6 +1,6 @@
 ---
 name: "salin-ui-term"
-description: "UI 效果术语翻译：把大白话的效果描述翻译成准确的设计术语（中英对照），再转成可执行的修改指令。适用于'心里想要的效果说不清、AI 做不准'时。术语查不到时用最接近术语加一句话行为补述，不编造。词典见 references/term-dictionary.md，与 salin-ui-motion 的 55 种模式联动。"
+description: "UI 效果术语翻译：把大白话的效果描述翻译成准确的设计术语（中英对照），再转成可执行的修改指令。适用于'心里想要的效果说不清、AI 做不准'时。术语查不到时用最接近术语加一句话行为补述，不编造。词典见 references/term-dictionary.md，与 salin-ui-motion 的 60 种模式联动。"
 ---
 
 # Salin UI Term · 效果术语翻译
