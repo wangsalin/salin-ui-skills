@@ -1,7 +1,8 @@
 #!/bin/bash
 # 一致性检查：skill 源文件与 README/director/包之间的数字是否同步
-# 用法：bash scripts/check-consistency.sh（在仓库根目录运行）
+# 用法：bash scripts/check-consistency.sh（可在任意目录运行，自动定位到仓库根目录）
 set -u
+cd "$(dirname "$0")/.."  # 固定到仓库根目录：相对路径检查 + 数字残留扫描都只扫本仓库，防止从别的 cwd 误跑出假失败
 FAIL=0
 say(){ if [ "$2" = "0" ]; then echo "  ✓ $1"; else echo "  ✗ $1"; FAIL=1; fi; }
 
