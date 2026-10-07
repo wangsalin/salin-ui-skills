@@ -1,6 +1,6 @@
 ---
 name: "salin-ui-components"
-description: "Salin UI 组件设计规范库：12 个高频组件（按钮/输入框/卡片/弹窗/标签页/导航栏/表格/徽标标签/轻提示/下拉选择/开关复选/进度条），每个给变体、尺寸、状态、App/Web 双端差异、无障碍要求和用法红线，关键词检索。用于设计或评审单个组件；按规范实现时配合 salin-app-ui / salin-web-ui，动效查 salin-ui-motion，shadcn 工程实现走 salin-shadcn-ui。"
+description: "Salin UI 组件设计规范库：12 个高频组件（按钮/输入框/卡片/弹窗/标签页/导航栏/表格/徽标标签/轻提示/下拉选择/开关复选/进度条），每个给变体、尺寸、状态、App/Web 双端差异、无障碍要求和用法红线，关键词检索；另含图标动效三条规则（变形图标 Morphicons / 动态图标 Lordicon）。用于设计或评审单个组件；按规范实现时配合 salin-app-ui / salin-web-ui，动效查 salin-ui-motion，shadcn 工程实现走 salin-shadcn-ui。"
 ---
 
 # Salin UI Components · 组件设计规范库
@@ -13,7 +13,7 @@ description: "Salin UI 组件设计规范库：12 个高频组件（按钮/输�
 2. 跑检索：`python scripts/search.py "<组件名/场景>" --full`，读完整规格。
 3. 按规格选变体：先看"红线"排除错误用法，再按 App/Web 差异定尺寸。
 4. 状态全覆盖：default / hover / active / disabled / loading / error，一个不少；缺的问用户补业务定义，不虚构。
-5. 动效需求 → 查 `salin-ui-motion` 对应模式；视觉 token（颜色/字号）→ 查对应风格的 MASTER.md 或 `salin-style-library`。
+5. 动效需求 → 查 `salin-ui-motion` 对应模式；图标动效 → 按本文件"图标动效规则"选变形/动态图标库；视觉 token（颜色/字号）→ 查对应风格的 MASTER.md 或 `salin-style-library`。
 
 ## Query Contract
 - 查询词 2–4 个：组件名 + 场景，如"提交按钮""表格 订单""开关 设置页"。
@@ -22,6 +22,20 @@ description: "Salin UI 组件设计规范库：12 个高频组件（按钮/输�
 
 ## 组件清单（v1，12 个）
 按钮 button / 输入框 input / 卡片 card / 弹窗 dialog / 标签页 tabs / 导航栏 navigation / 表格 table / 徽标标签 badge-tag / 轻提示 toast / 下拉选择 select / 开关复选 switch-checkbox / 进度条 progress
+
+## 图标动效规则（ICON）
+图标的交互动效是决定高级感的关键细节：点击后硬切显生硬，换成变形/动效过渡整页立刻细腻。蒸馏自 @西瓜同学🍉《第17集 | 2个图标库让AI拥有更高级的交互审美》（视频只给用法规则，库的授权与格式为核实后补充）。
+
+三条规则（视频原话）：
+1. 两种状态来回切，用变形图标。
+2. 一次性的反馈，用动态图标。
+3. 会动的图标只给最常点的按钮。
+
+搭配：
+- 来回切换类（空心圈→对勾、加号→关闭、播放→暂停、太阳→月亮）→ 变形图标库 **Morphicons**（morphicons.com；MIT 开源，`npm i morphicons`；任意两个描边图标可互相变形，弹簧物理，6.5KB 零依赖；图标源用 Lucide / Tabler / Heroicons 等线性图标）。
+- 单向反馈类（发送→已发送、空状态页、完成提示、功能介绍）→ 动态图标库 **Lordicon**（lordicon.com；每个图标自带一段动画，线条颜色可换成页面主色；免费+付费两档，Lottie / JSON / GIF 格式）。
+
+红线：会动的图标只给最常点的按钮；非常用入口用静态图标，避免整页乱动喧宾夺主。
 
 ## Operating Rules
 1. 变体选择必须给理由（"为什么用 Secondary 而不用 Ghost"），不许"看着顺眼"。
