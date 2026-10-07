@@ -1,1 +1,102 @@
-{"evals":[{"assertions":["输出 3 条术语：卡片连续向前翻转（Card Flip）、滚动与固定内容区域（Pinned Section）、左侧文案同步切换（Synced Copy），三条标注视频原话","给出可执行指令：'按这三条改这一段'","原文大白话存档一行"],"eval_name":"term-video-example","expected_output":"3 条视频原话术语 + 可执行指令 + 大白话存档。","files":[],"id":0,"prompt":"往下滑的时候，卡片一张张往前翻，左边的字跟着替换。帮我翻成术语。"},{"assertions":["先拆成独立条再翻，不许混在一起翻","每条给出中文术语 + English term + 一句话行为","有 motion 模式编号的标出（如 text-diff → 33）"],"eval_name":"term-split-then-translate","expected_output":"拆成 2 条：数字差分更新（Text Diff Update → 33）+ 下拉刷新（Pull to Refresh）。","files":[],"id":1,"prompt":"价格变了只有变的那几位跳一下，别整行闪；再加个下拉刷新。"},{"assertions":["不编造英文术语：给出中文术语 + 一句话行为描述","明确标注该条为推荐译法/行为补述，而非词典或视频原话"],"eval_name":"term-unknown-no-fabrication","expected_output":"诚实标注：中文术语 + 行为补述，不生造英文词。","files":[],"id":2,"prompt":"我想要那种，点一下按钮，按钮像水滴一样瘪下去再弹起来，翻成术语。"},{"assertions":["多于 3 个效果时打回，要求用户分开说，而不是硬翻 5 条","说明为什么不能一次翻（术语是给 AI 执行的，一条指令只干一件事）"],"eval_name":"term-too-many-effects","expected_output":"打回：先分开说，一次最多 3 条。","files":[],"id":3,"prompt":"往下滑卡片翻，左边字跟着换，顶图下拉变大，滚快了模糊，右下角按钮跟着背景换颜色，全部翻成术语一次改完。"}]}
+{
+  "evals": [
+    {
+      "assertions": [
+        "输出 3 条术语：卡片连续向前翻转（Card Flip）、滚动与固定内容区域（Pinned Section）、左侧文案同步切换（Synced Copy），三条标注视频原话",
+        "给出可执行指令：'按这三条改这一段'",
+        "原文大白话存档一行"
+      ],
+      "eval_name": "term-video-example",
+      "expected_output": "3 条视频原话术语 + 可执行指令 + 大白话存档。",
+      "files": [],
+      "id": 0,
+      "prompt": "往下滑的时候，卡片一张张往前翻，左边的字跟着替换。帮我翻成术语。"
+    },
+    {
+      "assertions": [
+        "先拆成独立条再翻，不许混在一起翻",
+        "每条给出中文术语 + English term + 一句话行为",
+        "有 motion 模式编号的标出（如 text-diff → 33）"
+      ],
+      "eval_name": "term-split-then-translate",
+      "expected_output": "拆成 2 条：数字差分更新（Text Diff Update → 33）+ 下拉刷新（Pull to Refresh）。",
+      "files": [],
+      "id": 1,
+      "prompt": "价格变了只有变的那几位跳一下，别整行闪；再加个下拉刷新。"
+    },
+    {
+      "assertions": [
+        "不编造英文术语：给出中文术语 + 一句话行为描述",
+        "明确标注该条为推荐译法/行为补述，而非词典或视频原话"
+      ],
+      "eval_name": "term-unknown-no-fabrication",
+      "expected_output": "诚实标注：中文术语 + 行为补述，不生造英文词。",
+      "files": [],
+      "id": 2,
+      "prompt": "我想要那种，点一下按钮，按钮像水滴一样瘪下去再弹起来，翻成术语。"
+    },
+    {
+      "assertions": [
+        "多于 3 个效果时打回，要求用户分开说，而不是硬翻 5 条",
+        "说明为什么不能一次翻（术语是给 AI 执行的，一条指令只干一件事）"
+      ],
+      "eval_name": "term-too-many-effects",
+      "expected_output": "打回：先分开说，一次最多 3 条。",
+      "files": [],
+      "id": 3,
+      "prompt": "往下滑卡片翻，左边字跟着换，顶图下拉变大，滚快了模糊，右下角按钮跟着背景换颜色，全部翻成术语一次改完。"
+    },
+    {
+      "eval_name": "term-source-label-required",
+      "prompt": "列表下滑时新卡片从右边滑进来，老卡片淡出。翻成术语。",
+      "expected_output": "每条术语标注出处（视频原话/推荐译法），不冒充视频原话。",
+      "assertions": [
+        "每条术语都带出处标注",
+        "视频原话三条不乱用",
+        "非原话英文术语标'推荐译法'",
+        "不冒充视频原话"
+      ],
+      "id": 4,
+      "files": []
+    },
+    {
+      "eval_name": "term-motion-link",
+      "prompt": "输入框点一下，提示字缩上去变成小标题。翻成术语，要能直接拿去实现。",
+      "expected_output": "浮动标签 Floating Label（推荐译法）→ motion 59，每条对应到具体实现。",
+      "assertions": [
+        "给出中文术语+英文+一句话行为",
+        "对应到 motion 模式编号（59）",
+        "术语能直接对应实现（CSS/组件行为）",
+        "格式为'按这 N 条改这一段'"
+      ],
+      "id": 5,
+      "files": []
+    },
+    {
+      "eval_name": "term-action-format",
+      "prompt": "按钮点一下，字从'关注'滚成'已关注'；旁边数字加 1 时跳一下。翻成术语，我要直接丢给 AI 改。",
+      "expected_output": "'按这 2 条改这一段：①… ②…'格式清单，原文大白话存档一行。",
+      "assertions": [
+        "输出'按这 N 条改这一段'一句话指令",
+        "每条格式为 ① 术语（EN）：一句话行为",
+        "先拆成 2 条独立效果再翻",
+        "原文大白话存档一行"
+      ],
+      "id": 6,
+      "files": []
+    },
+    {
+      "eval_name": "term-archive-original",
+      "prompt": "页面往下拉，顶部的图跟着变大，松手弹回去。翻成术语。",
+      "expected_output": "术语清单 + 原文大白话存档一行备查，出处标注诚实。",
+      "assertions": [
+        "输出含原文大白话存档（一行）",
+        "术语有中英对照+行为描述",
+        "出处标注诚实",
+        "对应到 motion 模式或 CSS 实现"
+      ],
+      "id": 7,
+      "files": []
+    }
+  ]
+}

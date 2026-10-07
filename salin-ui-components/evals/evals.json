@@ -48,6 +48,59 @@
         "发送反馈判定为单向反馈类，推荐 Lordicon 动态图标",
         "提醒动态图标只给最常点的按钮，不过度使用"
       ],
+      "files": [],
+      "id": 7
+    },
+    {
+      "eval_name": "component-radius-iron-rule",
+      "prompt": "我们 App 走硬朗工业风，卡片和按钮都要直角，帮我定组件规范。",
+      "expected_output": "拒绝：圆角铁律（用户 2026-10-05 亲定），组件一律圆角禁用直角；App 卡片 16px、按钮 12px。",
+      "assertions": [
+        "明确拒绝直角并引用圆角铁律",
+        "给出 App 卡片 16px、按钮 12px 默认值",
+        "说明硬朗可用小圆角+深色表达而非直角",
+        "不迎合风格理由破例"
+      ],
+      "id": 3,
+      "files": []
+    },
+    {
+      "eval_name": "component-dual-size-required",
+      "prompt": "我们的 primary 按钮规范：高 44px，圆角 12px。App 和小程序都用这套，行吗？",
+      "expected_output": "不行：尺寸必须 App/Web 分开写，不许一套通吃；小程序按 App 端走。",
+      "assertions": [
+        "明确拒绝一套尺寸通吃",
+        "要求 App/Web 分开写具体数值",
+        "引用 Operating Rules 第 2 条",
+        "小程序归入 App 端规范"
+      ],
+      "id": 4,
+      "files": []
+    },
+    {
+      "eval_name": "component-a11y-switch",
+      "prompt": "设置页的'夜间模式'开关，帮我按规范设计，顺便过一下无障碍。",
+      "expected_output": "开关规范 + 无障碍检查结论（对比度≥4.5:1、键盘可聚焦、aria-checked），状态全覆盖。",
+      "assertions": [
+        "给出开关变体与尺寸",
+        "无障碍检查结论明确（对比度/键盘/aria）",
+        "状态覆盖 default/on/disabled",
+        "命中红线说明（无则写'无'）"
+      ],
+      "id": 5,
+      "files": []
+    },
+    {
+      "eval_name": "toast-spec",
+      "prompt": "App 里操作成功后的轻提示（toast），帮我定一下规范：放哪、多久消失、能堆几个？",
+      "expected_output": "toast 规范：底部上方位置、具体时长、单例/队列策略，与 dialog 的选用边界。",
+      "assertions": [
+        "给出位置（底部上方，避开拇指热区按钮）",
+        "时长具体数值",
+        "堆叠策略（单例替换或队列）",
+        "与 dialog/modal 的选用边界"
+      ],
+      "id": 6,
       "files": []
     }
   ],
