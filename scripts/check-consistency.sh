@@ -52,5 +52,11 @@ for sc in spec.py style-search.py motion-search.py audit-check.py; do
 done
 python3 -c "import ast;ast.parse(open('salin-ui/scripts/spec.py').read());ast.parse(open('salin-ui/scripts/style-search.py').read());ast.parse(open('salin-ui/scripts/motion-search.py').read());ast.parse(open('salin-ui/scripts/audit-check.py').read())" 2>/dev/null; say "4 脚本语法通过" $?
 
+[ -f "salin-ui/references/10-tokens.md" ]; say "10-tokens.md" $?
+[ -f "salin-ui/references/11-typography.md" ]; say "11-typography.md" $?
+grep -q "11-typography" salin-ui/SKILL.md; say "SKILL.md 挂排版" $?
+grep -q "10-tokens" salin-ui/SKILL.md; say "SKILL.md 挂 tokens" $?
+grep -q "苹果风" salin-ui/references/02-style.md; say "02-style 苹果风" $?
+
 [ $FAIL = 0 ] && echo "ALL PASS" || echo "有不一致项，见上"
 exit $FAIL
