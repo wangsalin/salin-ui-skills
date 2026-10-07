@@ -2,13 +2,13 @@
   "evals": [
     {
       "assertions": [
-        "明确使用 Primary 变体，且一屏只有一个主按钮（引用红线）",
+        "明确使用 Danger 变体（危险操作），而非 Primary",
         "给出 App/Web 两套尺寸数值（44px+ / 32px+），而非一套通吃",
-        "状态覆盖 default/hover/active/disabled/loading，缺一不可",
-        "Danger 按钮配了二次确认，而非直接执行删除"
+        "状态覆盖 default/active/disabled/loading（移动端无 hover，用 active 按压缩放代替），缺一不可",
+        "Danger 按钮配了二次确认，而非直接执行注销"
       ],
       "eval_name": "danger-button-spec",
-      "expected_output": "按钮组件规格：Primary 变体、双端尺寸、五态全覆盖、Danger 二次确认。",
+      "expected_output": "注销账号按钮：Danger 变体、App/Web 双端尺寸、default/active/disabled/loading 全状态、二次确认，无障碍检查结论，命中红线说明。",
       "files": [],
       "id": 0,
       "prompt": "我们 App 的设置页有个'注销账号'按钮，帮我按规范设计一下。移动端。"
