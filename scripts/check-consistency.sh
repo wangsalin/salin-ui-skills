@@ -46,5 +46,10 @@ for f in references/01-brief.md references/02-style.md references/03-layout.md r
   [ -f "salin-ui/$f" ]; say "salin-ui/$f" $?
 done
 
+for sc in spec.py style-search.py motion-search.py audit-check.py; do
+  [ -f "salin-ui/scripts/$sc" ]; say "salin-ui/scripts/$sc" $?
+done
+python3 -c "import ast;ast.parse(open('salin-ui/scripts/spec.py').read());ast.parse(open('salin-ui/scripts/style-search.py').read());ast.parse(open('salin-ui/scripts/motion-search.py').read());ast.parse(open('salin-ui/scripts/audit-check.py').read())" 2>/dev/null; say "4 脚本语法通过" $?
+
 [ $FAIL = 0 ] && echo "ALL PASS" || echo "有不一致项，见上"
 exit $FAIL

@@ -6,20 +6,20 @@ description: UI 设计一站式：从一句话需求到可交付页面的完整�
 # Salin UI · 一套 UI 设计
 
 ## 一句话开工
-用户说"做个 X 页面 / 改版 Y / 加个动效 / 审查 Z" → **直接走下面的 8 步工作流，不要问、不要分 skill**。唯一停下来问用户的时机：第 1 步 spec 确认、第 2 步风格二选一。
+用户说"做个 X 页面 / 改版 Y / 加个动效 / 审查 Z" → **直接走下面的 8 步工作流，不要问、不要分 skill**。开工前先花 30 秒读 `references/09-routing.md` 确认启用哪些模块，再进第 1 步。唯一停下来问用户的时机：第 1 步 spec 确认、第 2 步风格二选一。
 
 ## 工作流（8 步，顺序执行，不许跳步）
 
 | 步 | 做什么 | 读什么 | 产出 |
 |---|---|---|---|
-| 1 需求 | 一句话→用户问题→区块表→不做清单 | `references/01-brief.md` | `_workbench/spec.md` + 用户确认 |
-| 2 风格 | 检索风格→三旋钮→用户二选一 | `references/02-style.md` + `data/styles.csv` | `MASTER.md`（项目设计记忆） |
+| 1 需求 | 一句话→用户问题→区块表→不做清单 | `references/01-brief.md`（脚手架：`scripts/spec.py`） | `_workbench/spec.md` + 用户确认 |
+| 2 风格 | 检索风格→三旋钮→用户二选一 | `references/02-style.md` + `data/styles.csv`（检索：`scripts/style-search.py`） | `MASTER.md`（项目设计记忆） |
 | 3 布局 | 查 24 种布局定骨架 | `references/03-layout.md` + `data/layouts.csv` | Layout Spec（模式/分区/栅格/断点/状态） |
 | 4 组件 | 查 12 高频组件规范 | `data/components.csv` | 组件清单（变体/尺寸/状态） |
 | 5 术语 | 大白话→设计术语（标出处） | `data/terms.csv`（53 条） | 术语统一表 |
 | 6 实现 | 按端实现真实页面 | `references/04-implement-app.md` 或 `05-implement-web.md`；看板用 `06-dashboard.md`；shadcn 工程用 `07-shadcn.md` | 页面代码（含全部状态） |
-| 7 动效 | 查 60 种模式落参数 | `data/motions.csv` | 动效实现（一屏最多 2 种） |
-| 8 验收 | WCAG 5 硬门 + 关键路径走查 | `references/08-audit.md` | 验收结论（P0–P3） |
+| 7 动效 | 查 60 种模式落参数 | `data/motions.csv`（检索：`scripts/motion-search.py`） | 动效实现（一屏最多 2 种） |
+| 8 验收 | WCAG 5 硬门 + 关键路径走查 | `references/08-audit.md`（机械检查：`scripts/audit-check.py`，人工走查不可省） | 验收结论（P0–P3） |
 
 路由细节与"只做单步"的情况见 `references/09-routing.md`。
 
@@ -41,3 +41,4 @@ description: UI 设计一站式：从一句话需求到可交付页面的完整�
 ## 输入输出
 - 输入：用户的一句话需求。细节缺失可标明假设后继续，不许为凑完整反复追问。
 - 输出：可运行的页面/代码 + 调用清单 + 验收结论。只给方案不给实现时明确说明。
+- `evals/` 是 skill 自身的质量回归题库（开发者跑分用），日常使用者不用读。
