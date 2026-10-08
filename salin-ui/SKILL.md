@@ -1,31 +1,55 @@
 ---
 name: salin-ui
-description: UI 设计一站式：从一句话需求到可交付页面的完整工作流。只读这一个 SKILL.md 就能开工，9 步自动编排（项目分析→需求→布局→风格→组件→实现→动效→验收→交付），移动端 App/小程序、桌面端网页、数据看板全覆盖。蒸馏自 @西瓜同学🍉、@叨叨AI 等抖音 UI 博主方法论，经 109 条 evals 与 48/48 benchmark 验证。
+description: UI 设计一站式：从一句话需求到可交付页面的完整工作流。只读这一个 SKILL.md 就能开工，4 幕 × 7 步自动编排（需求→布局→风格→组件→实现→验收→交付），移动端 App/小程序、桌面端网页、数据看板全覆盖。蒸馏自 @西瓜同学🍉、@叨叨AI 等抖音 UI 博主方法论，经 109 条 evals 与 48/48 benchmark 验证。
 ---
 
 # Salin UI · 一套 UI 设计
 
 ## 一句话开工
 接到任务先定级（任务分级，不许混着来）：
-- **整页任务**（"做个 X 页面" / "改版 Y"）：走下面 9 步全流程，步步不许跳。
-- **单步任务**（"加个动效" / "审查 Z 页面"）：按 `references/09-routing.md` 只走相关步，不许从第 0 步重做。
+- **整页任务**（"做个 X 页面" / "改版 Y"）：走下面 4 幕 7 步全流程，幕内子步骤不许跳。
+- **单步任务**（"加个动效" / "审查 Z 页面"）：按 `references/09-routing.md` 只走相关模块，不许从第 0 步重做。
 
 开工前：用文件工具读 `references/09-routing.md` 确认启用哪些模块（30 秒）。`references/` 下所有文件都用文件读取工具按需加载，每步表格里写了读什么。
-停下来问用户的时机：第 0 步 project.md 确认、第 1 步 spec 确认、第 3 步风格二选一。
 
-## 工作流（9 步，整页任务顺序执行，不许跳步）
+## 确认机制（决策摘要式，不是交卷式）
+- 确认点只呈现 3–5 条"会返工的决策"，每条带默认推荐项。用户回"继续"即按默认走，随时可叫停改任意一条。
+- 只有信息架构级分歧（两种架构路线二选一）才硬停等明确答复。
+- **确认点必须结束本轮输出，等用户回话后再继续。不许带着默认假设往下生成 —— 赶进度跳过确认就是返工的开始。**
+- 确认点：第 0 步（需求确认）、第 2 步（风格二选一）。
+
+## 轻重两档（routing 分流）
+- **单页 / 组件 / 局部改版（默认）**：第 0 步只输出轻量 Spec（北极星 + 区块表 + 业务命名 + 不做清单），不写 project.md。
+- **整项目 / 多角色 / 复杂业务**：先走 `references/00-project.md`（完整项目分析），再进第 0 步。
+
+## 工作流（4 幕 × 7 步）
+
+### 幕一 · 需求与信息架构
 
 | 步 | 做什么 | 读什么 | 产出 |
 |---|---|---|---|
-| 0 项目分析 | 背景→业务目标→用户分析→功能清单→信息架构→约束 | `references/00-project.md`（脚手架：`scripts/project.py`） | `_workbench/project.md` + 用户确认 |
-| 1 需求 | 一句话→用户问题→区块表→术语统一→不做清单 | `references/01-brief.md`（脚手架：`scripts/spec.py`） | `_workbench/spec.md` + 术语统一表（命名/字段/状态） + 用户确认 |
-| 2 布局 | 查 24 种布局定骨架（先骨架后视觉） | `references/02-layout.md` + `data/layouts.csv` | Layout Spec（模式/分区/栅格/断点/状态） |
-| 3 风格 | 检索风格→三旋钮→用户二选一（默认苹果风） | `references/03-style.md` + `data/styles.csv`（检索：`scripts/style-search.py`）；数值查 `references/10-tokens.md` | `MASTER.md`（项目设计记忆） |
-| 4 组件 | 查 12 高频组件规范 | `data/components.csv` | 组件清单（变体/尺寸/状态） |
-| 5 实现 | 按端实现真实页面：结构 + 五态 + 基础交互态 | `references/04-implement-app.md` 或 `05-implement-web.md`；看板用 `06-dashboard.md`；shadcn 工程用 `07-shadcn.md`；数值查 `10-tokens.md`，排版查 `11-typography.md` | 页面代码（默认单文件 HTML；用户指定技术栈则按指定） |
-| 6 动效 | 查 60 种模式落参数（独立复杂动效；基础交互态已在实现中） | `data/motions.csv`（检索：`scripts/motion-search.py`）+ `data/terms.csv`（动效术语，53 条） | 动效实现（一屏最多 2 种） |
-| 7 验收 | WCAG 5 硬门 + 关键路径走查 + 边界防御检查 | `references/08-audit.md`（机械检查：`scripts/audit-check.py`，人工走查不可省） | 验收结论（P0–P3） |
-| 8 交付 | 交付物清单 + 开发对接 + 走查点 | `references/12-delivery.md` | 可交付文件 + 设计说明 + 走查点 |
+| 0 项目与需求 | 北极星（1 业务指标 + 1 核心任务）→ 用户问题 → 区块表 → 业务命名统一 → 不做清单 | `references/00-spec.md`（脚手架：`scripts/spec.py`）；宏观项目先走 `00-project.md` | `_workbench/spec.md` + 决策摘要 + 用户确认 |
+
+### 幕二 · 空间与视觉
+
+| 步 | 做什么 | 读什么 | 产出 |
+|---|---|---|---|
+| 1 布局 | 查 24 种布局定骨架（先骨架后视觉） | `references/02-layout.md` + `data/layouts.csv` | Layout Spec（模式/分区/栅格/断点/状态） |
+| 2 风格 | 检索风格→三旋钮→用户二选一（默认苹果风） | `references/03-style.md` + `data/styles.csv`（检索：`scripts/style-search.py`）；数值查 `references/10-tokens.md` | `MASTER.md`（项目设计记忆） |
+| 3 组件 | 查 12 高频组件规范 | `data/components.csv` | 组件清单（变体/尺寸/状态） |
+
+### 幕三 · 交互与实现
+
+| 步 | 做什么 | 读什么 | 产出 |
+|---|---|---|---|
+| 4 实现 | ① 结构 + 五态 + 基础交互态；② 动效编排：查 60 种模式落参数（复杂动效，`data/terms.csv` 动效术语） | `references/04-implement-app.md` 或 `05-implement-web.md`；看板用 `06-dashboard.md`；shadcn 工程用 `07-shadcn.md`；`data/motions.csv`（检索：`scripts/motion-search.py`）；数值查 `10-tokens.md`，排版查 `11-typography.md` | 页面代码（默认单文件 HTML；用户指定技术栈则按指定），一屏最多 2 种动效 |
+
+### 幕四 · 审查与交付
+
+| 步 | 做什么 | 读什么 | 产出 |
+|---|---|---|---|
+| 5 验收 | WCAG 5 硬门 + 关键路径走查 + 边界防御检查 | `references/08-audit.md`（机械检查：`scripts/audit-check.py`，人工走查不可省） | 验收结论（P0–P3） |
+| 6 交付 | 交付物清单 + 开发对接 + 走查点 | `references/12-delivery.md` | 可交付文件 + 设计说明 + 走查点 |
 
 路由细节与"只做单步"的情况见 `references/09-routing.md`。
 

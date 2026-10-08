@@ -43,7 +43,7 @@ E2=$(python3 -c "import json;print(len(json.load(open('salin-ui/evals/evals.json
 grep -q "60 种" salin-ui/SKILL.md; say "SKILL.md 60 种" $?
 [ -f salin-ui.skill ]; say "salin-ui.skill 包存在" $?
 [ "salin-ui/SKILL.md" -nt "salin-ui.skill" ] && say "salin-ui 包过期" 1 || say "salin-ui 包新鲜" 0
-for f in references/01-brief.md references/02-layout.md references/03-style.md references/04-implement-app.md references/05-implement-web.md references/06-dashboard.md references/07-shadcn.md references/08-audit.md references/09-routing.md; do
+for f in references/00-spec.md references/02-layout.md references/03-style.md references/04-implement-app.md references/05-implement-web.md references/06-dashboard.md references/07-shadcn.md references/08-audit.md references/09-routing.md; do
   [ -f "salin-ui/$f" ]; say "salin-ui/$f" $?
 done
 
@@ -59,8 +59,14 @@ grep -q "10-tokens" salin-ui/SKILL.md; say "SKILL.md 挂 tokens" $?
 grep -q "苹果风" salin-ui/references/03-style.md; say "03-style 苹果风" $?
 
 [ -f "salin-ui/references/00-project.md" ]; say "00-project.md" $?
-grep -q "9 步" salin-ui/SKILL.md; say "SKILL.md 9 步" $?
+grep -q "7 步" salin-ui/SKILL.md; say "SKILL.md 7 步" $?
 grep -q "任务分级" salin-ui/SKILL.md; say "任务分级" $?
+grep -q "4 幕" salin-ui/SKILL.md; say "4 幕" $?
+grep -q "北极星" salin-ui/SKILL.md; say "北极星" $?
+grep -q "决策摘要" salin-ui/SKILL.md; say "决策摘要" $?
+grep -q "结束本轮输出" salin-ui/SKILL.md; say "确认=结束本轮" $?
+grep -q "动效编排" salin-ui/references/04-implement-app.md; say "动效编排子阶段" $?
+[ -f "salin-ui/references/00-spec.md" ]; say "00-spec.md" $?
 grep -q "术语统一表" salin-ui/scripts/spec.py; say "spec.py 术语统一表" $?
 grep -q "边界防御" salin-ui/references/08-audit.md; say "audit 边界防御" $?
 grep -q "单文件 HTML" salin-ui/references/04-implement-app.md; say "技术栈声明" $?
