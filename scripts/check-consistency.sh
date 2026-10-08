@@ -59,7 +59,12 @@ grep -q "10-tokens" salin-ui/SKILL.md; say "SKILL.md 挂 tokens" $?
 grep -q "苹果风" salin-ui/references/03-style.md; say "03-style 苹果风" $?
 
 [ -f "salin-ui/references/00-project.md" ]; say "00-project.md" $?
-grep -q "10 步" salin-ui/SKILL.md; say "SKILL.md 10 步" $?
+grep -q "9 步" salin-ui/SKILL.md; say "SKILL.md 9 步" $?
+grep -q "任务分级" salin-ui/SKILL.md; say "任务分级" $?
+grep -q "术语统一表" salin-ui/scripts/spec.py; say "spec.py 术语统一表" $?
+grep -q "边界防御" salin-ui/references/08-audit.md; say "audit 边界防御" $?
+grep -q "单文件 HTML" salin-ui/references/04-implement-app.md; say "技术栈声明" $?
+grep -q "RBAC" salin-ui/references/06-dashboard.md; say "dashboard RBAC" $?
 [ -f "salin-ui/references/12-delivery.md" ]; say "12-delivery.md" $?
 python3 -c "import ast;ast.parse(open('salin-ui/scripts/project.py').read())" 2>/dev/null; say "project.py 语法通过" $?
 
