@@ -1,26 +1,27 @@
 ---
 name: salin-ui
-description: UI 设计一站式：从一句话需求到可交付页面的完整工作流。只读这一个 SKILL.md 就能开工，9 步自动编排（项目分析→需求→风格→布局→组件→术语→实现→动效→验收），移动端 App/小程序、桌面端网页、数据看板全覆盖。蒸馏自 @西瓜同学🍉、@叨叨AI 等抖音 UI 博主方法论，经 109 条 evals 与 48/48 benchmark 验证。
+description: UI 设计一站式：从一句话需求到可交付页面的完整工作流。只读这一个 SKILL.md 就能开工，10 步自动编排（项目分析→需求→布局→风格→组件→术语→实现→动效→验收→交付），移动端 App/小程序、桌面端网页、数据看板全覆盖。蒸馏自 @西瓜同学🍉、@叨叨AI 等抖音 UI 博主方法论，经 109 条 evals 与 48/48 benchmark 验证。
 ---
 
 # Salin UI · 一套 UI 设计
 
 ## 一句话开工
-用户说"做个 X 页面 / 改版 Y / 加个动效 / 审查 Z" → **直接走下面的 9 步工作流，不要问、不要分 skill**。开工前先花 30 秒读 `references/09-routing.md` 确认启用哪些模块，再进第 0 步。唯一停下来问用户的时机：第 1 步 spec 确认、第 2 步风格二选一。
+用户说"做个 X 页面 / 改版 Y / 加个动效 / 审查 Z" → **直接走下面的 10 步工作流，不要问、不要分 skill**。开工前先花 30 秒读 `references/09-routing.md` 确认启用哪些模块，再进第 0 步。唯一停下来问用户的时机：第 1 步 spec 确认、第 2 步风格二选一。
 
-## 工作流（9 步，顺序执行，不许跳步）
+## 工作流（10 步，顺序执行，不许跳步）
 
 | 步 | 做什么 | 读什么 | 产出 |
 |---|---|---|---|
 | 0 项目分析 | 背景→业务目标→用户分析→功能清单→信息架构→约束 | `references/00-project.md`（脚手架：`scripts/project.py`） | `_workbench/project.md` |
 | 1 需求 | 一句话→用户问题→区块表→不做清单 | `references/01-brief.md`（脚手架：`scripts/spec.py`） | `_workbench/spec.md` + 用户确认 |
-| 2 风格 | 检索风格→三旋钮→用户二选一（默认苹果风，见 02-style.md） | `references/02-style.md` + `data/styles.csv`（检索：`scripts/style-search.py`）；数值查 `references/10-tokens.md` | `MASTER.md`（项目设计记忆） |
-| 3 布局 | 查 24 种布局定骨架 | `references/03-layout.md` + `data/layouts.csv` | Layout Spec（模式/分区/栅格/断点/状态） |
+| 2 布局 | 查 24 种布局定骨架（先骨架后视觉） | `references/02-layout.md` + `data/layouts.csv` | Layout Spec（模式/分区/栅格/断点/状态） |
+| 3 风格 | 检索风格→三旋钮→用户二选一（默认苹果风） | `references/03-style.md` + `data/styles.csv`（检索：`scripts/style-search.py`）；数值查 `references/10-tokens.md` | `MASTER.md`（项目设计记忆） |
 | 4 组件 | 查 12 高频组件规范 | `data/components.csv` | 组件清单（变体/尺寸/状态） |
 | 5 术语 | 大白话→设计术语（标出处） | `data/terms.csv`（53 条） | 术语统一表 |
 | 6 实现 | 按端实现真实页面 | `references/04-implement-app.md` 或 `05-implement-web.md`；看板用 `06-dashboard.md`；shadcn 工程用 `07-shadcn.md`；数值查 `10-tokens.md`，排版查 `11-typography.md` | 页面代码（含全部状态） |
 | 7 动效 | 查 60 种模式落参数 | `data/motions.csv`（检索：`scripts/motion-search.py`） | 动效实现（一屏最多 2 种） |
 | 8 验收 | WCAG 5 硬门 + 关键路径走查 | `references/08-audit.md`（机械检查：`scripts/audit-check.py`，人工走查不可省） | 验收结论（P0–P3） |
+| 9 交付 | 交付物清单 + 开发对接 + 走查点 | `references/12-delivery.md` | 可交付文件 + 设计说明 + 走查点 |
 
 路由细节与"只做单步"的情况见 `references/09-routing.md`。
 
@@ -32,6 +33,14 @@ description: UI 设计一站式：从一句话需求到可交付页面的完整�
 - 数字、积分、百分比一律 tabular-nums 等宽。
 - 一屏一主角；空状态不留白（给 3 张建议卡或快捷入口）。
 - 有品牌 VI 的项目，品牌优先于默认风格。
+- 线框确认前不讨论颜色字号：布局阶段谈视觉即错。
+
+## 大师标准（贯穿每一步，不是独立步骤）
+- **减法**：每步结束问"这个元素必须存在吗？"删比加难。好页面比差页面少 30% 元素。
+- **细节偏执**：光学对齐、8pt 网格、动效曲线写具体数值。不说"顺滑一点""大气一点"。
+- **破规则要说出理由**：规则是新手的安全网；为体验破规则可以，但必须讲清为什么。
+- **每个决策回指业务目标**：回答"这对 00-project.md 里的业务目标有什么帮助"，答不上就删。
+- **一句话评审**：指出本质问题（"没有主角""信息无层级""主操作被淹没"），不说"感觉不对"。
 
 ## 交付契约
 每次交付必须附**调用清单**（用户会抽查）：

@@ -43,7 +43,7 @@ E2=$(python3 -c "import json;print(len(json.load(open('salin-ui/evals/evals.json
 grep -q "60 种" salin-ui/SKILL.md; say "SKILL.md 60 种" $?
 [ -f salin-ui.skill ]; say "salin-ui.skill 包存在" $?
 [ "salin-ui/SKILL.md" -nt "salin-ui.skill" ] && say "salin-ui 包过期" 1 || say "salin-ui 包新鲜" 0
-for f in references/01-brief.md references/02-style.md references/03-layout.md references/04-implement-app.md references/05-implement-web.md references/06-dashboard.md references/07-shadcn.md references/08-audit.md references/09-routing.md; do
+for f in references/01-brief.md references/02-layout.md references/03-style.md references/04-implement-app.md references/05-implement-web.md references/06-dashboard.md references/07-shadcn.md references/08-audit.md references/09-routing.md; do
   [ -f "salin-ui/$f" ]; say "salin-ui/$f" $?
 done
 
@@ -56,10 +56,11 @@ python3 -c "import ast;ast.parse(open('salin-ui/scripts/spec.py').read());ast.pa
 [ -f "salin-ui/references/11-typography.md" ]; say "11-typography.md" $?
 grep -q "11-typography" salin-ui/SKILL.md; say "SKILL.md 挂排版" $?
 grep -q "10-tokens" salin-ui/SKILL.md; say "SKILL.md 挂 tokens" $?
-grep -q "苹果风" salin-ui/references/02-style.md; say "02-style 苹果风" $?
+grep -q "苹果风" salin-ui/references/03-style.md; say "03-style 苹果风" $?
 
 [ -f "salin-ui/references/00-project.md" ]; say "00-project.md" $?
-grep -q "9 步" salin-ui/SKILL.md; say "SKILL.md 9 步" $?
+grep -q "10 步" salin-ui/SKILL.md; say "SKILL.md 10 步" $?
+[ -f "salin-ui/references/12-delivery.md" ]; say "12-delivery.md" $?
 python3 -c "import ast;ast.parse(open('salin-ui/scripts/project.py').read())" 2>/dev/null; say "project.py 语法通过" $?
 
 [ $FAIL = 0 ] && echo "ALL PASS" || echo "有不一致项，见上"
