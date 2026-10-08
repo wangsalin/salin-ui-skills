@@ -58,5 +58,9 @@ grep -q "11-typography" salin-ui/SKILL.md; say "SKILL.md 挂排版" $?
 grep -q "10-tokens" salin-ui/SKILL.md; say "SKILL.md 挂 tokens" $?
 grep -q "苹果风" salin-ui/references/02-style.md; say "02-style 苹果风" $?
 
+[ -f "salin-ui/references/00-project.md" ]; say "00-project.md" $?
+grep -q "9 步" salin-ui/SKILL.md; say "SKILL.md 9 步" $?
+python3 -c "import ast;ast.parse(open('salin-ui/scripts/project.py').read())" 2>/dev/null; say "project.py 语法通过" $?
+
 [ $FAIL = 0 ] && echo "ALL PASS" || echo "有不一致项，见上"
 exit $FAIL

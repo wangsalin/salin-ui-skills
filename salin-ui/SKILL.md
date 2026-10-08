@@ -1,17 +1,18 @@
 ---
 name: salin-ui
-description: UI 设计一站式：从一句话需求到可交付页面的完整工作流。只读这一个 SKILL.md 就能开工，8 步自动编排（需求→风格→布局→组件→术语→实现→动效→验收），移动端 App/小程序、桌面端网页、数据看板全覆盖。蒸馏自 @西瓜同学🍉、@叨叨AI 等抖音 UI 博主方法论，经 109 条 evals 与 48/48 benchmark 验证。
+description: UI 设计一站式：从一句话需求到可交付页面的完整工作流。只读这一个 SKILL.md 就能开工，9 步自动编排（项目分析→需求→风格→布局→组件→术语→实现→动效→验收），移动端 App/小程序、桌面端网页、数据看板全覆盖。蒸馏自 @西瓜同学🍉、@叨叨AI 等抖音 UI 博主方法论，经 109 条 evals 与 48/48 benchmark 验证。
 ---
 
 # Salin UI · 一套 UI 设计
 
 ## 一句话开工
-用户说"做个 X 页面 / 改版 Y / 加个动效 / 审查 Z" → **直接走下面的 8 步工作流，不要问、不要分 skill**。开工前先花 30 秒读 `references/09-routing.md` 确认启用哪些模块，再进第 1 步。唯一停下来问用户的时机：第 1 步 spec 确认、第 2 步风格二选一。
+用户说"做个 X 页面 / 改版 Y / 加个动效 / 审查 Z" → **直接走下面的 9 步工作流，不要问、不要分 skill**。开工前先花 30 秒读 `references/09-routing.md` 确认启用哪些模块，再进第 0 步。唯一停下来问用户的时机：第 1 步 spec 确认、第 2 步风格二选一。
 
-## 工作流（8 步，顺序执行，不许跳步）
+## 工作流（9 步，顺序执行，不许跳步）
 
 | 步 | 做什么 | 读什么 | 产出 |
 |---|---|---|---|
+| 0 项目分析 | 背景→业务目标→用户分析→功能清单→信息架构→约束 | `references/00-project.md`（脚手架：`scripts/project.py`） | `_workbench/project.md` |
 | 1 需求 | 一句话→用户问题→区块表→不做清单 | `references/01-brief.md`（脚手架：`scripts/spec.py`） | `_workbench/spec.md` + 用户确认 |
 | 2 风格 | 检索风格→三旋钮→用户二选一（默认苹果风，见 02-style.md） | `references/02-style.md` + `data/styles.csv`（检索：`scripts/style-search.py`）；数值查 `references/10-tokens.md` | `MASTER.md`（项目设计记忆） |
 | 3 布局 | 查 24 种布局定骨架 | `references/03-layout.md` + `data/layouts.csv` | Layout Spec（模式/分区/栅格/断点/状态） |
