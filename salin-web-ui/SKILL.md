@@ -12,6 +12,7 @@ description: "设计、重构或实现桌面端网页界面：官网/营销页�
 | 用户目标 | 必读参考 |
 |---|---|
 | 从零设计网页 | `references/patterns.md` + `references/design-tokens.md` |
+| Apple 风 / 高级审美 / 作品集 / 品牌站 | 加读 `references/apple-aesthetics.md`（Bento + 留白 + 深浅同步 + 交互规则句式） |
 | 改造"不好看、太乱、像模板"的已有页面 | 先列问题清单，再读 `references/patterns.md` |
 | 工作台 / 后台 / SaaS 功能页 | patterns.md 三栏工作区 / KPI 卡 / 数据表 |
 | 在已有代码库中实现 | 先检查项目：README、依赖、路由、组件、tokens、Git 状态 |
