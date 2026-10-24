@@ -1,16 +1,16 @@
 ---
 name: "salin-ui-motion"
-description: "Salin UI 组件交互动效：60 种顺滑交互模式（十一大场景分组），含动效参数与可直接丢给 AI 的提示词模板（多条为博主视频原话）。适用于 App/小程序/网页的 VibeCoding、原型开发与 UI 走查。视觉 token 走 salin-app-ui / salin-web-ui。"
+description: "Salin UI 组件交互动效：66 种顺滑交互模式（十一大场景分组），含动效参数与可直接丢给 AI 的提示词模板（多条为博主视频原话）。适用于 App/小程序/网页的 VibeCoding、原型开发与 UI 走查。视觉 token 走 salin-app-ui / salin-web-ui。"
 ---
 
 # Salin UI Motion · 顺滑组件交互
 
 ## Purpose
-为常用 UI 组件配上"点下去那一下"的反馈质感：60 种经短视频验证的交互模式，每种给效果规格、动效参数和可直接用的 AI 提示词（v2/v3/v4 新增 52 种的提示词多为博主视频原话或按视频演示整理，均标注出处）。蒸馏自 @叨叨AI 系列作品：《8个让App和小程序变顺滑的组件交互》（v1 的 8 种）、《6个让App和小程序质感翻倍的组件交互》《6种组件交互提升App和小程序质感》（含图文长版）、《8个让App和小程序有高级感的组件交互》（v3 蒸 1 种 + v4 补齐 5 种 + 2 种记为变体）、《10种组件提升App与小程序的质感》（部分）、《选择器的10种交互细节》（部分）、《8种高级交互提升App和小程序质感》《7种App和小程序的高级交互》《10种App小程序高级交互设计》《8种交互动效，让App质感直接拉满》。视频只给定性描述，数值参数凡视频未给的一律按"全局动效默认值"补齐为推荐值，不冒充视频原话。
+为常用 UI 组件配上"点下去那一下"的反馈质感：66 种经短视频验证的交互模式，每种给效果规格、动效参数和可直接用的 AI 提示词（v2/v3/v4 新增 52 种、另合并 ep16 的 6 种，提示词多为博主视频原话或按视频演示整理，均标注出处）。蒸馏自 @叨叨AI 系列作品：《8个让App和小程序变顺滑的组件交互》（v1 的 8 种）、《6个让App和小程序质感翻倍的组件交互》《6种组件交互提升App和小程序质感》（含图文长版）、《8个让App和小程序有高级感的组件交互》（v3 蒸 1 种 + v4 补齐 5 种 + 2 种记为变体）、《10种组件提升App与小程序的质感》（部分）、《选择器的10种交互细节》（部分）、《8种高级交互提升App和小程序质感》《7种App和小程序的高级交互》《10种App小程序高级交互设计》《8种交互动效，让App质感直接拉满》、《第16集 | 6个APP和小程序的高级布局交互》。视频只给定性描述，数值参数凡视频未给的一律按"全局动效默认值"补齐为推荐值，不冒充视频原话。
 
 ## Workflow
 1. 明确场景：哪个组件、什么触发、用户要感知到什么。
-2. 先查"模式速查"按场景定位，再从下面 60 种模式里选 1 种（最多 2 种叠加，贪多则乱）。
+2. 先查"模式速查"按场景定位，再从下面 66 种模式里选 1 种（最多 2 种叠加，贪多则乱）。
 3. 套"全局动效默认值"的时长与缓动，特殊需求再微调。
 4. 输出：AI 提示词（丢给 VibeCoding 用）或交互说明文档；实现时按参数逐项落实。
 5. 用 Operating Rules 自查一遍，不合规的改掉而不是解释。
@@ -23,19 +23,19 @@ description: "Salin UI 组件交互动效：60 种顺滑交互模式（十一大
 - 必须尊重 `prefers-reduced-motion`：降级为 opacity 淡入淡出或直接切换，不许强行动画。
 
 ## 模式速查（按场景）
-- 选择与筛选：dropdown-select(8)、search-select(25)、async-select(26)、multi-select(27)、filter-chips(9)、chip-row(23)、size-dial(12)、swipe-swatches(57)
+- 选择与筛选：dropdown-select(8)、search-select(25)、async-select(26)、multi-select(27)、filter-chips(9)、chip-row(23)、size-dial(12)、swipe-swatches(57)、linked-headline(62)
 - 触摸反馈：press-tilt(13)、copy-button(6)、hold-record(14)、magnify-row(19)、magnet-snap(28)、text-roll-toggle(58)
-- 展开与收纳：step-sheet(2)、tab-bar(4)、h-accordion(17)、sliding-tray(18)、fold-card(22)、pull-summary(20)、pull-expand-strip(60)
-- 列表与卡片：overlap-stack(15)、progress-fill(16)、timeline-card(24)、card-detail(21)、removable-tags(10)、card-collect(29)、focus-mode(30)
+- 展开与收纳：step-sheet(2)、tab-bar(4)、h-accordion(17)、sliding-tray(18)、fold-card(22)、pull-summary(20)、pull-expand-strip(60)、scrimless-sheet(63)
+- 列表与卡片：overlap-stack(15)、progress-fill(16)、timeline-card(24)、card-detail(21)、removable-tags(10)、card-collect(29)、focus-mode(30)、fill-the-gap(64)
 - 输入与表单：form-error(7)、suggest-popover(11)、floating-label(59)
-- 系统与导航：dark-mode(3)、scroll-fab(5)、focus-timer(1)
-- 手势进行中：takeback(31)、press-escape(32)、text-diff(33)、gesture-lock(34)、fling-catch(35)、landing-predict(36)、overscroll(37)
-- 滚动与密度：pinch-density(38)、scroll-driven(39)、motion-blur(40)、pull-zoom-header(41)、arc-reflow(42)、scroll-focus(43)
+- 系统与导航：dark-mode(3)、scroll-fab(5)、focus-timer(1)、dock-with-action(65)
+- 手势进行中：takeback(31)、press-escape(32)、text-diff(33)、gesture-lock(34)、fling-catch(35)、landing-predict(36)、overscroll(37)、swipe-header(66)
+- 滚动与密度：pinch-density(38)、scroll-driven(39)、motion-blur(40)、pull-zoom-header(41)、arc-reflow(42)、scroll-focus(43)、overlap-stats(61)
 - 对齐与吸附：snap-guide(44)、slider-snap(45)、slider-press-thicken(56)
 - 视觉自适应：auto-contrast(46)、liquid-deform(47)、parallax-3d(48)、physics-collision(49)
 - 开关与步骤：stepper-spring(50)、toggle-ripple(51)、drag-reorder(52)、batch-check(53)、chip-squeeze(54)、gesture-transition(55)
 
-## 交互模式（60 种）
+## 交互模式（66 种）
 
 ### 1. focus-timer · 顶部计时小条
 顶部固定细条展示倒计时/进度。数字每秒更新（tabular-nums），进度填充用 300ms linear 过渡；结束时条色一闪或轻微脉冲一次。
@@ -408,3 +408,39 @@ description: "Salin UI 组件交互动效：60 种顺滑交互模式（十一大
 适用：天气条、摘要条、通知预览。
 提示词模板："做一个可下拉展开的信息条，下拉后在原位展开显示更多内容，上推收回"（按视频演示整理；视频未捕捉到原话提示词）
 来源：@叨叨AI《8个让App和小程序有高级感的组件交互》（按视频演示整理）
+
+### 61. overlap-stats · 数字卡压住头图
+首页顶部头图，下方一排数字统计卡用负上外边距上移半个卡片高度、压住头图下沿。上滑滚动时头图视差式收起至只剩标题，数字卡 position:sticky 吸顶固定，其余内容从卡片下方穿过，层次分明。
+适用：首页数据概览、日记/健康类 App 首页。
+提示词模板："做首页头图+数字卡：数字卡用负边距压住头图下沿，上滑时头图收起、数字卡 sticky 吸顶，内容从下方穿过"（按视频演示整理）
+来源：@叨叨AI《第16集 | 6个APP和小程序的高级布局交互》
+
+### 62. linked-headline · 大标题跟着选项换
+头图卡片上的大字标题与下方选项 chips 联动：点选某个选项，标题对应行/词跟随切换（交叉淡化/弹跳强调），只替换变化部分、不整块重绘。
+适用：心情/天气/分类等选项联动展示。
+提示词模板："做联动大标题：下方选项 chips 切换时，头图大标题对应文字跟随变化，只替换变化的行/词"（按视频演示整理）
+来源：@叨叨AI《第16集 | 6个APP和小程序的高级布局交互》
+
+### 63. scrimless-sheet · 不压暗的弹出面板
+底部弹出面板不加遮罩层：约 0.55 秒以 cubic-bezier(.32,.86,.28,1) 曲线弹性升起，背后页面保持可见、可滚动、可点击；下拽超过约 40px 或点击面板外部收回，收回时底部导航让开。
+适用：条目详情、快捷操作面板（希望保持上下文可见时）。
+提示词模板："做底部弹出面板：0.55秒 cubic-bezier(.32,.86,.28,1) 升起，不加遮罩、背后页面可交互；下拽超40px或点外部收回"（视频原话参数）
+来源：@叨叨AI《第16集 | 6个APP和小程序的高级布局交互》
+
+### 64. fill-the-gap · 月历空格直接补写
+月历网格的空格子可直接点选，弹出小编辑面板，当场填上颜色/内容，无需跳转新页面；格子原地"填上"色彩，轻快、无打断。
+适用：打卡日历、习惯追踪、排班表。
+提示词模板："做月历空格补写：点击空格直接弹出小编辑面板，原地填上颜色/内容，不跳转页面"（按视频演示整理）
+来源：@叨叨AI《第16集 | 6个APP和小程序的高级布局交互》
+
+### 65. dock-with-action · 底栏嵌主按钮
+底部悬浮 dock 栏内嵌主按钮（黑色胶囊），替代通栏固定大按钮：点击呼出编辑面板；可一键回到"今天"并弹出编辑面板；面板自底部滑出，主按钮常驻可达。
+适用：备餐/日记/记账类 App 的主操作入口。
+提示词模板："做底部 dock 栏内嵌主按钮：黑色胶囊按钮常驻，点击呼出底部编辑面板"（按视频演示整理）
+来源：@叨叨AI《第16集 | 6个APP和小程序的高级布局交互》
+
+### 66. swipe-header · 头图左右划翻篇
+头图区展示一条记录（大标题+主图+标签），下方列表不动：头图区左右滑动、横向位移超过约 44px 时，标题与主图先淡出再换成新记录内容；滑到尽头时弹性回弹并弹出提示。
+适用：日记、阅读、卡片式内容浏览。
+提示词模板："做可左右划的头图：滑动超44px时标题主图淡出换新内容，下方列表不动；到头回弹并提示"（视频原话参数）
+来源：@叨叨AI《第16集 | 6个APP和小程序的高级布局交互》
